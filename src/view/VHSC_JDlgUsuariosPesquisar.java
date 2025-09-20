@@ -17,6 +17,7 @@ public class VHSC_JDlgUsuariosPesquisar extends javax.swing.JDialog {
     public VHSC_JDlgUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("Lista de pesquisa dos Usuarios");
         setLocationRelativeTo(null);
     }
 

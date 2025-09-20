@@ -9,16 +9,16 @@ package view;
  *
  * @author Vitor
  */
-public class VHSC_JDlgFuncionariosPesquisar extends javax.swing.JDialog {
+public class VHSC_JDlgProdutosPesquisar extends javax.swing.JDialog {
 
     /**
-     * Creates new form VHSC_JDlgFuncionariosPesquisar
+     * Creates new form VHSC_JDlgProdutosPesquisar
      */
-    public VHSC_JDlgFuncionariosPesquisar(java.awt.Frame parent, boolean modal) {
+    public VHSC_JDlgProdutosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Lista de pesquisa dos Funcionarios");
-         setLocationRelativeTo(null);
+        setTitle("Lista de pesquisa dos Produtos");
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -30,25 +30,12 @@ public class VHSC_JDlgFuncionariosPesquisar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jBtnCancelar = new javax.swing.JButton();
         jBtnOk = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
 
         jBtnCancelar.setText("Cancelar");
         jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +51,19 @@ public class VHSC_JDlgFuncionariosPesquisar extends javax.swing.JDialog {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,9 +71,9 @@ public class VHSC_JDlgFuncionariosPesquisar extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
+                        .addGap(215, 215, 215)
                         .addComponent(jBtnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jBtnOk))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -101,7 +101,7 @@ public class VHSC_JDlgFuncionariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-       dispose();
+      dispose();
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     /**
@@ -121,20 +121,20 @@ public class VHSC_JDlgFuncionariosPesquisar extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VHSC_JDlgFuncionariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VHSC_JDlgProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VHSC_JDlgFuncionariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VHSC_JDlgProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VHSC_JDlgFuncionariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VHSC_JDlgProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VHSC_JDlgFuncionariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VHSC_JDlgProdutosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VHSC_JDlgFuncionariosPesquisar dialog = new VHSC_JDlgFuncionariosPesquisar(new javax.swing.JFrame(), true);
+                VHSC_JDlgProdutosPesquisar dialog = new VHSC_JDlgProdutosPesquisar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

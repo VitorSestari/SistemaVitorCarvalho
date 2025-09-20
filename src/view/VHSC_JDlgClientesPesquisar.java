@@ -20,6 +20,7 @@ public class VHSC_JDlgClientesPesquisar extends javax.swing.JDialog {
    public VHSC_JDlgClientesPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();        
+        setTitle("Lista de pesquisa dos Clientes");
         setLocationRelativeTo(null);
        
     }
