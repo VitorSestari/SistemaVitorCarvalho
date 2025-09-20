@@ -471,8 +471,8 @@ public class VHSC_JDlgClientes extends javax.swing.JDialog {
 
         // TODO add your handling code here:
 
-        if(VHSC_Util.pergunta("deseja excluir?")) {
-        JOptionPane.showMessageDialog(null, "excluido");
+        if(VHSC_Util.pergunta("Tem certeza de que quer excluir??")) {
+        JOptionPane.showMessageDialog(null, "Excluido");
     }else {JOptionPane.showMessageDialog(null, "Cancelado");}
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
