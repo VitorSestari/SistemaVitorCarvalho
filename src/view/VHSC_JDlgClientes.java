@@ -495,7 +495,9 @@ public class VHSC_JDlgClientes extends javax.swing.JDialog {
         VHSC_Util.habilitar(false,jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
         , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
         jTxtCidade, jTxtObservacoes, jTxtRendaMensal , jBtnConfirmar,jBtnCancelar);
+        
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+         
           VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
         , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
         jTxtCidade, jTxtObservacoes, jTxtRendaMensal);
