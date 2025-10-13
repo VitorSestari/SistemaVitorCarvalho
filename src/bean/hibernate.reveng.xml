@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="db_vitor_carvalho"/>
+  <table-filter match-name="vhsc_vendas_produtos"/>
+  <table-filter match-name="vhsc_vendas"/>
+  <table-filter match-name="vhsc_usuarios"/>
+  <table-filter match-name="vhsc_clientes"/>
+  <table-filter match-name="vhsc_funcionarios"/>
+  <table-filter match-name="vhsc_produtos"/>
+</hibernate-reverse-engineering>
