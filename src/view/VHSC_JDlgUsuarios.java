@@ -5,6 +5,8 @@
  */
 package view;
 
+import bean.VhscUsuarios;
+import dao.vhsc_UsuariosDAO;
 import javax.swing.JOptionPane;
 import tools.VHSC_Util;
 
@@ -25,7 +27,43 @@ public class VHSC_JDlgUsuarios extends javax.swing.JDialog {
         VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
         jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jBtnCancelar);
     }
+     public void beanView(VhscUsuarios vhscUsuarios) {
+        jTxtCodigo.setText(VHSC_Util.intToStr(vhscUsuarios.getVhscIdUsuario()));
+        jTxtNome.setText(vhscUsuarios.getVhscNomeUsuario());
+        jTxtApelido.setText(vhscUsuarios.getVhscApelido());
+        jFmtCpf.setText(vhscUsuarios.getVhscCpf());
+        jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscUsuarios.getVhscDataNascimento()));
+        jPwdSenha.setText(vhscUsuarios.getVhscSenha());
+        jCboNivel.setSelectedIndex(vhscUsuarios.getVhscNivel());
+        //jChbAtivo.setSelected( usuarios.getAtivo().equals("S"));
+        if (vhscUsuarios.getVhscAtivo().equals("S") == true) {
+            jChbAtivo.setSelected(true);
+        } else {
+            jChbAtivo.setSelected(false);
+        }
+         
+        public Usuarios viewBean() {
+        Usuarios usuarios = new Usuarios();
+        int codigo = Util.strToInt(jTxtCodigo.getText());
+        usuarios.setIdusuarios(codigo);
+        //usuarios.setIdusuarios(Util.strToInt( jTxtCodigo.getText() ));
 
+        usuarios.setNome(jTxtNome.getText());
+        usuarios.setApelido(jTxtApelido.getText());
+        usuarios.setCpf(jFmtCpf.getText());
+        usuarios.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
+        usuarios.setSenha(jPwfSenha.getText());
+        usuarios.setNivel(jCboNivel.getSelectedIndex());
+        if (jChbAtivo.isSelected() == true) {
+            usuarios.setAtivo("S");
+        } else {
+            usuarios.setAtivo("N");
+        }
+        return usuarios;
+    }
+        
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,6 +178,12 @@ public class VHSC_JDlgUsuarios extends javax.swing.JDialog {
         });
 
         jLabel2.setText("Nome");
+
+        jFmtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFmtDataNascimentoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Apelido");
 
@@ -310,6 +354,10 @@ public class VHSC_JDlgUsuarios extends javax.swing.JDialog {
     private void jPwdSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPwdSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPwdSenhaActionPerformed
+
+    private void jFmtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtDataNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFmtDataNascimentoActionPerformed
 
     /**
      * @param args the command line arguments
