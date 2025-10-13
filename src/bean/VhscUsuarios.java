@@ -26,13 +26,13 @@ public class VhscUsuarios  implements java.io.Serializable {
      private Date vhscDataNascimento;
      private String vhscCpf;
      private String vhscSenha;
-     private String vhscNivel;
+     private int vhscNivel;
      private String vhscAtivo;
 
     public VhscUsuarios() {
     }
 
-    public VhscUsuarios(int vhscIdUsuario, String vhscNomeUsuario, String vhscApelido, Date vhscDataNascimento, String vhscCpf, String vhscSenha, String vhscNivel, String vhscAtivo) {
+    public VhscUsuarios(int vhscIdUsuario, String vhscNomeUsuario, String vhscApelido, Date vhscDataNascimento, String vhscCpf, String vhscSenha, int vhscNivel, String vhscAtivo) {
        this.vhscIdUsuario = vhscIdUsuario;
        this.vhscNomeUsuario = vhscNomeUsuario;
        this.vhscApelido = vhscApelido;
@@ -107,11 +107,11 @@ public class VhscUsuarios  implements java.io.Serializable {
 
     
     @Column(name="VHSC_nivel", nullable=false, length=1)
-    public String getVhscNivel() {
+    public int getVhscNivel() {
         return this.vhscNivel;
     }
     
-    public void setVhscNivel(String vhscNivel) {
+    public void setVhscNivel(int vhscNivel) {
         this.vhscNivel = vhscNivel;
     }
 

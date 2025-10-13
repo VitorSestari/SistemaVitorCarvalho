@@ -5,10 +5,65 @@
  */
 package dao;
 
+import bean.VhscVendas;
+import java.util.List;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+
+
+
 /**
  *
- * @author user
+ * @author u1845853
  */
-public class vhsc_VendasDAO {
-    
+public class vhsc_VendasDAO extends AbstractDAO{
+
+    @Override
+    public void insert(Object object) {
+        session.beginTransaction();
+        session.save(object);
+        session.getTransaction().commit();        
+    }
+
+    @Override
+    public void update(Object object) {
+        session.beginTransaction();
+        session.flush();
+        session.clear();
+        session.update(object);
+        session.getTransaction().commit();        
+    }
+
+    @Override
+    public void delete(Object object) {
+        session.beginTransaction();
+        session.flush();
+        session.clear();        
+        session.delete(object);
+        session.getTransaction().commit();        
+    }
+
+    @Override
+    public Object list(int codigo) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(VhscVendas.class);
+        criteria.add(Restrictions.eq("idvendas", codigo));
+        List lista = criteria.list();
+        session.getTransaction().commit();        
+        return lista;
+    }
+
+    @Override
+    public Object listAll() {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(VhscVendas.class);
+        List lista = criteria.list();
+        session.getTransaction().commit();        
+        return lista;    
+    }
+
+    public static void main(String[] args) {
+        vhsc_VendasDAO vhsc_vendasDAO = new vhsc_VendasDAO();
+        vhsc_vendasDAO.listAll();
+    }
 }
