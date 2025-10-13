@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 public class VhscFuncionarios  implements java.io.Serializable {
 
 
-     private Integer vhscIdFuncionario;
+     private int vhscIdFuncionario;
      private String vhscNome;
      private String vhscCpf;
      private Date vhscDataNascimento;
@@ -48,11 +48,11 @@ public class VhscFuncionarios  implements java.io.Serializable {
 
     
     @Column(name="VHSC_idFuncionario", unique=true, nullable=false)
-    public Integer getVhscIdFuncionario() {
+    public int getVhscIdFuncionario() {
         return this.vhscIdFuncionario;
     }
     
-    public void setVhscIdFuncionario(Integer vhscIdFuncionario) {
+    public void setVhscIdFuncionario(int vhscIdFuncionario) {
         this.vhscIdFuncionario = vhscIdFuncionario;
     }
 

@@ -2,7 +2,6 @@ package bean;
 // Generated 12/10/2025 22:26:10 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,12 +24,12 @@ public class VhscVendasProdutos  implements java.io.Serializable {
      private VhscProdutos vhscProdutos;
      private VhscVendas vhscVendas;
      private int vhscQuantidade;
-     private BigDecimal vhscPrecoUnitario;
+     private double vhscPrecoUnitario;
 
     public VhscVendasProdutos() {
     }
 
-    public VhscVendasProdutos(int vhscIdVendaProduto, VhscProdutos vhscProdutos, VhscVendas vhscVendas, int vhscQuantidade, BigDecimal vhscPrecoUnitario) {
+    public VhscVendasProdutos(int vhscIdVendaProduto, VhscProdutos vhscProdutos, VhscVendas vhscVendas, int vhscQuantidade, double vhscPrecoUnitario) {
        this.vhscIdVendaProduto = vhscIdVendaProduto;
        this.vhscProdutos = vhscProdutos;
        this.vhscVendas = vhscVendas;
@@ -82,11 +81,11 @@ public class VhscVendasProdutos  implements java.io.Serializable {
 
     
     @Column(name="VHSC_precoUnitario", nullable=false, precision=10)
-    public BigDecimal getVhscPrecoUnitario() {
+    public double getVhscPrecoUnitario() {
         return this.vhscPrecoUnitario;
     }
     
-    public void setVhscPrecoUnitario(BigDecimal vhscPrecoUnitario) {
+    public void setVhscPrecoUnitario(double vhscPrecoUnitario) {
         this.vhscPrecoUnitario = vhscPrecoUnitario;
     }
 

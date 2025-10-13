@@ -2,7 +2,7 @@ package bean;
 // Generated 12/10/2025 22:26:10 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,17 +28,17 @@ public class VhscProdutos  implements java.io.Serializable {
      private int vhscIdProduto;
      private String vhscTitulo;
      private String vhscAutor;
-     private BigDecimal vhscPreco;
+     private double vhscPreco;
      private int vhscQuantidade;
      private String vhscDescricao;
      private Date vhscAnoPublicado;
-     private Set vhscVendasProdutoses = new HashSet(0);
+     
 
     public VhscProdutos() {
     }
 
 	
-    public VhscProdutos(int vhscIdProduto, String vhscTitulo, String vhscAutor, BigDecimal vhscPreco, int vhscQuantidade, String vhscDescricao, Date vhscAnoPublicado) {
+    public VhscProdutos(int vhscIdProduto, String vhscTitulo, String vhscAutor, double vhscPreco, int vhscQuantidade, String vhscDescricao, Date vhscAnoPublicado) {
         this.vhscIdProduto = vhscIdProduto;
         this.vhscTitulo = vhscTitulo;
         this.vhscAutor = vhscAutor;
@@ -47,7 +47,7 @@ public class VhscProdutos  implements java.io.Serializable {
         this.vhscDescricao = vhscDescricao;
         this.vhscAnoPublicado = vhscAnoPublicado;
     }
-    public VhscProdutos(int vhscIdProduto, String vhscTitulo, String vhscAutor, BigDecimal vhscPreco, int vhscQuantidade, String vhscDescricao, Date vhscAnoPublicado, Set vhscVendasProdutoses) {
+    public VhscProdutos(int vhscIdProduto, String vhscTitulo, String vhscAutor, double vhscPreco, int vhscQuantidade, String vhscDescricao, Date vhscAnoPublicado, Set vhscVendasProdutoses) {
        this.vhscIdProduto = vhscIdProduto;
        this.vhscTitulo = vhscTitulo;
        this.vhscAutor = vhscAutor;
@@ -55,7 +55,7 @@ public class VhscProdutos  implements java.io.Serializable {
        this.vhscQuantidade = vhscQuantidade;
        this.vhscDescricao = vhscDescricao;
        this.vhscAnoPublicado = vhscAnoPublicado;
-       this.vhscVendasProdutoses = vhscVendasProdutoses;
+   
     }
    
      @Id 
@@ -92,11 +92,11 @@ public class VhscProdutos  implements java.io.Serializable {
 
     
     @Column(name="VHSC_preco", nullable=false, precision=10)
-    public BigDecimal getVhscPreco() {
+    public double getVhscPreco() {
         return this.vhscPreco;
     }
     
-    public void setVhscPreco(BigDecimal vhscPreco) {
+    public void setVhscPreco(double vhscPreco) {
         this.vhscPreco = vhscPreco;
     }
 
@@ -130,14 +130,7 @@ public class VhscProdutos  implements java.io.Serializable {
         this.vhscAnoPublicado = vhscAnoPublicado;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="vhscProdutos")
-    public Set getVhscVendasProdutoses() {
-        return this.vhscVendasProdutoses;
-    }
-    
-    public void setVhscVendasProdutoses(Set vhscVendasProdutoses) {
-        this.vhscVendasProdutoses = vhscVendasProdutoses;
-    }
+
 
 
 
