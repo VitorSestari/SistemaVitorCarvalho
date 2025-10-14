@@ -5,6 +5,8 @@
  */
 package view;
 
+import bean.VhscFuncionarios;
+import dao.vhsc_FuncionariosDAO;
 import javax.swing.JOptionPane;
 import tools.VHSC_Util;
 
@@ -13,6 +15,8 @@ import tools.VHSC_Util;
  * @author Vitor
  */
 public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
+
+ private boolean incluir;
 
     /**
      * Creates new form VHSC_JDlgFuncionarios
@@ -25,6 +29,38 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
         VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
         jTxtEmail,jTxtSalario,jTxtTelefone, jBtnConfirmar,jBtnCancelar);
     }
+     public void beanView(VhscFuncionarios vhscFuncionarios) {
+        jTxtCodigo.setText(VHSC_Util.intToStr(vhscFuncionarios.getVhscIdFuncionario()));
+        jTxtNome.setText(vhscFuncionarios.getVhscNome());
+        jFmtCpf.setText(vhscFuncionarios.getVhscCpf());
+        jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscFuncionarios.getVhscDataNascimento()));
+        jTxtCargo.setText(vhscFuncionarios.getVhscCargo());
+        jTxtTelefone.setText(vhscFuncionarios.getVhscTelefone());
+        jTxtEmail.setText(vhscFuncionarios.getVhscEmail());
+        jTxtSalario.setText(vhscFuncionarios.getVhscSalario());
+     
+        
+     }
+     public VhscFuncionarios viewBean() {
+    VhscFuncionarios vhscFuncionarios = new VhscFuncionarios();
+        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
+        vhscFuncionarios.setVhscIdFuncionario(codigo);
+        
+    vhscFuncionarios.setVhscNome(jTxtNome.getText());
+    vhscFuncionarios.setVhscCargo(jTxtCargo.getText());
+    vhscFuncionarios.setVhscCpf(jFmtCpf.getText());
+    vhscFuncionarios.setVhscDataNascimento(VHSC_Util.strToDate(jFmtDataNascimento.getText()));
+    vhscFuncionarios.setVhscEmail(jTxtEmail.getText());
+    vhscFuncionarios.setVhscSalario(jTxtSalario.getText());
+    vhscFuncionarios.setVhscTelefone(jTxtTelefone.getText());
+    
+    
+    
+    return vhscFuncionarios;
+}
+
+      
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -258,6 +294,7 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
          VHSC_Util.habilitar(true, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
         jTxtEmail,jTxtSalario,jTxtTelefone, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+         incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
@@ -265,20 +302,33 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
         VHSC_Util.habilitar(true, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
         jTxtEmail,jTxtSalario,jTxtTelefone, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+         incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
 
         // TODO add your handling code here:
-
-        if(VHSC_Util.pergunta("Tem certeza de que quer excluir??")) {
-            JOptionPane.showMessageDialog(null, "Excluido");
-        }else {JOptionPane.showMessageDialog(null, "Cancelado");}
+ if (VHSC_Util.pergunta("Deseja excluir ?") == true) {
+            vhsc_FuncionariosDAO vhsc_funcionariosDAO = new vhsc_FuncionariosDAO();
+            vhsc_funcionariosDAO.delete(viewBean());
+        }
+        VHSC_Util.limpar(  jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
+        jTxtEmail,jTxtSalario,jTxtTelefone);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+         vhsc_FuncionariosDAO vhsc_funcionariosDAO = new vhsc_FuncionariosDAO();
+        VhscFuncionarios vhscFuncionarios = viewBean();
+        if (incluir == true) {
+            vhsc_funcionariosDAO.insert(vhscFuncionarios);
+            //usuariosDAO.insert( viewBean() );
+        } else {
+            vhsc_funcionariosDAO.update(vhscFuncionarios);
+            //usuariosDAO.update( viewBean() );
+        }
+        
          VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
         jTxtEmail,jTxtSalario,jTxtTelefone, jBtnConfirmar,jBtnCancelar);
        
@@ -302,8 +352,10 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-        VHSC_JDlgFuncionariosPesquisar telaPesquisar = new VHSC_JDlgFuncionariosPesquisar(null, true);
-        telaPesquisar.setVisible(true);
+         VHSC_JDlgFuncionariosPesquisar vhsc_JDlgFuncionariosPesquisar = new VHSC_JDlgFuncionariosPesquisar(null, true);
+        vhsc_JDlgFuncionariosPesquisar.setTelaAnterior(this);
+        vhsc_JDlgFuncionariosPesquisar.setVisible(true);
+
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     /**

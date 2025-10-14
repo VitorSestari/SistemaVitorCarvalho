@@ -311,11 +311,12 @@ private boolean incluir;
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-       if(VHSC_Util.pergunta("Tem certeza de que quer excluir?")) {
-        JOptionPane.showMessageDialog(null, "Excluido");
-         VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
+       if (VHSC_Util.pergunta("Deseja excluir ?") == true) {
+            vhsc_UsuariosDAO vhsc_usuariosDAO = new vhsc_UsuariosDAO();
+            vhsc_usuariosDAO.delete(viewBean());
+        }
+        VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
         jChbAtivo,jCboNivel);
-    }else {JOptionPane.showMessageDialog(null, "Cancelado");}
               
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 

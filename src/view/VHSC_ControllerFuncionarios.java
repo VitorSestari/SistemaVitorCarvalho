@@ -4,7 +4,7 @@
  */
 package view;
 
-import bean.VhscProdutos;
+import bean.VhscFuncionarios;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -13,21 +13,21 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Marcos
  */
-public class VHSC_ControllerProdutos extends AbstractTableModel {
+public class VHSC_ControllerFuncionarios extends AbstractTableModel {
 
-    private List lstProdutos;
+    private List lstFuncionarios;
 
-    public void setList(List lstProdutos) {
-        this.lstProdutos = lstProdutos;
+    public void setList(List lstFuncionarios) {
+        this.lstFuncionarios = lstFuncionarios;
     }
     
-    public VhscProdutos getBean(int rowIndex) {
-        return (VhscProdutos) lstProdutos.get(rowIndex);
+    public VhscFuncionarios getBean(int rowIndex) {
+        return (VhscFuncionarios) lstFuncionarios.get(rowIndex);
     }
 
     @Override
     public int getRowCount() {
-        return lstProdutos.size();
+        return lstFuncionarios.size();
                 
     }
 
@@ -38,15 +38,15 @@ public class VHSC_ControllerProdutos extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        VhscProdutos vhscProdutos = (VhscProdutos) lstProdutos.get( rowIndex);
+        VhscFuncionarios vhscFuncionarios = (VhscFuncionarios) lstFuncionarios.get( rowIndex);
         if ( columnIndex == 0 ){
-            return vhscProdutos.getVhscIdProduto();
+            return vhscFuncionarios.getVhscIdFuncionario();
         } else if (columnIndex ==1) {
-            return vhscProdutos.getVhscTitulo();        
+            return vhscFuncionarios.getVhscNome();        
         } else if (columnIndex ==2) {
-            return vhscProdutos.getVhscAutor();
+            return vhscFuncionarios.getVhscCpf();
         } else if (columnIndex ==3) {
-            return vhscProdutos.getVhscQuantidade();
+            return vhscFuncionarios.getVhscTelefone();
         }
         return "";
     }
@@ -56,11 +56,11 @@ public class VHSC_ControllerProdutos extends AbstractTableModel {
         if ( columnIndex == 0) {
             return "Código";
         } else if ( columnIndex == 1) {
-            return "Titulo";         
+            return "Nome";         
         } else if ( columnIndex == 2) {
-            return "Autor";
+            return "Cpf";
         } else if ( columnIndex == 3) {
-            return "Quantidade";
+            return "Telefone";
         } 
         return "";
     }
