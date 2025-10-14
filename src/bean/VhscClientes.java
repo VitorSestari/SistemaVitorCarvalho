@@ -32,14 +32,14 @@ public class VhscClientes  implements java.io.Serializable {
      private String vhscCep;
      private Date vhscDataCadastro;
      private String vhscAtivo;
-     private String vhscGenero;
+     private int vhscGenero;
      private String vhscRendaMensal;
      private String vhscObservacoes;
 
     public VhscClientes() {
     }
 
-    public VhscClientes(int vhscIdCliente, String vhscNome, String vhscCpf, Date vhscDataNascimento, String vhscEmail, String vhscTelefone, String vhscEndereco, String vhscCidade, String vhscEstado, String vhscCep, Date vhscDataCadastro, String vhscAtivo, String vhscGenero, String vhscRendaMensal, String vhscObservacoes) {
+    public VhscClientes(int vhscIdCliente, String vhscNome, String vhscCpf, Date vhscDataNascimento, String vhscEmail, String vhscTelefone, String vhscEndereco, String vhscCidade, String vhscEstado, String vhscCep, Date vhscDataCadastro, String vhscAtivo, int vhscGenero, String vhscRendaMensal, String vhscObservacoes) {
        this.vhscIdCliente = vhscIdCliente;
        this.vhscNome = vhscNome;
        this.vhscCpf = vhscCpf;
@@ -181,11 +181,11 @@ public class VhscClientes  implements java.io.Serializable {
 
     
     @Column(name="VHSC_genero", nullable=false, length=1)
-    public String getVhscGenero() {
+    public int getVhscGenero() {
         return this.vhscGenero;
     }
     
-    public void setVhscGenero(String vhscGenero) {
+    public void setVhscGenero(int vhscGenero) {
         this.vhscGenero = vhscGenero;
     }
 

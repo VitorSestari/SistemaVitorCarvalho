@@ -5,6 +5,8 @@
  */
 package view;
 
+import bean.VhscClientes;
+import dao.vhsc_ClientesDAO;
 import javax.swing.JOptionPane;
 import tools.VHSC_Util;
 
@@ -13,7 +15,7 @@ import tools.VHSC_Util;
  * @author Vitor
  */
 public class VHSC_JDlgClientes extends javax.swing.JDialog {
-
+private boolean incluir;
     /**
      * Creates new form VHSC_JDlgClientes
      */
@@ -26,6 +28,57 @@ public class VHSC_JDlgClientes extends javax.swing.JDialog {
         , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
         jTxtCidade, jTxtObservacoes, jTxtRendaMensal ,jBtnConfirmar,jBtnCancelar);
     }
+     public void beanView(VhscClientes vhscClientes) {
+        jTxtCodigo.setText(VHSC_Util.intToStr(vhscClientes.getVhscIdCliente()));
+        jTxtNome.setText(vhscClientes.getVhscNome());
+        jFmtCpf.setText(vhscClientes.getVhscCpf());
+        jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscClientes.getVhscDataNascimento()));
+        jTxtEndereco.setText(vhscClientes.getVhscEndereco());
+        jFmtTelefone.setText(vhscClientes.getVhscTelefone());
+        jTxtEmail.setText(vhscClientes.getVhscEmail());
+        jFmtCep.setText(vhscClientes.getVhscCep());
+        jFmtDataCadastro.setText(VHSC_Util.dateToStr(vhscClientes.getVhscDataCadastro()));
+        jFmtEstado.setText(vhscClientes.getVhscEstado());
+        jTxtCidade.setText(vhscClientes.getVhscCidade());
+        jTxtObservacoes.setText(vhscClientes.getVhscObservacoes());
+        jTxtRendaMensal.setText(vhscClientes.getVhscRendaMensal());
+        jCboGenero.setSelectedIndex(vhscClientes.getVhscGenero());
+
+          if (vhscClientes.getVhscAtivo().equals("S") == true) {
+            jChbAtivo.setSelected(true);
+        } else {
+            jChbAtivo.setSelected(false);
+        }
+        
+     }
+     public VhscClientes viewBean() {
+    VhscClientes vhscClientes = new VhscClientes();
+        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
+        vhscClientes.setVhscIdCliente(codigo);
+        
+    vhscClientes.setVhscNome(jTxtNome.getText());
+    vhscClientes.setVhscCpf(jFmtCpf.getText());
+    vhscClientes.setVhscDataNascimento(VHSC_Util.strToDate(jFmtDataNascimento.getText()));
+    vhscClientes.setVhscEndereco(jTxtEndereco.getText());
+    vhscClientes.setVhscTelefone(jFmtTelefone.getText());
+    vhscClientes.setVhscEmail(jTxtEmail.getText());
+    vhscClientes.setVhscCep(jFmtCep.getText());
+    vhscClientes.setVhscDataCadastro(VHSC_Util.strToDate(jFmtDataCadastro.getText()));
+    vhscClientes.setVhscEstado(jFmtEstado.getText());
+    vhscClientes.setVhscCidade(jTxtCidade.getText());
+    vhscClientes.setVhscObservacoes(jTxtObservacoes.getText());
+    vhscClientes.setVhscRendaMensal(jTxtRendaMensal.getText());
+    vhscClientes.setVhscGenero(jCboGenero.getSelectedIndex());
+    
+      if (jChbAtivo.isSelected() == true) {
+        vhscClientes.setVhscAtivo("S");
+    } else {
+        vhscClientes.setVhscAtivo("N");
+    }
+    
+    
+    return vhscClientes;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -454,7 +507,7 @@ public class VHSC_JDlgClientes extends javax.swing.JDialog {
         , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
         jTxtCidade, jTxtObservacoes, jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
-
+    incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
@@ -463,7 +516,7 @@ public class VHSC_JDlgClientes extends javax.swing.JDialog {
         , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
         jTxtCidade, jTxtObservacoes, jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
-
+         incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
@@ -471,13 +524,29 @@ public class VHSC_JDlgClientes extends javax.swing.JDialog {
 
         // TODO add your handling code here:
 
-        if(VHSC_Util.pergunta("Tem certeza de que quer excluir??")) {
-        JOptionPane.showMessageDialog(null, "Excluido");
-    }else {JOptionPane.showMessageDialog(null, "Cancelado");}
+         if (VHSC_Util.pergunta("Deseja excluir ?") == true) {
+            vhsc_ClientesDAO vhsc_clientesDAO = new vhsc_ClientesDAO();
+            vhsc_clientesDAO.delete(viewBean());
+        }
+       VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
+        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
+        jTxtCidade, jTxtObservacoes, jTxtRendaMensal);
+       
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+        
+        vhsc_ClientesDAO vhsc_clientesDAO = new vhsc_ClientesDAO();
+        VhscClientes vhscClientes = viewBean();
+        if (incluir == true) {
+            vhsc_clientesDAO.insert(vhscClientes);
+            //usuariosDAO.insert( viewBean() );
+        } else {
+            vhsc_clientesDAO.update(vhscClientes);
+            //usuariosDAO.update( viewBean() );
+        }
+        
        VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
         , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
         jTxtCidade, jTxtObservacoes, jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
@@ -504,8 +573,9 @@ public class VHSC_JDlgClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-      VHSC_JDlgClientesPesquisar telaPesquisar = new VHSC_JDlgClientesPesquisar(null, true);
-        telaPesquisar.setVisible(true);
+      VHSC_JDlgClientesPesquisar vhsc_JDlgClientesPesquisar = new VHSC_JDlgClientesPesquisar(null, true);
+        vhsc_JDlgClientesPesquisar.setTelaAnterior(this);
+        vhsc_JDlgClientesPesquisar.setVisible(true);
 
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 

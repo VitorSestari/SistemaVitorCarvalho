@@ -5,6 +5,9 @@
  */
 package view;
 
+import bean.VhscClientes;
+import dao.vhsc_ClientesDAO;
+import view.VHSC_JDlgClientes;
 import java.util.List;
 import javax.swing.JFrame;
 
@@ -17,12 +20,23 @@ public class VHSC_JDlgClientesPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form VHSC_JDlgClientesPesquisar
      */
-   public VHSC_JDlgClientesPesquisar(java.awt.Frame parent, boolean modal) {
+   private VHSC_JDlgClientes VHSC_jDlgClientes;
+    VHSC_ControllerClientes controllerClientes;
+    
+    public VHSC_JDlgClientesPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();        
-        setTitle("Lista de pesquisa dos Clientes");
+        initComponents();
         setLocationRelativeTo(null);
-       
+        setTitle("Pesquisar Usuários");
+        controllerClientes = new VHSC_ControllerClientes();
+        vhsc_ClientesDAO vhsc_clientesDAO = new vhsc_ClientesDAO();
+        List lista = (List) vhsc_clientesDAO.listAll();
+        controllerClientes.setList(lista);
+        jTable1.setModel(controllerClientes);
+    }
+
+    public void setTelaAnterior( VHSC_JDlgClientes VHSC_jDlgClientes) {
+        this.VHSC_jDlgClientes = VHSC_jDlgClientes;
     }
     
   
@@ -103,8 +117,9 @@ public class VHSC_JDlgClientesPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-   
-      dispose();
+    VhscClientes vhscClientes =  controllerClientes.getBean( jTable1.getSelectedRow() );
+        VHSC_jDlgClientes.beanView(vhscClientes);
+        this.setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
     
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed

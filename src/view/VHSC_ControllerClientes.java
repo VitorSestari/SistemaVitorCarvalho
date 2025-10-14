@@ -4,7 +4,7 @@
  */
 package view;
 
-import bean.VhscFuncionarios;
+import bean.VhscClientes;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -13,21 +13,21 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Marcos
  */
-public class VHSC_ControllerFuncionarios extends AbstractTableModel {
+public class VHSC_ControllerClientes extends AbstractTableModel {
 
-    private List lstFuncionarios;
+    private List lstClientes;
 
-    public void setList(List lstFuncionarios) {
-        this.lstFuncionarios = lstFuncionarios;
+    public void setList(List lstClientes) {
+        this.lstClientes = lstClientes;
     }
     
-    public VhscFuncionarios getBean(int rowIndex) {
-        return (VhscFuncionarios) lstFuncionarios.get(rowIndex);
+    public VhscClientes getBean(int rowIndex) {
+        return (VhscClientes) lstClientes.get(rowIndex);
     }
 
     @Override
     public int getRowCount() {
-        return lstFuncionarios.size();
+        return lstClientes.size();
                 
     }
 
@@ -38,15 +38,15 @@ public class VHSC_ControllerFuncionarios extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        VhscFuncionarios vhscFuncionarios = (VhscFuncionarios) lstFuncionarios.get( rowIndex);
+        VhscClientes vhscClientes = (VhscClientes) lstClientes.get( rowIndex);
         if ( columnIndex == 0 ){
-            return vhscFuncionarios.getVhscIdFuncionario();
+            return vhscClientes.getVhscIdCliente();
         } else if (columnIndex ==1) {
-            return vhscFuncionarios.getVhscNome();        
+            return vhscClientes.getVhscNome();        
         } else if (columnIndex ==2) {
-            return vhscFuncionarios.getVhscCpf();
+            return vhscClientes.getVhscCpf();
         } else if (columnIndex ==3) {
-            return vhscFuncionarios.getVhscTelefone();
+            return vhscClientes.getVhscTelefone();
         }
         return "";
     }
@@ -60,7 +60,7 @@ public class VHSC_ControllerFuncionarios extends AbstractTableModel {
         } else if ( columnIndex == 2) {
             return "Cpf";
         } else if ( columnIndex == 3) {
-            return "Telefonea";
+            return "Telefone";
         } 
         return "";
     }
