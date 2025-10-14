@@ -5,22 +5,37 @@
  */
 package view;
 
+import bean.VhscUsuarios;
+import dao.vhsc_UsuariosDAO;
+import java.util.List;
+import view.VHSC_JDlgUsuarios;
+
 /**
  *
  * @author Vitor
  */
 public class VHSC_JDlgUsuariosPesquisar extends javax.swing.JDialog {
-
-    /**
-     * Creates new form VHSC_JDlgUsuariosPesquisar
+  /**
+     * Creates new form JDlgUsuariosPesquisar
      */
+    private VHSC_JDlgUsuarios VHSC_jDlgUsuarios;
+    VHSC_ControllerUsuarios controllerUsuarios;
+    
     public VHSC_JDlgUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Lista de pesquisa dos Usuarios");
         setLocationRelativeTo(null);
+        setTitle("Pesquisar Usuários");
+        controllerUsuarios = new VHSC_ControllerUsuarios();
+        vhsc_UsuariosDAO vhsc_usuariosDAO = new vhsc_UsuariosDAO();
+        List lista = (List) vhsc_usuariosDAO.listAll();
+        controllerUsuarios.setList(lista);
+        jTable1.setModel(controllerUsuarios);
     }
 
+    public void setTelaAnterior( VHSC_JDlgUsuarios VHSC_jDlgUsuarios) {
+        this.VHSC_jDlgUsuarios = VHSC_jDlgUsuarios;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,7 +112,9 @@ public class VHSC_JDlgUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-       dispose();
+      VhscUsuarios vhscUsuarios =  controllerUsuarios.getBean( jTable1.getSelectedRow() );
+        VHSC_jDlgUsuarios.beanView(vhscUsuarios);
+        this.setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed

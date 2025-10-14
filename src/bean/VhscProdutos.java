@@ -121,7 +121,7 @@ public class VhscProdutos  implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name="VHSC_anoPublicado", nullable=false, length=10)
+    @Column(name="VHSC_anoPublicado",length=10)
     public Date getVhscAnoPublicado() {
         return this.vhscAnoPublicado;
     }

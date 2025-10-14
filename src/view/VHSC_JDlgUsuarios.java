@@ -15,6 +15,7 @@ import tools.VHSC_Util;
  * @author Vitor
  */
 public class VHSC_JDlgUsuarios extends javax.swing.JDialog {
+private boolean incluir;
 
     /**
      * Creates new form VHSC_JDlgUsuarios
@@ -35,32 +36,35 @@ public class VHSC_JDlgUsuarios extends javax.swing.JDialog {
         jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscUsuarios.getVhscDataNascimento()));
         jPwdSenha.setText(vhscUsuarios.getVhscSenha());
         jCboNivel.setSelectedIndex(vhscUsuarios.getVhscNivel());
-        //jChbAtivo.setSelected( usuarios.getAtivo().equals("S"));
+        //jChbAtivo.setSelected( VhscUsuarios.getAtivo().equals("S"));
         if (vhscUsuarios.getVhscAtivo().equals("S") == true) {
             jChbAtivo.setSelected(true);
         } else {
             jChbAtivo.setSelected(false);
         }
-         
-        public Usuarios viewBean() {
-        Usuarios usuarios = new Usuarios();
-        int codigo = Util.strToInt(jTxtCodigo.getText());
-        usuarios.setIdusuarios(codigo);
-        //usuarios.setIdusuarios(Util.strToInt( jTxtCodigo.getText() ));
-
-        usuarios.setNome(jTxtNome.getText());
-        usuarios.setApelido(jTxtApelido.getText());
-        usuarios.setCpf(jFmtCpf.getText());
-        usuarios.setDataNascimento(Util.strToDate(jFmtDataDeNascimento.getText()));
-        usuarios.setSenha(jPwfSenha.getText());
-        usuarios.setNivel(jCboNivel.getSelectedIndex());
-        if (jChbAtivo.isSelected() == true) {
-            usuarios.setAtivo("S");
-        } else {
-            usuarios.setAtivo("N");
-        }
-        return usuarios;
+     }
+     public VhscUsuarios viewBean() {
+    VhscUsuarios vhscUsuarios = new VhscUsuarios();
+        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
+        vhscUsuarios.setVhscIdUsuario(codigo);
+        
+    vhscUsuarios.setVhscNomeUsuario(jTxtNome.getText());
+    vhscUsuarios.setVhscApelido(jTxtApelido.getText());
+    vhscUsuarios.setVhscCpf(jFmtCpf.getText());
+    vhscUsuarios.setVhscDataNascimento(VHSC_Util.strToDate(jFmtDataNascimento.getText()));
+    vhscUsuarios.setVhscSenha(jPwdSenha.getText());
+    vhscUsuarios.setVhscNivel(jCboNivel.getSelectedIndex());
+    
+    if (jChbAtivo.isSelected() == true) {
+        vhscUsuarios.setVhscAtivo("S");
+    } else {
+        vhscUsuarios.setVhscAtivo("N");
     }
+    
+    return vhscUsuarios;
+}
+
+      
         
 
     
@@ -292,6 +296,9 @@ public class VHSC_JDlgUsuarios extends javax.swing.JDialog {
          VHSC_Util.habilitar(true, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
         jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+         VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
+        jChbAtivo,jCboNivel);
+         incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
@@ -299,18 +306,31 @@ public class VHSC_JDlgUsuarios extends javax.swing.JDialog {
          VHSC_Util.habilitar(true, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
         jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+         incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
        if(VHSC_Util.pergunta("Tem certeza de que quer excluir?")) {
         JOptionPane.showMessageDialog(null, "Excluido");
+         VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
+        jChbAtivo,jCboNivel);
     }else {JOptionPane.showMessageDialog(null, "Cancelado");}
               
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         //desabilitar();
+          vhsc_UsuariosDAO vhsc_usuariosDAO = new vhsc_UsuariosDAO();
+        VhscUsuarios vhscUsuarios = viewBean();
+        if (incluir == true) {
+            vhsc_usuariosDAO.insert(vhscUsuarios);
+            //usuariosDAO.insert( viewBean() );
+        } else {
+            vhsc_usuariosDAO.update(vhscUsuarios);
+            //usuariosDAO.update( viewBean() );
+        }
+        
        VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
         jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jPwdSenha, jBtnCancelar);
        
@@ -337,8 +357,9 @@ public class VHSC_JDlgUsuarios extends javax.swing.JDialog {
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-        VHSC_JDlgUsuariosPesquisar telaPesquisar = new VHSC_JDlgUsuariosPesquisar(null, true);
-        telaPesquisar.setVisible(true);
+        VHSC_JDlgUsuariosPesquisar vhsc_JDlgUsuariosPesquisar = new VHSC_JDlgUsuariosPesquisar(null, true);
+        vhsc_JDlgUsuariosPesquisar.setTelaAnterior(this);
+        vhsc_JDlgUsuariosPesquisar.setVisible(true);
 
        
     }//GEN-LAST:event_jBtnPesquisarActionPerformed

@@ -90,7 +90,7 @@ public class VhscClientes  implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name="VHSC_dataNascimento", nullable=false, length=10)
+    @Column(name="VHSC_dataNascimento", length=10)
     public Date getVhscDataNascimento() {
         return this.vhscDataNascimento;
     }
@@ -160,7 +160,7 @@ public class VhscClientes  implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name="VHSC_dataCadastro", nullable=false, length=10)
+    @Column(name="VHSC_dataCadastro", length=10)
     public Date getVhscDataCadastro() {
         return this.vhscDataCadastro;
     }
