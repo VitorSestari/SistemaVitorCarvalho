@@ -5,6 +5,11 @@
  */
 package view;
 
+import bean.VhscProdutos;
+import dao.vhsc_ProdutosDAO;
+import java.util.List;
+import view.VHSC_JDlgProdutos;
+
 /**
  *
  * @author Vitor
@@ -14,12 +19,27 @@ public class VHSC_JDlgProdutosPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form VHSC_JDlgProdutosPesquisar
      */
+   private VHSC_JDlgProdutos VHSC_jDlgProdutos;
+    VHSC_ControllerProdutos controllerProdutos;
+    
     public VHSC_JDlgProdutosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Lista de pesquisa dos Produtos");
         setLocationRelativeTo(null);
+        setTitle("Pesquisar Produtos");
+        controllerProdutos = new VHSC_ControllerProdutos();
+        vhsc_ProdutosDAO vhsc_produtosDAO = new vhsc_ProdutosDAO();
+        List lista = (List) vhsc_produtosDAO.listAll();
+        controllerProdutos.setList(lista);
+        jTable1.setModel(controllerProdutos);
     }
+    
+    public void setTelaAnterior(VHSC_JDlgProdutos VHSC_jDlgProdutos) {
+    this.VHSC_jDlgProdutos = VHSC_jDlgProdutos;
+   }
+
+
+    /**
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,12 +116,20 @@ public class VHSC_JDlgProdutosPesquisar extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
-        dispose();
+      dispose();
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-      dispose();
+       int selectedRow = jTable1.getSelectedRow();
+    
+    if (selectedRow >= 0) {
+        // Obtém o produto selecionado e envia para a tela anterior
+        VhscProdutos vhscProdutos = controllerProdutos.getBean(selectedRow);
+        VHSC_jDlgProdutos.beanView(vhscProdutos);
+    }
+    
+    dispose();
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     /**

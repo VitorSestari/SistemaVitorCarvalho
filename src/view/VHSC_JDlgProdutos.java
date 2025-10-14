@@ -5,6 +5,9 @@
  */
 package view;
 
+import bean.VhscProdutos;
+import bean.VhscProdutos;
+import dao.vhsc_ProdutosDAO;
 import javax.swing.JOptionPane;
 import tools.VHSC_Util;
 
@@ -13,11 +16,13 @@ import tools.VHSC_Util;
  * @author Vitor
  */
 public class VHSC_JDlgProdutos extends javax.swing.JDialog {
-
+    private boolean incluir;
     /**
      * Creates new form VHSC_JDlgProdutos
      */
     public VHSC_JDlgProdutos(java.awt.Frame parent, boolean modal) {
+       
+        
         super(parent, modal);
         initComponents();
          setTitle("Cadastro de Produtos");
@@ -25,6 +30,34 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
         VHSC_Util.habilitar(false, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
         jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
     }
+     public void beanView(VhscProdutos vhscProdutos) {
+        jTxtCodigo.setText(VHSC_Util.intToStr(vhscProdutos.getVhscIdProduto()));
+        jTxtTitulo.setText(vhscProdutos.getVhscTitulo());
+        jTxtAutor.setText(vhscProdutos.getVhscAutor());
+        jTxtQuantidade.setText(VHSC_Util.intToStr(vhscProdutos.getVhscQuantidade()));
+        jFmtAnoPublicado.setText(VHSC_Util.dateToStr(vhscProdutos.getVhscAnoPublicado()));
+        jTxtPreco.setText(VHSC_Util.doubleToStr(vhscProdutos.getVhscPreco()));
+        jTxtDescricao.setText(vhscProdutos.getVhscDescricao());
+        
+       
+     }
+     public VhscProdutos viewBean() {
+    VhscProdutos vhscProdutos = new VhscProdutos();
+        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
+        vhscProdutos.setVhscIdProduto(codigo);
+        
+    vhscProdutos.setVhscTitulo(jTxtTitulo.getText());
+    vhscProdutos.setVhscAutor(jTxtAutor.getText());
+    vhscProdutos.setVhscQuantidade(VHSC_Util.strToInt(jTxtQuantidade.getText()));
+    vhscProdutos.setVhscAnoPublicado(VHSC_Util.strToDate(jFmtAnoPublicado.getText()));
+    vhscProdutos.setVhscPreco(VHSC_Util.strToInt(jTxtQuantidade.getText()));
+    vhscProdutos.setVhscDescricao(jTxtDescricao.getText());
+    
+    
+    
+    return vhscProdutos;
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -267,8 +300,10 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-        VHSC_JDlgProdutosPesquisar telaPesquisar = new VHSC_JDlgProdutosPesquisar(null, true);
-        telaPesquisar.setVisible(true);
+        VHSC_JDlgProdutosPesquisar vhsc_JDlgProdutosPesquisar = new VHSC_JDlgProdutosPesquisar(null, true);
+        vhsc_JDlgProdutosPesquisar.setTelaAnterior(this);
+        vhsc_JDlgProdutosPesquisar.setVisible(true);
+
 
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
@@ -277,6 +312,9 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
         VHSC_Util.habilitar(true, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
         jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        VHSC_Util.limpar(  jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
+        jTxtTitulo,jFmtAnoPublicado);
+        incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
@@ -284,18 +322,31 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
         VHSC_Util.habilitar(true, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
         jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if(VHSC_Util.pergunta("Tem certeza de que quer excluir?")) {
-            JOptionPane.showMessageDialog(null, "Excluido");
-        }else {JOptionPane.showMessageDialog(null, "Cancelado");}
-
+        if (VHSC_Util.pergunta("Deseja excluir ?") == true) {
+            vhsc_ProdutosDAO vhsc_produtosDAO = new vhsc_ProdutosDAO();
+            vhsc_produtosDAO.delete(viewBean());
+        }
+        VHSC_Util.limpar(  jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
+        jTxtTitulo,jFmtAnoPublicado);
+    
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         //desabilitar();
+          vhsc_ProdutosDAO vhsc_produtosDAO = new vhsc_ProdutosDAO();
+        VhscProdutos vhscProdutos = viewBean();
+        if (incluir == true) {
+            vhsc_produtosDAO.insert(vhscProdutos);
+            //usuariosDAO.insert( viewBean() );
+        } else {
+            vhsc_produtosDAO.update(vhscProdutos);
+            //usuariosDAO.update( viewBean() );
+        }
         VHSC_Util.habilitar(false, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
         jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
 
@@ -382,4 +433,6 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     private javax.swing.JTextField jTxtQuantidade;
     private javax.swing.JTextField jTxtTitulo;
     // End of variables declaration//GEN-END:variables
+
+    
 }

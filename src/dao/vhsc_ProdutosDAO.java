@@ -14,7 +14,7 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  *
- * @author u1845853
+ *
  */
 public class vhsc_ProdutosDAO extends AbstractDAO{
 
