@@ -360,12 +360,8 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
 
     private void JBtnIncluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnIncluir2ActionPerformed
         // TODO add your handling code here:
-        VHSC_Util.habilitar(true, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto,jTxtQuantidade, jBtnConfirmar,jBtnCancelar);
-         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
-         VHSC_Util.limpar( jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto, jTxtQuantidade);
-         incluir = true;
+        VHSC_JDlgVendasProdutos jDlgVendasProdutos = new VHSC_JDlgVendasProdutos(null, true);
+        jDlgVendasProdutos.setVisible(true);
     }//GEN-LAST:event_JBtnIncluir2ActionPerformed
 
     private void JBtnAlterar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterar2ActionPerformed
@@ -373,10 +369,9 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Pesquise um usuário antes de alterar.");
         return;
     }
-        VHSC_Util.habilitar(true, jTxtValorTotal, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto,jTxtQuantidade, jBtnConfirmar,jBtnCancelar);
-         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar, jTxtCodigo);
-         incluir = false;        // TODO add your handling code here:
+   VHSC_JDlgVendasProdutos jDlgVendasProdutos = new VHSC_JDlgVendasProdutos(null, true);
+        jDlgVendasProdutos.setVisible(true);
+      // TODO add your handling code here:
 
     }//GEN-LAST:event_JBtnAlterar2ActionPerformed
 
@@ -385,13 +380,9 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtCodigoActionPerformed
 
     private void jBtnExcluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir2ActionPerformed
-  if (VHSC_Util.pergunta("Deseja excluir ?") == true) {
-            vhsc_VendasDAO vhsc_vendasDAO = new vhsc_VendasDAO();
-            vhsc_vendasDAO.delete(viewBean());
+  if (VHSC_Util.pergunta("Deseja excluir o produto ?")== true) {
+            
         }
-        VHSC_Util.limpar( jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente, jTxtQuantidade);        // TODO add your handling code here:
-
     }//GEN-LAST:event_jBtnExcluir2ActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed

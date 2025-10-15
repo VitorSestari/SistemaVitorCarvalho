@@ -186,6 +186,7 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMnuVendas_produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuVendas_produtosActionPerformed
         // TODO add your handling code here:
+         new VHSC_JDlgVendasProdutos(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jMnuVendas_produtosActionPerformed
 
     /**

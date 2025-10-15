@@ -84,7 +84,7 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
         document.add(new Paragraph("Relatório de Livros Disponíveis"));
         document.add(new Paragraph(" "));
 
-        PdfPTable table = new PdfPTable(5); // 5 colunas
+        PdfPTable table = new PdfPTable(5); 
         table.addCell("Código");
         table.addCell("Título");
         table.addCell("Autor");
@@ -92,7 +92,7 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
         table.addCell("Quantidade");
 
         for (VhscProdutos livro : livros) {
-            if (livro.getVhscQuantidade() > 0) { // só livros disponíveis
+            if (livro.getVhscQuantidade() > 0) { 
                 table.addCell(String.valueOf(livro.getVhscIdProduto()));
                 table.addCell(livro.getVhscTitulo());
                 table.addCell(livro.getVhscAutor());
@@ -243,7 +243,7 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
             }
         });
 
-        jBtnGerarPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pesquisar.png"))); // NOI18N
+        jBtnGerarPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-relatório-20.png"))); // NOI18N
         jBtnGerarPDF.setText("Gerar Pdf");
         jBtnGerarPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -295,7 +295,7 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel5)
                                 .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,15 +409,15 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
-        //desabilitar();
+        
           vhsc_ProdutosDAO vhsc_produtosDAO = new vhsc_ProdutosDAO();
         VhscProdutos vhscProdutos = viewBean();
         if (incluir == true) {
             vhsc_produtosDAO.insert(vhscProdutos);
-            //usuariosDAO.insert( viewBean() );
+          
         } else {
             vhsc_produtosDAO.update(vhscProdutos);
-            //usuariosDAO.update( viewBean() );
+            
         }
         VHSC_Util.habilitar(false, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
         jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);

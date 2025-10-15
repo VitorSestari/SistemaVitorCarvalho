@@ -12,17 +12,33 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_ControllerFuncionarios.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_JDlgFuncionariosPesquisar.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_ControllerUsuarios.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_JDlgFuncionarios.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_JDlgUsuariosPesquisar.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_ControllerProdutos.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_JDlgProdutos.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/dao/vhsc_ProdutosDAO.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_JDlgUsuarios.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/view/VHSC_JDlgProdutosPesquisar.java</file>
-            <file>file:/C:/Users/user/Documents/Netbeans/SistemaVitorCarvalho/src/tools/VHSC_Util.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgProdutos.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgVendas.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgClientes.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgFuncionariosPesquisar.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/bean/VhscFuncionarios.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/dao/vhsc_VendasDAO.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgUsuariosPesquisar.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/bean/VhscVendasProdutos.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgProdutosPesquisar.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgVendasPesquisar.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/dao/vhsc_VendasProdutosDAO.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/bean/hibernate.reveng.xml</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JFrmPrincipal.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/dao/vhsc_UsuariosDAO.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_ControllerUsuarios.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/dao/AbstractDAO.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgClientesPesquisar.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_ControllerVendas.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/bean/VhscProdutos.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/bean/VhscVendas.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgVendasProdutos.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/bean/VhscUsuarios.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgUsuarios.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/view/VHSC_JDlgFuncionarios.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/dao/vhsc_ProdutosDAO.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/SistemaVitorCarvalho/src/tools/VHSC_Util.java</file>
         </group>
     </open-files>
 </project-private>
