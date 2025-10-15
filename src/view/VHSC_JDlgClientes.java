@@ -511,11 +511,15 @@ private boolean incluir;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
-        // TODO add your handling code here:
-        VHSC_Util.habilitar(true, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
+        // TODO add your handling code here:]
+           if (jTxtCodigo.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Pesquise um usuário antes de alterar.");
+        return;
+    }
+        VHSC_Util.habilitar(true, jTxtNome,jFmtDataNascimento,jFmtCpf, jTxtEndereco
         , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
         jTxtCidade, jTxtObservacoes, jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
-         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar,jTxtCodigo);
          incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 

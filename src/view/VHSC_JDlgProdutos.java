@@ -319,9 +319,13 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
         // TODO add your handling code here:
-        VHSC_Util.habilitar(true, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
+          if (jTxtCodigo.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Pesquise um usuário antes de alterar.");
+        return;
+    }
+        VHSC_Util.habilitar(true, jTxtAutor, jTxtDescricao,jTxtPreco,jTxtQuantidade,
         jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
-        VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar,jTxtCodigo);
         incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 

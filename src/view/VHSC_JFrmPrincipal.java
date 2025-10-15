@@ -181,7 +181,7 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_JMnuCadastrosActionPerformed
 
     private void jMnuVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuVendasActionPerformed
-       
+       new VHSC_JDlgVendas(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jMnuVendasActionPerformed
 
     private void jMnuVendas_produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuVendas_produtosActionPerformed
