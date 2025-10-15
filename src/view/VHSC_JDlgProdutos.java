@@ -10,6 +10,16 @@ import bean.VhscProdutos;
 import dao.vhsc_ProdutosDAO;
 import javax.swing.JOptionPane;
 import tools.VHSC_Util;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
+import java.util.List;
+import dao.vhsc_ProdutosDAO;
+import bean.VhscProdutos;
+
 
 /**
  *
@@ -57,6 +67,51 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     
     return vhscProdutos;
 }
+     public void gerarRelatorioPDF() {
+    vhsc_ProdutosDAO dao = new vhsc_ProdutosDAO();
+    List<VhscProdutos> livros = (List<VhscProdutos>) dao.listAll();
+
+    if (livros.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Nenhum livro disponível para gerar relatório.");
+        return;
+    }
+
+    Document document = new Document();
+    try {
+        PdfWriter.getInstance(document, new FileOutputStream("Relatorio_Livros.pdf"));
+        document.open();
+        
+        document.add(new Paragraph("Relatório de Livros Disponíveis"));
+        document.add(new Paragraph(" "));
+
+        PdfPTable table = new PdfPTable(5); // 5 colunas
+        table.addCell("Código");
+        table.addCell("Título");
+        table.addCell("Autor");
+        table.addCell("Ano");
+        table.addCell("Quantidade");
+
+        for (VhscProdutos livro : livros) {
+            if (livro.getVhscQuantidade() > 0) { // só livros disponíveis
+                table.addCell(String.valueOf(livro.getVhscIdProduto()));
+                table.addCell(livro.getVhscTitulo());
+                table.addCell(livro.getVhscAutor());
+                table.addCell(VHSC_Util.dateToStr(livro.getVhscAnoPublicado()));
+                table.addCell(String.valueOf(livro.getVhscQuantidade()));
+            }
+        }
+
+        document.add(table);
+        JOptionPane.showMessageDialog(this, "PDF gerado com sucesso!");
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Erro ao gerar PDF: " + e.getMessage());
+    } finally {
+        document.close();
+    }
+}
+
 
 
     /**
@@ -68,6 +123,8 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         jTxtCodigo = new javax.swing.JTextField();
         jTxtDescricao = new javax.swing.JTextField();
         jTxtAutor = new javax.swing.JTextField();
@@ -88,6 +145,9 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
         jBtnExcluir = new javax.swing.JButton();
         jBtnConfirmar = new javax.swing.JButton();
         jBtnCancelar = new javax.swing.JButton();
+        jBtnGerarPDF = new javax.swing.JButton();
+
+        jScrollPane1.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -183,6 +243,14 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
             }
         });
 
+        jBtnGerarPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pesquisar.png"))); // NOI18N
+        jBtnGerarPDF.setText("Gerar Pdf");
+        jBtnGerarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnGerarPDFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,9 +269,10 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBtnCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnPesquisar))
+                        .addComponent(jBtnPesquisar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtnGerarPDF))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel8)
                         .addComponent(jLabel3)
                         .addComponent(jLabel2)
                         .addComponent(jLabel1)
@@ -211,23 +280,22 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
                         .addComponent(jTxtTitulo)
                         .addComponent(jTxtAutor)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(4, 4, 4)
-                                    .addComponent(jLabel5))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(29, 29, 29)
-                                    .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel6)
                                 .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel7)
-                                .addComponent(jFmtAnoPublicado)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jFmtAnoPublicado)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8))
+                            .addGap(29, 29, 29)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,14 +323,13 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
                     .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnIncluir)
@@ -270,7 +337,8 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
                     .addComponent(jBtnConfirmar)
                     .addComponent(jBtnCancelar)
                     .addComponent(jBtnPesquisar)
-                    .addComponent(JBtnAlterar))
+                    .addComponent(JBtnAlterar)
+                    .addComponent(jBtnGerarPDF))
                 .addContainerGap())
         );
 
@@ -373,6 +441,11 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
+    private void jBtnGerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGerarPDFActionPerformed
+        // TODO add your handling code here:
+     gerarRelatorioPDF();
+    }//GEN-LAST:event_jBtnGerarPDFActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -420,8 +493,10 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnConfirmar;
     private javax.swing.JButton jBtnExcluir;
+    private javax.swing.JButton jBtnGerarPDF;
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnPesquisar;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JFormattedTextField jFmtAnoPublicado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -430,6 +505,7 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTxtAutor;
     private javax.swing.JTextField jTxtCodigo;
     private javax.swing.JTextField jTxtDescricao;
