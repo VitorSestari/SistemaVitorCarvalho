@@ -1,12 +1,18 @@
-/*
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package view;
 
+import bean.VhscClientes;
+import bean.VhscProdutos;
 import bean.VhscVendas;
+import dao.vhsc_ClientesDAO;
+import dao.vhsc_ProdutosDAO;
 import dao.vhsc_VendasDAO;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import tools.VHSC_Util;
 
@@ -27,19 +33,32 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     public VHSC_JDlgVendas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
         setTitle("Cadastro de Vendas");
+         vhsc_ClientesDAO vhscclientesDAO = new vhsc_ClientesDAO();
+        List lista = (List) vhscclientesDAO.listAll();
+        for (int i = 0; i < lista.size(); i++) {
+            jCboClientes.addItem((VhscClientes) lista.get(i));
+        }
+
+        vhsc_ProdutosDAO vhscProdutosDAO = new vhsc_ProdutosDAO();
+        List listaVend = (List) vhscProdutosDAO.listAll();
+        for (Object object : listaVend) {
+            jCboProdutos.addItem((VhscProdutos) object);
+        }
+        
+    
         setLocationRelativeTo(null);
-        VHSC_Util.habilitar(false, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-     jTxtNomeCliente,jTxtNomeProduto, jTxtQuantidade, jBtnConfirmar,jBtnCancelar);
+    
+        VHSC_Util.habilitar(false, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
+     jCboClientes,jCboProdutos,jBtnConfirmar,jBtnCancelar);
     }
      public void beanView(VhscVendas vhscVendas) {
         jTxtCodigo.setText(VHSC_Util.intToStr(vhscVendas.getVhscIdVenda()));
         jTxtValorTotal.setText(VHSC_Util.doubleToStr(vhscVendas.getVhscValorTotal()));
-        jTxtFormaPagamento.setText(vhscVendas.getVhscFormaPagamento());
         jFmtDataVenda.setText(VHSC_Util.dateToStr(vhscVendas.getVhscDataVenda()));
-        jTxtQuantidade.setText(VHSC_Util.intToStr(vhscVendas.getVhscQuantidade()));
-        jTxtNomeCliente.setText(vhscVendas.getVhscNomeCliente());
-        jTxtNomeProduto.setText(vhscVendas.getVhscNomeLivro());
+        jCboClientes.setSelectedItem(vhscVendas.getVhscClientes());
+        jCboProdutos.setSelectedItem(vhscVendas.getVhscProdutos());
         
       
      }
@@ -48,11 +67,11 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
         vhscVendas.setVhscIdVenda(codigo);
         
-    vhscVendas.setVhscQuantidade(VHSC_Util.strToInt(jTxtQuantidade.getText()));
-    vhscVendas.setVhscNomeCliente(jTxtNomeCliente.getText());
-    vhscVendas.setVhscNomeLivro(jTxtNomeProduto.getText());
+  
+    vhscVendas.setVhscClientes((VhscClientes) jCboClientes.getSelectedItem());
+    vhscVendas.setVhscProdutos((VhscProdutos) jCboProdutos.getSelectedItem());
     vhscVendas.setVhscDataVenda(VHSC_Util.strToDate(jFmtDataVenda.getText()));
-    vhscVendas.setVhscFormaPagamento(jTxtFormaPagamento.getText());
+
     vhscVendas.setVhscValorTotal(VHSC_Util.strToDouble(jTxtValorTotal.getText()));
    
     
@@ -69,13 +88,10 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
 
         jLabel5 = new javax.swing.JLabel();
         jBtnCancelar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         jBtnPesquisar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jFmtDataVenda = new javax.swing.JFormattedTextField();
-        jTxtQuantidade = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTxtFormaPagamento = new javax.swing.JTextField();
         JBtnIncluir2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         JBtnAlterar2 = new javax.swing.JButton();
@@ -85,13 +101,12 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         JBtnAlterar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jBtnExcluir = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jTxtValorTotal = new javax.swing.JTextField();
         jBtnConfirmar = new javax.swing.JButton();
-        jTxtNomeCliente = new javax.swing.JFormattedTextField();
-        jTxtNomeProduto = new javax.swing.JFormattedTextField();
+        jCboClientes = new javax.swing.JComboBox<VhscClientes>();
+        jCboProdutos = new javax.swing.JComboBox<VhscProdutos>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,8 +120,6 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             }
         });
 
-        jLabel8.setText("Quantidade");
-
         jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pesquisar.png"))); // NOI18N
         jBtnPesquisar.setText("Pesquisar");
         jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,15 +130,15 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
 
         jLabel6.setText("Valor total");
 
+        try {
+            jFmtDataVenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFmtDataVenda.setText("   /  /    ");
         jFmtDataVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtDataVendaActionPerformed(evt);
-            }
-        });
-
-        jTxtQuantidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtQuantidadeActionPerformed(evt);
             }
         });
 
@@ -189,8 +202,6 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             }
         });
 
-        jLabel4.setText("FormaPagamento");
-
         jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Excluir.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
         jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +212,12 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
 
         jLabel7.setText("Produto");
 
+        jTxtValorTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtValorTotalActionPerformed(evt);
+            }
+        });
+
         jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/gravar.png"))); // NOI18N
         jBtnConfirmar.setText("Confirmar");
         jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -209,15 +226,9 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             }
         });
 
-        jTxtNomeCliente.addActionListener(new java.awt.event.ActionListener() {
+        jCboClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtNomeClienteActionPerformed(evt);
-            }
-        });
-
-        jTxtNomeProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtNomeProdutoActionPerformed(evt);
+                jCboClientesActionPerformed(evt);
             }
         });
 
@@ -238,29 +249,22 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jFmtDataVenda))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(48, 48, 48)
-                                .addComponent(jLabel7))
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTxtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTxtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jCboClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jCboProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jTxtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTxtFormaPagamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBtnIncluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -275,8 +279,9 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
                         .addComponent(jBtnPesquisar)
                         .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(JBtnAlterar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(JBtnIncluir2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -286,24 +291,25 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jFmtDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTxtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTxtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTxtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTxtFormaPagamento))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jFmtDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCboClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(3, 3, 3))
+                        .addComponent(jTxtValorTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCboProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
@@ -313,9 +319,9 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
                         .addGap(15, 15, 15)
                         .addComponent(jBtnExcluir2))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -333,13 +339,13 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         //desabilita  //desabilitar()
-        VHSC_Util.habilitar(false, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto,jTxtQuantidade, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
+        jCboClientes,jCboProdutos, jBtnConfirmar,jBtnCancelar);
        
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          
-              VHSC_Util.limpar(  jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto,jTxtQuantidade);
+              VHSC_Util.limpar(  jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
+        jCboClientes,jCboProdutos);
       
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
@@ -353,10 +359,6 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     private void jFmtDataVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtDataVendaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmtDataVendaActionPerformed
-
-    private void jTxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtQuantidadeActionPerformed
-  
-    }//GEN-LAST:event_jTxtQuantidadeActionPerformed
 
     private void JBtnIncluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnIncluir2ActionPerformed
         // TODO add your handling code here:
@@ -387,11 +389,11 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        VHSC_Util.habilitar(true, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto,jTxtQuantidade, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(true, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
+        jCboClientes,jCboProdutos, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
-         VHSC_Util.limpar( jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto, jTxtQuantidade);
+         VHSC_Util.limpar( jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
+        jCboClientes,jCboProdutos);
          incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
@@ -403,8 +405,8 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         return;
     }
        
-         VHSC_Util.habilitar(true, jTxtValorTotal, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto,jTxtQuantidade, jBtnConfirmar,jBtnCancelar);
+         VHSC_Util.habilitar(true, jTxtValorTotal, jFmtDataVenda,
+        jCboClientes,jCboProdutos, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar, jTxtCodigo);
          incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
@@ -415,8 +417,8 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             vhsc_VendasDAO vhsc_vendasDAO = new vhsc_VendasDAO();
             vhsc_vendasDAO.delete(viewBean());
         }
-        VHSC_Util.limpar( jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto, jTxtQuantidade);
+        VHSC_Util.limpar( jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
+        jCboClientes,jCboProdutos);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
@@ -433,23 +435,23 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             //vendasDAO.update( viewBean() );
         }
         
-       VHSC_Util.habilitar(false, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto,jTxtQuantidade, jBtnConfirmar,jTxtQuantidade, jBtnCancelar);
+       VHSC_Util.habilitar(false, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
+        jCboProdutos,jCboClientes, jBtnConfirmar, jBtnCancelar);
        
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          
-              VHSC_Util.limpar(  jTxtValorTotal, jTxtCodigo, jFmtDataVenda,jTxtFormaPagamento,
-        jTxtNomeCliente,jTxtNomeProduto, jTxtQuantidade);
+              VHSC_Util.limpar(  jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
+        jCboClientes,jCboProdutos);
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
-    private void jTxtNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeClienteActionPerformed
+    private void jCboClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboClientesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtNomeClienteActionPerformed
+    }//GEN-LAST:event_jCboClientesActionPerformed
 
-    private void jTxtNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeProdutoActionPerformed
+    private void jTxtValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtValorTotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtNomeProdutoActionPerformed
+    }//GEN-LAST:event_jTxtValorTotalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -503,21 +505,17 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     private javax.swing.JButton jBtnExcluir2;
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnPesquisar;
+    private javax.swing.JComboBox<VhscClientes> jCboClientes;
+    private javax.swing.JComboBox<VhscProdutos> jCboProdutos;
     private javax.swing.JFormattedTextField jFmtDataVenda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTxtCodigo;
-    private javax.swing.JTextField jTxtFormaPagamento;
-    private javax.swing.JFormattedTextField jTxtNomeCliente;
-    private javax.swing.JFormattedTextField jTxtNomeProduto;
-    private javax.swing.JTextField jTxtQuantidade;
     private javax.swing.JTextField jTxtValorTotal;
     // End of variables declaration//GEN-END:variables
 }

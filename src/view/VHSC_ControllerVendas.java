@@ -42,9 +42,9 @@ public class VHSC_ControllerVendas extends AbstractTableModel {
         if ( columnIndex == 0 ){
             return vhscVendas.getVhscIdVenda();
         } else if (columnIndex ==1) {
-            return vhscVendas.getVhscNomeCliente();        
+            return vhscVendas.getVhscClientes();        
         } else if (columnIndex ==2) {
-            return vhscVendas.getVhscNomeLivro();
+            return vhscVendas.getVhscProdutos();
         } else if (columnIndex ==3) {
             return vhscVendas.getVhscDataVenda();
         }

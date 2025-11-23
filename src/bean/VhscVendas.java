@@ -10,6 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -26,8 +28,8 @@ public class VhscVendas  implements java.io.Serializable {
 
 
      private int vhscIdVenda;
-     private String vhscNomeCliente;
-     private String vhscNomeLivro;
+     private VhscClientes vhscNomeCliente;
+     private VhscProdutos vhscNomeLivro;
      private Date vhscDataVenda;
      private int vhscQuantidade;
      private double vhscValorTotal;
@@ -38,7 +40,7 @@ public class VhscVendas  implements java.io.Serializable {
     }
 
 	
-    public VhscVendas(int vhscIdVenda, String vhscNomeCliente, String vhscNomeLivro, Date vhscDataVenda, int vhscQuantidade, double vhscValorTotal, String vhscFormaPagamento) {
+    public VhscVendas(int vhscIdVenda, VhscClientes vhscNomeCliente, VhscProdutos vhscNomeLivro, Date vhscDataVenda, int vhscQuantidade, double vhscValorTotal, String vhscFormaPagamento) {
         this.vhscIdVenda = vhscIdVenda;
         this.vhscNomeCliente = vhscNomeCliente;
         this.vhscNomeLivro = vhscNomeLivro;
@@ -47,7 +49,7 @@ public class VhscVendas  implements java.io.Serializable {
         this.vhscValorTotal = vhscValorTotal;
         this.vhscFormaPagamento = vhscFormaPagamento;
     }
-    public VhscVendas(int vhscIdVenda, String vhscNomeCliente, String vhscNomeLivro, Date vhscDataVenda, int vhscQuantidade, double vhscValorTotal, String vhscFormaPagamento, Set vhscVendasProdutoses) {
+    public VhscVendas(int vhscIdVenda, VhscClientes vhscNomeCliente, VhscProdutos vhscNomeLivro, Date vhscDataVenda, int vhscQuantidade, double vhscValorTotal, String vhscFormaPagamento, Set vhscVendasProdutoses) {
        this.vhscIdVenda = vhscIdVenda;
        this.vhscNomeCliente = vhscNomeCliente;
        this.vhscNomeLivro = vhscNomeLivro;
@@ -70,25 +72,27 @@ public class VhscVendas  implements java.io.Serializable {
         this.vhscIdVenda = vhscIdVenda;
     }
 
-    
-    @Column(name="VHSC_nomeCliente", nullable=false, length=100)
-    public String getVhscNomeCliente() {
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="VHSC_nomeCliente")
+    public VhscClientes getVhscClientes() {
         return this.vhscNomeCliente;
     }
     
-    public void setVhscNomeCliente(String vhscNomeCliente) {
-        this.vhscNomeCliente = vhscNomeCliente;
+    public void setVhscClientes(VhscClientes vhscClientes) {
+        this.vhscNomeCliente = vhscClientes;
     }
-
-    
-    @Column(name="VHSC_nomeLivro", nullable=false, length=150)
-    public String getVhscNomeLivro() {
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="VHSC_nomeLivro")
+    public VhscProdutos getVhscProdutos() {
         return this.vhscNomeLivro;
     }
     
-    public void setVhscNomeLivro(String vhscNomeLivro) {
-        this.vhscNomeLivro = vhscNomeLivro;
+    public void setVhscProdutos(VhscProdutos vhscProdutos) {
+        this.vhscNomeLivro = vhscProdutos;
     }
+
+    
+   
 
     @Temporal(TemporalType.DATE)
     @Column(name="VHSC_dataVenda",length=10)
@@ -101,7 +105,7 @@ public class VhscVendas  implements java.io.Serializable {
     }
 
     
-    @Column(name="VHSC_quantidade", nullable=false)
+    @Column(name="VHSC_quantidade")
     public int getVhscQuantidade() {
         return this.vhscQuantidade;
     }
@@ -121,7 +125,7 @@ public class VhscVendas  implements java.io.Serializable {
     }
 
     
-    @Column(name="VHSC_formaPagamento", nullable=false, length=20)
+    @Column(name="VHSC_formaPagamento",  length=20)
     public String getVhscFormaPagamento() {
         return this.vhscFormaPagamento;
     }
