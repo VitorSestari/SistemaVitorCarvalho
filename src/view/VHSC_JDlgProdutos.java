@@ -165,6 +165,13 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
         jLabel5.setText("Descrição");
 
+        try {
+            jFmtAnoPublicado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFmtAnoPublicado.setToolTipText("");
+
         jTxtQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtQuantidadeActionPerformed(evt);
