@@ -197,7 +197,6 @@ private boolean incluir;
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtDataCadastro.setText("  /  /    ");
         jFmtDataCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtDataCadastroActionPerformed(evt);
@@ -215,7 +214,6 @@ private boolean incluir;
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtCep.setText("     -   ");
         jFmtCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtCepActionPerformed(evt);
@@ -257,7 +255,7 @@ private boolean incluir;
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtDataNascimento.setText("  /  /    ");
+        jFmtDataNascimento.setToolTipText("");
         jFmtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtDataNascimentoActionPerformed(evt);

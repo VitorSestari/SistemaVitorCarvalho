@@ -25,7 +25,7 @@ import tools.VHSC_Util;
  * @author Vitor
  */
 public class VHSC_JDlgVendas extends javax.swing.JDialog {
-
+ VHSC_ControllerVendasProdutos controllerVendasProd;
     /**
      * Creates new form VHSC_JDlgVendas
      */
@@ -37,6 +37,7 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     public VHSC_JDlgVendas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         
         setTitle("Cadastro de Vendas");
          vhsc_ClientesDAO vhscclientesDAO = new vhsc_ClientesDAO();
@@ -50,9 +51,11 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         for (Object object : listaVend) {
             jCboFuncionarios.addItem((VhscFuncionarios) object);
         }
-        
+        controllerVendasProd = new VHSC_ControllerVendasProdutos();
+        controllerVendasProd.setList(new ArrayList());
+        jTable2.setModel(controllerVendasProd);
     
-        setLocationRelativeTo(null);
+        
     
         VHSC_Util.habilitar(false, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
      jCboClientes,jCboFuncionarios,jBtnConfirmar,jBtnCancelar);
@@ -196,6 +199,15 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTable2AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         JBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/alterar.png"))); // NOI18N
@@ -367,17 +379,19 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     private void JBtnIncluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnIncluir2ActionPerformed
         // TODO add your handling code here:
         VHSC_JDlgVendasProdutos jDlgVendasProdutos = new VHSC_JDlgVendasProdutos(null, true);
+        jDlgVendasProdutos.setTelaAnterior(this);
         jDlgVendasProdutos.setVisible(true);
+          
     }//GEN-LAST:event_JBtnIncluir2ActionPerformed
 
     private void JBtnAlterar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterar2ActionPerformed
-  if (jTxtCodigo.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Pesquise um usuário antes de alterar.");
-        return;
-    }
-   VHSC_JDlgVendasProdutos jDlgVendasProdutos = new VHSC_JDlgVendasProdutos(null, true);
-        jDlgVendasProdutos.setVisible(true);
-      // TODO add your handling code here:
+  if (jTable2.getSelectedRow() == -1) {
+            VHSC_Util.mensagem("Selecione uma linha primeiro.");
+        } else {
+            if (VHSC_Util.pergunta("Deseja excluir o produto ?") == true) {
+                controllerVendasProd.removeBean(jTable2.getSelectedRow());
+            }
+        }
 
     }//GEN-LAST:event_JBtnAlterar2ActionPerformed
 
@@ -422,7 +436,7 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             vhsc_VendasProdutosDAO vhsc_vendasProdutosDAO = new vhsc_VendasProdutosDAO();
              
               for (int ind = 0; ind < jTable2.getRowCount(); ind++) {
-                VhscVendasProdutos vendasProdutos = controllerPedProd.getBean(ind);
+                VhscVendasProdutos vendasProdutos = controllerVendasProd.getBean(ind);
                 vhsc_vendasProdutosDAO.delete(vendasProdutos);
             }
               vhsc_vendasDAO.delete(viewBean()); 
@@ -462,6 +476,10 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     private void jTxtValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtValorTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtValorTotalActionPerformed
+
+    private void jTable2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable2AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2AncestorAdded
 
     /**
      * @param args the command line arguments

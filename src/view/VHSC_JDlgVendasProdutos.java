@@ -10,34 +10,42 @@ package view;
 import bean.VhscClientes;
 import bean.VhscProdutos;
 import bean.VhscVendas;
-import dao.vhsc_VendasProdutosDAO;
+
 import java.util.List;
 import bean.VhscVendasProdutos;
 import dao.vhsc_ProdutosDAO;
+
 import tools.VHSC_Util;
 /**
  *
  * @author Vitor
  */
 public class VHSC_JDlgVendasProdutos extends javax.swing.JDialog {
-
+VHSC_JDlgVendas VHSC_jDlgVendas;
     /**
      * Creates new form VHSC_JDlgVendasProdutos
      */
     public VHSC_JDlgVendasProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("VHSC_VendasProdutos produtos");
+        setTitle("Pedidos produtos");
         setLocationRelativeTo(null);
+         jTxtQuantidade.setText("1");
+        vhsc_ProdutosDAO vhsc_produtosDAO = new vhsc_ProdutosDAO();
+        List lista = (List) vhsc_produtosDAO.listAll();
+        for (Object object : lista) {
+            jCboProdutos.addItem((VhscProdutos) object);
+        }
+        VHSC_Util.habilitar(false, jTxtPrecoUnitario, jTxtTotal);
+       
+    }
+    
+    public void setTelaAnterior(VHSC_JDlgVendas Vhsc_jDlgVendas) {
+        this.VHSC_jDlgVendas = Vhsc_jDlgVendas;
+    
       
     }
-     public VhscVendasProdutos viewBean() {
-        VhscVendasProdutos vhscVendasProdutos = new VhscVendasProdutos();
-        vhscVendasProdutos.setVhscPrecoUnitario(VHSC_Util.strToInt(jTxtValorUnitario.getText()));
-        vhscVendasProdutos.setVhscQuantidade(VHSC_Util.strToInt(jTxtQuantidade.getText()));
-        vhscVendasProdutos.setVhscProdutos((VhscProdutos) jCboProdutos.getSelectedItem());
-        return vhscVendasProdutos;
-    }
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,10 +58,10 @@ public class VHSC_JDlgVendasProdutos extends javax.swing.JDialog {
 
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jCboProdutos = new javax.swing.JComboBox<String>();
+        jCboProdutos = new javax.swing.JComboBox<VhscProdutos>();
         jLabel2 = new javax.swing.JLabel();
         jTxtQuantidade = new javax.swing.JTextField();
-        jTxtValorUnitario = new javax.swing.JTextField();
+        jTxtPrecoUnitario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTxtTotal = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -71,9 +79,25 @@ public class VHSC_JDlgVendasProdutos extends javax.swing.JDialog {
 
         jLabel1.setText("Produtos");
 
-        jCboProdutos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCboProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCboProdutosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Quantidade");
+
+        jTxtQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtQuantidadeActionPerformed(evt);
+            }
+        });
+
+        jTxtPrecoUnitario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtPrecoUnitarioActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Valor Unitário");
 
@@ -111,7 +135,7 @@ public class VHSC_JDlgVendasProdutos extends javax.swing.JDialog {
                                     .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(44, 44, 44)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtPrecoUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +154,7 @@ public class VHSC_JDlgVendasProdutos extends javax.swing.JDialog {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxtValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtPrecoUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTxtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -157,8 +181,36 @@ public class VHSC_JDlgVendasProdutos extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
+        VhscVendasProdutos vhscVendasProdutos = new VhscVendasProdutos();
+        vhscVendasProdutos.setVhscProdutos((VhscProdutos) jCboProdutos.getSelectedItem());
+        vhscVendasProdutos.setVhscQuantidade(VHSC_Util.strToInt(jTxtQuantidade.getText()) );
+        vhscVendasProdutos.setVhscPrecoUnitario(VHSC_Util.strToDouble(jTxtPrecoUnitario.getText()) );                
+        VHSC_jDlgVendas.controllerVendasProd.addBean(vhscVendasProdutos);
+        setVisible(false); 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTxtPrecoUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtPrecoUnitarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtPrecoUnitarioActionPerformed
+
+    private void jCboProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboProdutosActionPerformed
+        // TODO add your handling code here:
+        VhscProdutos vhscProdutos = (VhscProdutos) jCboProdutos.getSelectedItem();
+        jTxtPrecoUnitario.setText(VHSC_Util.doubleToStr(vhscProdutos.getVhscPreco()));
+        int quant = VHSC_Util.strToInt(jTxtQuantidade.getText());
+        jTxtTotal.setText(VHSC_Util.doubleToStr( quant * vhscProdutos.getVhscPreco()));
+    }//GEN-LAST:event_jCboProdutosActionPerformed
+
+    private void jTxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtQuantidadeActionPerformed
+        // TODO add your handling code here:
+        if(jTxtQuantidade.getText().isEmpty() == false){
+        VhscProdutos vhscProdutos = (VhscProdutos) jCboProdutos.getSelectedItem();
+        int quant = VHSC_Util.strToInt(jTxtQuantidade.getText());
+        jTxtTotal.setText(VHSC_Util.doubleToStr( quant * vhscProdutos.getVhscPreco()));
+       } else {
+           VHSC_Util.limpar(jTxtTotal);
+       }
+    }//GEN-LAST:event_jTxtQuantidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,13 +257,13 @@ public class VHSC_JDlgVendasProdutos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jCboProdutos;
+    private javax.swing.JComboBox<VhscProdutos> jCboProdutos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jTxtPrecoUnitario;
     private javax.swing.JTextField jTxtQuantidade;
     private javax.swing.JTextField jTxtTotal;
-    private javax.swing.JTextField jTxtValorUnitario;
     // End of variables declaration//GEN-END:variables
 }
