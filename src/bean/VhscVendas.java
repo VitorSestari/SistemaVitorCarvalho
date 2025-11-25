@@ -29,7 +29,7 @@ public class VhscVendas  implements java.io.Serializable {
 
      private int vhscIdVenda;
      private VhscClientes vhscNomeCliente;
-     private VhscProdutos vhscNomeLivro;
+     private VhscFuncionarios vhscNomeFuncionario;
      private Date vhscDataVenda;
      private int vhscQuantidade;
      private double vhscValorTotal;
@@ -40,19 +40,19 @@ public class VhscVendas  implements java.io.Serializable {
     }
 
 	
-    public VhscVendas(int vhscIdVenda, VhscClientes vhscNomeCliente, VhscProdutos vhscNomeLivro, Date vhscDataVenda, int vhscQuantidade, double vhscValorTotal, String vhscFormaPagamento) {
+    public VhscVendas(int vhscIdVenda, VhscClientes vhscNomeCliente, VhscFuncionarios vhscNomeFuncionario, Date vhscDataVenda, int vhscQuantidade, double vhscValorTotal, String vhscFormaPagamento) {
         this.vhscIdVenda = vhscIdVenda;
         this.vhscNomeCliente = vhscNomeCliente;
-        this.vhscNomeLivro = vhscNomeLivro;
+        this.vhscNomeFuncionario = vhscNomeFuncionario;
         this.vhscDataVenda = vhscDataVenda;
         this.vhscQuantidade = vhscQuantidade;
         this.vhscValorTotal = vhscValorTotal;
         this.vhscFormaPagamento = vhscFormaPagamento;
     }
-    public VhscVendas(int vhscIdVenda, VhscClientes vhscNomeCliente, VhscProdutos vhscNomeLivro, Date vhscDataVenda, int vhscQuantidade, double vhscValorTotal, String vhscFormaPagamento, Set vhscVendasProdutoses) {
+    public VhscVendas(int vhscIdVenda, VhscClientes vhscNomeCliente, VhscFuncionarios vhscNomeFuncionario, Date vhscDataVenda, int vhscQuantidade, double vhscValorTotal, String vhscFormaPagamento, Set vhscVendasProdutoses) {
        this.vhscIdVenda = vhscIdVenda;
        this.vhscNomeCliente = vhscNomeCliente;
-       this.vhscNomeLivro = vhscNomeLivro;
+       this.vhscNomeFuncionario = vhscNomeFuncionario;
        this.vhscDataVenda = vhscDataVenda;
        this.vhscQuantidade = vhscQuantidade;
        this.vhscValorTotal = vhscValorTotal;
@@ -82,13 +82,13 @@ public class VhscVendas  implements java.io.Serializable {
         this.vhscNomeCliente = vhscClientes;
     }
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="VHSC_nomeLivro")
-    public VhscProdutos getVhscProdutos() {
-        return this.vhscNomeLivro;
+    @JoinColumn(name="VHSC_nomeFuncionario")
+    public VhscFuncionarios getVhscFuncionarios() {
+        return this.vhscNomeFuncionario;
     }
     
-    public void setVhscProdutos(VhscProdutos vhscProdutos) {
-        this.vhscNomeLivro = vhscProdutos;
+    public void setVhscFuncionarios(VhscFuncionarios vhscFuncionarios) {
+        this.vhscNomeFuncionario = vhscFuncionarios;
     }
 
     

@@ -52,7 +52,7 @@
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCboProdutos" min="-2" pref="116" max="-2" attributes="0"/>
+                          <Component id="jCboFuncionarios" min="-2" pref="116" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -117,7 +117,7 @@
                       </Group>
                       <Component id="jTxtValorTotal" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jCboProdutos" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCboFuncionarios" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -294,7 +294,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Produto"/>
+        <Property name="text" type="java.lang.String" value="Funcionarios"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtValorTotal">
@@ -327,15 +327,15 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;VhscClientes&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jCboProdutos">
+    <Component class="javax.swing.JComboBox" name="jCboFuncionarios">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;VhscProdutos&gt;()"/>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;VhscProdutos&gt;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;VhscFuncionarios&gt;()"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;VhscFuncionarios&gt;"/>
       </AuxValues>
     </Component>
   </SubComponents>

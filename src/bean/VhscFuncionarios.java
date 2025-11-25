@@ -125,7 +125,11 @@ public class VhscFuncionarios  implements java.io.Serializable {
     public void setVhscSalario(String vhscSalario) {
         this.vhscSalario = vhscSalario;
     }
+@Override
+public String toString(){
+return this.vhscNome;
 
+}
 
 
 
