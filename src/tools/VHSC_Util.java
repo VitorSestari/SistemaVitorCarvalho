@@ -9,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -25,12 +27,18 @@ public class VHSC_Util {
         }
     }
     
+    
     public static void limpar(JComponent... componentes) {
         for (int i = 0; i < componentes.length; i++) {
             if (componentes[i] instanceof JTextField) {
                 ((JTextField) componentes[i]).setText("");
-                //instanceof
             }
+            if (componentes[i] instanceof JComboBox) {
+                ((JComboBox) componentes[i]).setSelectedIndex(-1);
+            }
+  if (componentes[i] instanceof JCheckBox) { // ← ADICIONE ESTE BLOCO
+            ((JCheckBox) componentes[i]).setSelected(false);
+        }
         }
     }
     
@@ -38,9 +46,9 @@ public class VHSC_Util {
         JOptionPane.showMessageDialog(null, cad);        
     }
     
-    public static boolean pergunta(String cad) {
-        JOptionPane.showConfirmDialog(null, cad);
-        return true;
+   public static boolean pergunta(String cad) {
+    return JOptionPane.showConfirmDialog(null, cad) == JOptionPane.YES_OPTION;
+
     }
     
     public static int strToInt(String num) {

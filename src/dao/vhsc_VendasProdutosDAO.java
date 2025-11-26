@@ -6,6 +6,7 @@
 package dao;
 
 import bean.VhscVendasProdutos;
+import bean.VhscVendas;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -52,6 +53,15 @@ public class vhsc_VendasProdutosDAO extends AbstractDAO{
         session.getTransaction().commit();        
         return lista;
     }
+    public Object listProdutos(VhscVendas venda) {
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(VhscVendasProdutos.class);
+    criteria.add(Restrictions.eq("vhscVendas", venda));
+    List lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
+
 
     @Override
     public Object listAll() {

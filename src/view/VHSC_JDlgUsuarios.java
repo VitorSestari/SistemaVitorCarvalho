@@ -147,7 +147,6 @@ private boolean incluir;
             }
         });
 
-        jPwdSenha.setText("jPasswordField1");
         jPwdSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPwdSenhaActionPerformed(evt);
@@ -188,7 +187,6 @@ private boolean incluir;
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtCpf.setText("   .   .   -  ");
 
         try {
             jFmtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -316,7 +314,7 @@ private boolean incluir;
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
         // TODO add your handling code here:
          if (jTxtCodigo.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Pesquise um usuário antes de alterar.");
+        VHSC_Util.mensagem("Pesquise antes de Alterar.");
         return;
     }
          VHSC_Util.habilitar(true, jTxtNome, jFmtDataNascimento,jFmtCpf,jTxtApelido,
@@ -327,6 +325,11 @@ private boolean incluir;
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+       if (jTxtCodigo.getText().trim().isEmpty()) {
+        VHSC_Util.mensagem("Pesquise antes de Excluir.");
+        return;
+    }
+        
        if (VHSC_Util.pergunta("Deseja excluir ?") == true) {
             vhsc_UsuariosDAO vhsc_usuariosDAO = new vhsc_UsuariosDAO();
             vhsc_usuariosDAO.delete(viewBean());

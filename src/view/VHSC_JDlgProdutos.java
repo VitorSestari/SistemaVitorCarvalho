@@ -394,8 +394,8 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
         // TODO add your handling code here:
-          if (jTxtCodigo.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Pesquise um usuário antes de alterar.");
+           if (jTxtCodigo.getText().trim().isEmpty()) {
+        VHSC_Util.mensagem("Pesquise antes de Alterar.");
         return;
     }
         VHSC_Util.habilitar(true, jTxtAutor, jTxtDescricao,jTxtPreco,jTxtQuantidade,
@@ -406,6 +406,10 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+         if (jTxtCodigo.getText().trim().isEmpty()) {
+        VHSC_Util.mensagem("Pesquise antes de Excluir.");
+        return;
+    }
         if (VHSC_Util.pergunta("Deseja excluir ?") == true) {
             vhsc_ProdutosDAO vhsc_produtosDAO = new vhsc_ProdutosDAO();
             vhsc_produtosDAO.delete(viewBean());

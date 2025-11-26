@@ -28,7 +28,7 @@ VHSC_JDlgVendas VHSC_jDlgVendas;
     public VHSC_JDlgVendasProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Pedidos produtos");
+        setTitle("Vendas produtos");
         setLocationRelativeTo(null);
          jTxtQuantidade.setText("1");
         vhsc_ProdutosDAO vhsc_produtosDAO = new vhsc_ProdutosDAO();

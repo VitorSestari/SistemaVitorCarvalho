@@ -126,9 +126,19 @@ public class VhscFuncionarios  implements java.io.Serializable {
         this.vhscSalario = vhscSalario;
     }
 @Override
-public String toString(){
-return this.vhscNome;
+    public String toString() {
+        return this.vhscIdFuncionario+ " - " + this.vhscNome;
+    }
 
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof VhscFuncionarios) {
+            VhscFuncionarios vhscFuncionarios = (VhscFuncionarios) object;
+            if (vhscFuncionarios.getVhscIdFuncionario()== this.getVhscIdFuncionario()) {
+                return true;
+            }
+        }
+        return false;
 }
 
 

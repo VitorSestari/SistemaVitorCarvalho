@@ -208,13 +208,24 @@ public class VhscClientes  implements java.io.Serializable {
     public void setVhscObservacoes(String vhscObservacoes) {
         this.vhscObservacoes = vhscObservacoes;
     }
+
+
 @Override
-public String toString(){
-return this.vhscNome;
+    public String toString() {
+        return this.vhscIdCliente+ " - " + this.vhscNome;
+    }
 
-}
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof VhscClientes) {
+            VhscClientes vhscClientes = (VhscClientes) object;
+            if (vhscClientes.getVhscIdCliente()== this.getVhscIdCliente()) {
+                return true;
+            }
+        }
+        return false;
 
-
+    }
 
 }
 

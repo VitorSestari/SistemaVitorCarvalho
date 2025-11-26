@@ -40,16 +40,20 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         
         setTitle("Cadastro de Vendas");
-         vhsc_ClientesDAO vhscclientesDAO = new vhsc_ClientesDAO();
-        List lista = (List) vhscclientesDAO.listAll();
-        for (int i = 0; i < lista.size(); i++) {
-            jCboClientes.addItem((VhscClientes) lista.get(i));
+          vhsc_ClientesDAO clientesDAO = new vhsc_ClientesDAO();
+        List<VhscClientes> listaClientes = (List<VhscClientes>) clientesDAO.listAll();
+        if (listaClientes != null) {
+            for (VhscClientes c : listaClientes) {
+                jCboClientes.addItem(c);
+            }
         }
 
-        vhsc_FuncionariosDAO vhscFuncionariosDAO = new vhsc_FuncionariosDAO();
-        List listaVend = (List) vhscFuncionariosDAO.listAll();
-        for (Object object : listaVend) {
-            jCboFuncionarios.addItem((VhscFuncionarios) object);
+        vhsc_FuncionariosDAO funcionariosDAO = new vhsc_FuncionariosDAO();
+        List<VhscFuncionarios> listaFunc = (List<VhscFuncionarios>) funcionariosDAO.listAll();
+        if (listaFunc != null) {
+            for (VhscFuncionarios f : listaFunc) {
+                jCboFuncionarios.addItem(f);
+            }
         }
         controllerVendasProd = new VHSC_ControllerVendasProdutos();
         controllerVendasProd.setList(new ArrayList());
@@ -63,25 +67,23 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
      public void beanView(VhscVendas vhscVendas) {
         jTxtCodigo.setText(VHSC_Util.intToStr(vhscVendas.getVhscIdVenda()));
         jTxtValorTotal.setText(VHSC_Util.doubleToStr(vhscVendas.getVhscValorTotal()));
-        jFmtDataVenda.setText(VHSC_Util.dateToStr(vhscVendas.getVhscDataVenda()));
+       jFmtDataVenda.setText(VHSC_Util.dateToStr(vhscVendas.getVhscDataVenda()));
         jCboClientes.setSelectedItem(vhscVendas.getVhscClientes());
         jCboFuncionarios.setSelectedItem(vhscVendas.getVhscFuncionarios());
         
+         vhsc_VendasProdutosDAO vhsc_vendasProdutosDAO = new vhsc_VendasProdutosDAO();
+        List lista = (List) vhsc_vendasProdutosDAO.listProdutos(vhscVendas);
+        controllerVendasProd.setList(lista);
       
      }
      public VhscVendas viewBean() {
     VhscVendas vhscVendas = new VhscVendas();
-        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
-        vhscVendas.setVhscIdVenda(codigo);
         
-  
+    vhscVendas.setVhscIdVenda(VHSC_Util.strToInt(jTxtCodigo.getText()));
     vhscVendas.setVhscClientes((VhscClientes) jCboClientes.getSelectedItem());
     vhscVendas.setVhscFuncionarios((VhscFuncionarios) jCboFuncionarios.getSelectedItem());
-    vhscVendas.setVhscDataVenda(VHSC_Util.strToDate(jFmtDataVenda.getText()));
-
+  vhscVendas.setVhscDataVenda(VHSC_Util.strToDate(jFmtDataVenda.getText()));
     vhscVendas.setVhscValorTotal(VHSC_Util.strToDouble(jTxtValorTotal.getText()));
-   
-    
     return vhscVendas;
      }
     /**
@@ -385,13 +387,8 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     }//GEN-LAST:event_JBtnIncluir2ActionPerformed
 
     private void JBtnAlterar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterar2ActionPerformed
-  if (jTable2.getSelectedRow() == -1) {
-            VHSC_Util.mensagem("Selecione uma linha primeiro.");
-        } else {
-            if (VHSC_Util.pergunta("Deseja excluir o produto ?") == true) {
-                controllerVendasProd.removeBean(jTable2.getSelectedRow());
-            }
-        }
+ VHSC_JDlgVendasProdutos jDlgVendasProdutos = new VHSC_JDlgVendasProdutos(null, true);
+        jDlgVendasProdutos.setVisible(true);
 
     }//GEN-LAST:event_JBtnAlterar2ActionPerformed
 
@@ -400,8 +397,13 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtCodigoActionPerformed
 
     private void jBtnExcluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluir2ActionPerformed
-  if (VHSC_Util.pergunta("Deseja excluir o produto ?")== true) {
-            
+    // TODO add your handling code here:
+        if (jTable2.getSelectedRow() == -1) {
+            VHSC_Util.mensagem("Selecione uma linha para Excluir.");
+        } else {
+            if (VHSC_Util.pergunta("Deseja excluir o produto ?") == true) {
+                controllerVendasProd.removeBean(jTable2.getSelectedRow());
+            }
         }
     }//GEN-LAST:event_jBtnExcluir2ActionPerformed
 
@@ -412,25 +414,33 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          VHSC_Util.limpar(jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
         jCboClientes,jCboFuncionarios);
+         controllerVendasProd.setList(new ArrayList());
          incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
         // TODO add your handling code here:
  // TODO add your handling code here:
-         if (jTxtCodigo.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Pesquise um usuário antes de alterar.");
+        if (jTxtCodigo.getText().trim().isEmpty()) {
+        VHSC_Util.mensagem("Pesquise antes de Alterar.");
         return;
     }
        
          VHSC_Util.habilitar(true, jTxtValorTotal, jFmtDataVenda,
         jCboClientes,jCboFuncionarios, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar, jTxtCodigo);
+         
+         controllerVendasProd.setList(new ArrayList());
          incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+        if (jTxtCodigo.getText().trim().isEmpty()) {
+        VHSC_Util.mensagem("Pesquise antes de Excluir.");
+        return;
+    }
+        
       if (VHSC_Util.pergunta("Deseja excluir ?") == true) {
             vhsc_VendasDAO vhsc_vendasDAO = new vhsc_VendasDAO();
             vhsc_VendasProdutosDAO vhsc_vendasProdutosDAO = new vhsc_VendasProdutosDAO();
@@ -443,20 +453,26 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         }
         VHSC_Util.limpar(jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
         jCboClientes,jCboFuncionarios);
+        controllerVendasProd.setList(new ArrayList());
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         //desabilitar();
      //desabilitar();
-          vhsc_VendasDAO vhsc_vendasDAO = new vhsc_VendasDAO();
+        vhsc_VendasDAO vhsc_vendasDAO = new vhsc_VendasDAO();
+        vhsc_VendasProdutosDAO vhsc_vendasProdutosDAO = new vhsc_VendasProdutosDAO();
         VhscVendas vhscVendas = viewBean();
         if (incluir == true) {
             vhsc_vendasDAO.insert(vhscVendas);
-            //vendasDAO.insert( viewBean() );
+            for (int ind = 0; ind < jTable2.getRowCount(); ind++) {
+                VhscVendasProdutos vendasProdutos = controllerVendasProd.getBean(ind);
+                vendasProdutos.setVhscVendas(vhscVendas);
+                vhsc_vendasProdutosDAO.insert(vendasProdutos);
+            }
         } else {
             vhsc_vendasDAO.update(vhscVendas);
-            //vendasDAO.update( viewBean() );
+
         }
         
        VHSC_Util.habilitar(false, jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
@@ -466,6 +482,7 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
          
               VHSC_Util.limpar(jTxtValorTotal, jTxtCodigo, jFmtDataVenda,
         jCboClientes,jCboFuncionarios);
+              controllerVendasProd.setList(new ArrayList());
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 

@@ -131,10 +131,23 @@ public class VhscProdutos  implements java.io.Serializable {
     }
 
 
-@Override
-public String toString() {
-    return this.vhscTitulo;
-}
+ @Override
+    public String toString() {
+        return this.vhscIdProduto+ " - " + this.vhscAutor;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof VhscProdutos) {
+            VhscProdutos vhscProdutos = (VhscProdutos) object;
+            if (vhscProdutos.getVhscIdProduto() == this.getVhscIdProduto()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
 
 
