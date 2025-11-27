@@ -8,6 +8,7 @@ package view;
 import bean.VhscUsuarios;
 import dao.vhsc_UsuariosDAO;
 import java.util.List;
+import tools.VHSC_Util;
 import view.VHSC_JDlgUsuarios;
 
 /**
@@ -117,9 +118,13 @@ public class VHSC_JDlgUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-      VhscUsuarios vhscUsuarios =  controllerUsuarios.getBean( jTable1.getSelectedRow() );
-        VHSC_jDlgUsuarios.beanView(vhscUsuarios);
-        this.setVisible(false);
+       if (jTable1.getSelectedRow() == -1) {
+            VHSC_Util.mensagem("Nenhum registro foi selecionada. Favor selecionar um registro.");
+        } else {
+            VhscUsuarios vhscUsuarios = controllerUsuarios.getBean(jTable1.getSelectedRow());
+           VHSC_jDlgUsuarios.beanView(vhscUsuarios);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed

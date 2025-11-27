@@ -8,6 +8,7 @@ package view;
 import bean.VhscVendas;
 import dao.vhsc_VendasDAO;
 import java.util.List;
+import tools.VHSC_Util;
 
 /**
  *
@@ -115,9 +116,13 @@ public class VHSC_JDlgVendasPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-     VhscVendas vhscVendas =  controllerVendas.getBean(jTable1.getSelectedRow() );
-        VHSC_jDlgVendas.beanView(vhscVendas);
-        this.setVisible(false);
+      if (jTable1.getSelectedRow() == -1) {
+            VHSC_Util.mensagem("Nenhum registro foi selecionada. Favor selecionar um registro.");
+        } else {
+            VhscVendas vhscVendas = controllerVendas.getBean(jTable1.getSelectedRow());
+            VHSC_jDlgVendas.beanView(vhscVendas);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed

@@ -8,6 +8,7 @@ package view;
 import bean.VhscProdutos;
 import dao.vhsc_ProdutosDAO;
 import java.util.List;
+import tools.VHSC_Util;
 import view.VHSC_JDlgProdutos;
 
 /**
@@ -126,15 +127,13 @@ public class VHSC_JDlgProdutosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-       int selectedRow = jTable1.getSelectedRow();
-    
-    if (selectedRow >= 0) {
-        // Obtém o produto selecionado e envia para a tela anterior
-        VhscProdutos vhscProdutos = controllerProdutos.getBean(selectedRow);
-        VHSC_jDlgProdutos.beanView(vhscProdutos);
-    }
-    
-    dispose();
+        if (jTable1.getSelectedRow() == -1) {
+            VHSC_Util.mensagem("Nenhum registro foi selecionada. Favor selecionar um registro.");
+        } else {
+            VhscProdutos vhscProdutos = controllerProdutos.getBean(jTable1.getSelectedRow());
+            VHSC_jDlgProdutos.beanView(vhscProdutos);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked

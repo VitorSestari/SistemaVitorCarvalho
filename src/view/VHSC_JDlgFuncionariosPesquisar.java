@@ -6,8 +6,10 @@
 package view;
 
 import bean.VhscFuncionarios;
+import bean.VhscVendas;
 import dao.vhsc_FuncionariosDAO;
 import java.util.List;
+import tools.VHSC_Util;
 
 /**
  *
@@ -118,12 +120,15 @@ public class VHSC_JDlgFuncionariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-        int selectedRow = jTable1.getSelectedRow();
-    
-    if (selectedRow >= 0) {
+     if (jTable1.getSelectedRow() == -1) {
+            VHSC_Util.mensagem("Nenhum registro foi selecionada. Favor selecionar um registro.");
+        } else {
         // Obtém o produto selecionado e envia para a tela anterior
-        VhscFuncionarios vhscFuncionarios = controllerFuncionarios.getBean(selectedRow);
+       VhscFuncionarios vhscFuncionarios = controllerFuncionarios.getBean(jTable1.getSelectedRow());;
         VHSC_jDlgFuncionarios.beanView(vhscFuncionarios);
+        this.setVisible(false);
+        
+       
     }
     
     dispose();

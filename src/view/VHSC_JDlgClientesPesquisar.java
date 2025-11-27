@@ -6,10 +6,12 @@
 package view;
 
 import bean.VhscClientes;
+import bean.VhscFuncionarios;
 import dao.vhsc_ClientesDAO;
 import view.VHSC_JDlgClientes;
 import java.util.List;
 import javax.swing.JFrame;
+import tools.VHSC_Util;
 
 /**
  *
@@ -121,10 +123,23 @@ public class VHSC_JDlgClientesPesquisar extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
+    
         // TODO add your handling code here:
-    VhscClientes vhscClientes =  controllerClientes.getBean( jTable1.getSelectedRow() );
+         if (jTable1.getSelectedRow() == -1) {
+            VHSC_Util.mensagem("Nenhum registro foi selecionada. Favor selecionar um registro.");
+        } else {
+        VhscClientes vhscClientes =  controllerClientes.getBean( jTable1.getSelectedRow() );
         VHSC_jDlgClientes.beanView(vhscClientes);
         this.setVisible(false);
+        
+       if (jTable1.getSelectedRow() == -1) {
+            VHSC_Util.mensagem("Nenhum registro foi selecionada. Favor selecionar um registro.");
+        } else {
+        // Obtém o produto selecionado e envia para a tela anterior
+       }
+        
+       
+    }
     }//GEN-LAST:event_jBtnOkActionPerformed
     
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
