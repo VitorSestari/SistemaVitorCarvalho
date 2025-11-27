@@ -24,53 +24,53 @@ private boolean incluir;
         initComponents();
         setTitle("Cadastro de Clientes");
         setLocationRelativeTo(null);
-        VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
-        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
-        jTxtCidade, jTxtObservacoes, jTxtRendaMensal ,jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf, VHSC_jTxtEndereco
+        , VHSC_jFmtTelefone, VHSC_jTxtEmail, VHSC_jChbAtivo, VHSC_jCboGenero,VHSC_jFmtDataCadastro, VHSC_jFmtCep, VHSC_jFmtEstado, 
+        VHSC_jTxtCidade, VHSC_jTxtObservacoes, VHSC_jTxtRendaMensal ,jBtnConfirmar,jBtnCancelar);
     }
      public void beanView(VhscClientes vhscClientes) {
-        jTxtCodigo.setText(VHSC_Util.intToStr(vhscClientes.getVhscIdCliente()));
-        jTxtNome.setText(vhscClientes.getVhscNome());
-        jFmtCpf.setText(vhscClientes.getVhscCpf());
-        jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscClientes.getVhscDataNascimento()));
-        jTxtEndereco.setText(vhscClientes.getVhscEndereco());
-        jFmtTelefone.setText(vhscClientes.getVhscTelefone());
-        jTxtEmail.setText(vhscClientes.getVhscEmail());
-        jFmtCep.setText(vhscClientes.getVhscCep());
-        jFmtDataCadastro.setText(VHSC_Util.dateToStr(vhscClientes.getVhscDataCadastro()));
-        jFmtEstado.setText(vhscClientes.getVhscEstado());
-        jTxtCidade.setText(vhscClientes.getVhscCidade());
-        jTxtObservacoes.setText(vhscClientes.getVhscObservacoes());
-        jTxtRendaMensal.setText(vhscClientes.getVhscRendaMensal());
-        jCboGenero.setSelectedIndex(vhscClientes.getVhscGenero());
+        VHSC_jTxtCodigo.setText(VHSC_Util.intToStr(vhscClientes.getVhscIdCliente()));
+        VHSC_jTxtNome.setText(vhscClientes.getVhscNome());
+        VHSC_jFmtCpf.setText(vhscClientes.getVhscCpf());
+        VHSC_jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscClientes.getVhscDataNascimento()));
+        VHSC_jTxtEndereco.setText(vhscClientes.getVhscEndereco());
+        VHSC_jFmtTelefone.setText(vhscClientes.getVhscTelefone());
+        VHSC_jTxtEmail.setText(vhscClientes.getVhscEmail());
+        VHSC_jFmtCep.setText(vhscClientes.getVhscCep());
+        VHSC_jFmtDataCadastro.setText(VHSC_Util.dateToStr(vhscClientes.getVhscDataCadastro()));
+        VHSC_jFmtEstado.setText(vhscClientes.getVhscEstado());
+        VHSC_jTxtCidade.setText(vhscClientes.getVhscCidade());
+        VHSC_jTxtObservacoes.setText(vhscClientes.getVhscObservacoes());
+        VHSC_jTxtRendaMensal.setText(vhscClientes.getVhscRendaMensal());
+        VHSC_jCboGenero.setSelectedIndex(vhscClientes.getVhscGenero());
 
           if (vhscClientes.getVhscAtivo().equals("S") == true) {
-            jChbAtivo.setSelected(true);
+            VHSC_jChbAtivo.setSelected(true);
         } else {
-            jChbAtivo.setSelected(false);
+            VHSC_jChbAtivo.setSelected(false);
         }
         
      }
      public VhscClientes viewBean() {
     VhscClientes vhscClientes = new VhscClientes();
-        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
+        int codigo = VHSC_Util.strToInt(VHSC_jTxtCodigo.getText());
         vhscClientes.setVhscIdCliente(codigo);
         
-    vhscClientes.setVhscNome(jTxtNome.getText());
-    vhscClientes.setVhscCpf(jFmtCpf.getText());
-    vhscClientes.setVhscDataNascimento(VHSC_Util.strToDate(jFmtDataNascimento.getText()));
-    vhscClientes.setVhscEndereco(jTxtEndereco.getText());
-    vhscClientes.setVhscTelefone(jFmtTelefone.getText());
-    vhscClientes.setVhscEmail(jTxtEmail.getText());
-    vhscClientes.setVhscCep(jFmtCep.getText());
-    vhscClientes.setVhscDataCadastro(VHSC_Util.strToDate(jFmtDataCadastro.getText()));
-    vhscClientes.setVhscEstado(jFmtEstado.getText());
-    vhscClientes.setVhscCidade(jTxtCidade.getText());
-    vhscClientes.setVhscObservacoes(jTxtObservacoes.getText());
-    vhscClientes.setVhscRendaMensal(jTxtRendaMensal.getText());
-    vhscClientes.setVhscGenero(jCboGenero.getSelectedIndex());
+    vhscClientes.setVhscNome(VHSC_jTxtNome.getText());
+    vhscClientes.setVhscCpf(VHSC_jFmtCpf.getText());
+    vhscClientes.setVhscDataNascimento(VHSC_Util.strToDate(VHSC_jFmtDataNascimento.getText()));
+    vhscClientes.setVhscEndereco(VHSC_jTxtEndereco.getText());
+    vhscClientes.setVhscTelefone(VHSC_jFmtTelefone.getText());
+    vhscClientes.setVhscEmail(VHSC_jTxtEmail.getText());
+    vhscClientes.setVhscCep(VHSC_jFmtCep.getText());
+    vhscClientes.setVhscDataCadastro(VHSC_Util.strToDate(VHSC_jFmtDataCadastro.getText()));
+    vhscClientes.setVhscEstado(VHSC_jFmtEstado.getText());
+    vhscClientes.setVhscCidade(VHSC_jTxtCidade.getText());
+    vhscClientes.setVhscObservacoes(VHSC_jTxtObservacoes.getText());
+    vhscClientes.setVhscRendaMensal(VHSC_jTxtRendaMensal.getText());
+    vhscClientes.setVhscGenero(VHSC_jCboGenero.getSelectedIndex());
     
-      if (jChbAtivo.isSelected() == true) {
+      if (VHSC_jChbAtivo.isSelected() == true) {
         vhscClientes.setVhscAtivo("S");
     } else {
         vhscClientes.setVhscAtivo("N");
@@ -89,29 +89,29 @@ private boolean incluir;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTxtEndereco = new javax.swing.JTextField();
+        VHSC_jTxtEndereco = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTxtRendaMensal = new javax.swing.JTextField();
+        VHSC_jTxtRendaMensal = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTxtObservacoes = new javax.swing.JTextField();
+        VHSC_jTxtObservacoes = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jFmtEstado = new javax.swing.JFormattedTextField();
-        jFmtCpf = new javax.swing.JFormattedTextField();
+        VHSC_jFmtEstado = new javax.swing.JFormattedTextField();
+        VHSC_jFmtCpf = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        jFmtTelefone = new javax.swing.JFormattedTextField();
+        VHSC_jFmtTelefone = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
-        jFmtDataCadastro = new javax.swing.JFormattedTextField();
-        jTxtEmail = new javax.swing.JTextField();
-        jFmtCep = new javax.swing.JFormattedTextField();
+        VHSC_jFmtDataCadastro = new javax.swing.JFormattedTextField();
+        VHSC_jTxtEmail = new javax.swing.JTextField();
+        VHSC_jFmtCep = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTxtCodigo = new javax.swing.JTextField();
-        jCboGenero = new javax.swing.JComboBox<String>();
-        jTxtNome = new javax.swing.JTextField();
-        jChbAtivo = new javax.swing.JCheckBox();
-        jFmtDataNascimento = new javax.swing.JFormattedTextField();
+        VHSC_jTxtCodigo = new javax.swing.JTextField();
+        VHSC_jCboGenero = new javax.swing.JComboBox<String>();
+        VHSC_jTxtNome = new javax.swing.JTextField();
+        VHSC_jChbAtivo = new javax.swing.JCheckBox();
+        VHSC_jFmtDataNascimento = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jBtnIncluir = new javax.swing.JButton();
@@ -123,21 +123,21 @@ private boolean incluir;
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTxtCidade = new javax.swing.JTextField();
+        VHSC_jTxtCidade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTxtEndereco.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtEnderecoActionPerformed(evt);
+                VHSC_jTxtEnderecoActionPerformed(evt);
             }
         });
 
         jLabel12.setText("DataCadastro");
 
-        jTxtRendaMensal.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtRendaMensal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtRendaMensalActionPerformed(evt);
+                VHSC_jTxtRendaMensalActionPerformed(evt);
             }
         });
 
@@ -145,9 +145,9 @@ private boolean incluir;
 
         jLabel15.setText("RendaMensal");
 
-        jTxtObservacoes.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtObservacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtObservacoesActionPerformed(evt);
+                VHSC_jTxtObservacoesActionPerformed(evt);
             }
         });
 
@@ -156,67 +156,67 @@ private boolean incluir;
         jLabel3.setText("Estado");
 
         try {
-            jFmtEstado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
+            VHSC_jFmtEstado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtEstado.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtEstadoActionPerformed(evt);
+                VHSC_jFmtEstadoActionPerformed(evt);
             }
         });
 
         try {
-            jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            VHSC_jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtCpf.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtCpfActionPerformed(evt);
+                VHSC_jFmtCpfActionPerformed(evt);
             }
         });
 
         jLabel8.setText("Email");
 
         try {
-            jFmtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
+            VHSC_jFmtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtTelefone.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtTelefoneActionPerformed(evt);
+                VHSC_jFmtTelefoneActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Telefone");
 
         try {
-            jFmtDataCadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            VHSC_jFmtDataCadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtDataCadastro.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtDataCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtDataCadastroActionPerformed(evt);
+                VHSC_jFmtDataCadastroActionPerformed(evt);
             }
         });
 
-        jTxtEmail.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtEmailActionPerformed(evt);
+                VHSC_jTxtEmailActionPerformed(evt);
             }
         });
 
         try {
-            jFmtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            VHSC_jFmtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtCep.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtCepActionPerformed(evt);
+                VHSC_jFmtCepActionPerformed(evt);
             }
         });
 
@@ -224,41 +224,41 @@ private boolean incluir;
 
         jLabel2.setText("Nome");
 
-        jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCodigoActionPerformed(evt);
+                VHSC_jTxtCodigoActionPerformed(evt);
             }
         });
 
-        jCboGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
-        jCboGenero.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jCboGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
+        VHSC_jCboGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCboGeneroActionPerformed(evt);
+                VHSC_jCboGeneroActionPerformed(evt);
             }
         });
 
-        jTxtNome.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtNomeActionPerformed(evt);
+                VHSC_jTxtNomeActionPerformed(evt);
             }
         });
 
-        jChbAtivo.setText("Ativo");
-        jChbAtivo.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jChbAtivo.setText("Ativo");
+        VHSC_jChbAtivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jChbAtivoActionPerformed(evt);
+                VHSC_jChbAtivoActionPerformed(evt);
             }
         });
 
         try {
-            jFmtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            VHSC_jFmtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtDataNascimento.setToolTipText("");
-        jFmtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtDataNascimento.setToolTipText("");
+        VHSC_jFmtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtDataNascimentoActionPerformed(evt);
+                VHSC_jFmtDataNascimentoActionPerformed(evt);
             }
         });
 
@@ -321,9 +321,9 @@ private boolean incluir;
 
         jLabel11.setText("Cep");
 
-        jTxtCidade.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCidadeActionPerformed(evt);
+                VHSC_jTxtCidadeActionPerformed(evt);
             }
         });
 
@@ -350,48 +350,48 @@ private boolean incluir;
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTxtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
-                            .addComponent(jTxtNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxtEmail, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(VHSC_jTxtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+                            .addComponent(VHSC_jTxtNome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(VHSC_jTxtEmail, javax.swing.GroupLayout.Alignment.LEADING))
                         .addComponent(jLabel2)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel8)
                                 .addComponent(jLabel7)
-                                .addComponent(jTxtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jTxtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel11)
                                 .addComponent(jLabel1)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel4)
-                                        .addComponent(jFmtCpf)
-                                        .addComponent(jFmtCep, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
+                                        .addComponent(VHSC_jFmtCpf)
+                                        .addComponent(VHSC_jFmtCep, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
                                     .addGap(26, 26, 26)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jFmtDataNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                                        .addComponent(VHSC_jFmtDataNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                                         .addComponent(jLabel10)
-                                        .addComponent(jTxtCidade)
+                                        .addComponent(VHSC_jTxtCidade)
                                         .addComponent(jLabel15)
-                                        .addComponent(jTxtRendaMensal)))
+                                        .addComponent(VHSC_jTxtRendaMensal)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel16)
-                                        .addComponent(jTxtObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(VHSC_jTxtObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(26, 26, 26)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jCboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(VHSC_jCboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGap(28, 28, 28)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jChbAtivo)
+                                .addComponent(VHSC_jChbAtivo)
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jFmtDataCadastro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                    .addComponent(jFmtTelefone, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFmtEstado, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                    .addComponent(VHSC_jFmtDataCadastro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                                    .addComponent(VHSC_jFmtTelefone, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(VHSC_jFmtEstado, javax.swing.GroupLayout.Alignment.LEADING)))))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -411,26 +411,26 @@ private boolean incluir;
                     .addContainerGap()
                     .addComponent(jLabel1)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VHSC_jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(12, 12, 12)
                     .addComponent(jLabel2)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VHSC_jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jLabel8)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VHSC_jTxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel6))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jFmtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFmtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(VHSC_jFmtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jFmtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel7)
@@ -438,9 +438,9 @@ private boolean incluir;
                                 .addComponent(jLabel3))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTxtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTxtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFmtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(VHSC_jTxtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jTxtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jFmtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel11)
@@ -448,115 +448,115 @@ private boolean incluir;
                                 .addComponent(jLabel15))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTxtRendaMensal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFmtDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFmtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(VHSC_jTxtRendaMensal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jFmtDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jFmtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jLabel16)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTxtObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(VHSC_jTxtObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel13)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jCboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jChbAtivo))))
+                                .addComponent(VHSC_jCboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jChbAtivo))))
                     .addContainerGap(86, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTxtEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtEnderecoActionPerformed
+    private void VHSC_jTxtEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtEnderecoActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTxtEnderecoActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtEnderecoActionPerformed
 
-    private void jTxtRendaMensalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtRendaMensalActionPerformed
+    private void VHSC_jTxtRendaMensalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtRendaMensalActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTxtRendaMensalActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtRendaMensalActionPerformed
 
-    private void jTxtObservacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtObservacoesActionPerformed
+    private void VHSC_jTxtObservacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtObservacoesActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTxtObservacoesActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtObservacoesActionPerformed
 
-    private void jFmtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtEstadoActionPerformed
+    private void VHSC_jFmtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtEstadoActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jFmtEstadoActionPerformed
+    }//GEN-LAST:event_VHSC_jFmtEstadoActionPerformed
 
-    private void jFmtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCpfActionPerformed
+    private void VHSC_jFmtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtCpfActionPerformed
         // TODO add your handling code here:
        
-    }//GEN-LAST:event_jFmtCpfActionPerformed
+    }//GEN-LAST:event_VHSC_jFmtCpfActionPerformed
 
-    private void jFmtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtTelefoneActionPerformed
+    private void VHSC_jFmtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtTelefoneActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jFmtTelefoneActionPerformed
+    }//GEN-LAST:event_VHSC_jFmtTelefoneActionPerformed
 
-    private void jFmtDataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtDataCadastroActionPerformed
+    private void VHSC_jFmtDataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtDataCadastroActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jFmtDataCadastroActionPerformed
+    }//GEN-LAST:event_VHSC_jFmtDataCadastroActionPerformed
 
-    private void jTxtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtEmailActionPerformed
+    private void VHSC_jTxtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtEmailActionPerformed
        
-    }//GEN-LAST:event_jTxtEmailActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtEmailActionPerformed
 
-    private void jFmtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCepActionPerformed
+    private void VHSC_jFmtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtCepActionPerformed
         // TODO add your handling code here:
        
-    }//GEN-LAST:event_jFmtCepActionPerformed
+    }//GEN-LAST:event_VHSC_jFmtCepActionPerformed
 
-    private void jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigoActionPerformed
+    private void VHSC_jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtCodigoActionPerformed
         
-    }//GEN-LAST:event_jTxtCodigoActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtCodigoActionPerformed
 
-    private void jCboGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboGeneroActionPerformed
+    private void VHSC_jCboGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jCboGeneroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCboGeneroActionPerformed
+    }//GEN-LAST:event_VHSC_jCboGeneroActionPerformed
 
-    private void jTxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTxtNomeActionPerformed
-
-    private void jChbAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChbAtivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jChbAtivoActionPerformed
-
-    private void jFmtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtDataNascimentoActionPerformed
+    private void VHSC_jTxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtNomeActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jFmtDataNascimentoActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtNomeActionPerformed
+
+    private void VHSC_jChbAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jChbAtivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VHSC_jChbAtivoActionPerformed
+
+    private void VHSC_jFmtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtDataNascimentoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_VHSC_jFmtDataNascimentoActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
-        VHSC_Util.habilitar(true, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
-        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
-        jTxtCidade, jTxtObservacoes, jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(true, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf, VHSC_jTxtEndereco
+        , VHSC_jFmtTelefone, VHSC_jTxtEmail, VHSC_jChbAtivo, VHSC_jCboGenero,VHSC_jFmtDataCadastro, VHSC_jFmtCep, VHSC_jFmtEstado, 
+        VHSC_jTxtCidade, VHSC_jTxtObservacoes, VHSC_jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
     incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
         // TODO add your handling code here:]
-          if (jTxtCodigo.getText().trim().isEmpty()) {
+          if (VHSC_jTxtCodigo.getText().trim().isEmpty()) {
         VHSC_Util.mensagem("Pesquise antes de Alterar.");
         return;
     }
-        VHSC_Util.habilitar(true, jTxtNome,jFmtDataNascimento,jFmtCpf, jTxtEndereco
-        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
-        jTxtCidade, jTxtObservacoes, jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
-         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar,jTxtCodigo);
+        VHSC_Util.habilitar(true, VHSC_jTxtNome,VHSC_jFmtDataNascimento,VHSC_jFmtCpf, VHSC_jTxtEndereco
+        , VHSC_jFmtTelefone, VHSC_jTxtEmail, VHSC_jChbAtivo, VHSC_jCboGenero,VHSC_jFmtDataCadastro, VHSC_jFmtCep, VHSC_jFmtEstado, 
+        VHSC_jTxtCidade, VHSC_jTxtObservacoes, VHSC_jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
+         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar,VHSC_jTxtCodigo);
          incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-if (jTxtCodigo.getText().trim().isEmpty()) {
+if (VHSC_jTxtCodigo.getText().trim().isEmpty()) {
         JOptionPane.showMessageDialog(null, "Pesquise um usuário antes de excluir.");
         return;}
         // TODO add your handling code here:
@@ -565,9 +565,9 @@ if (jTxtCodigo.getText().trim().isEmpty()) {
             vhsc_ClientesDAO vhsc_clientesDAO = new vhsc_ClientesDAO();
             vhsc_clientesDAO.delete(viewBean());
         }
-       VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
-        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
-        jTxtCidade, jTxtObservacoes, jTxtRendaMensal);
+       VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf, VHSC_jTxtEndereco
+        , VHSC_jFmtTelefone, VHSC_jTxtEmail, VHSC_jChbAtivo, VHSC_jCboGenero,VHSC_jFmtDataCadastro, VHSC_jFmtCep, VHSC_jFmtEstado, 
+        VHSC_jTxtCidade, VHSC_jTxtObservacoes, VHSC_jTxtRendaMensal);
        
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
@@ -584,29 +584,29 @@ if (jTxtCodigo.getText().trim().isEmpty()) {
             //usuariosDAO.update( viewBean() );
         }
         
-       VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
-        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
-        jTxtCidade, jTxtObservacoes, jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
+       VHSC_Util.habilitar(false, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf, VHSC_jTxtEndereco
+        , VHSC_jFmtTelefone, VHSC_jTxtEmail, VHSC_jChbAtivo, VHSC_jCboGenero,VHSC_jFmtDataCadastro, VHSC_jFmtCep, VHSC_jFmtEstado, 
+        VHSC_jTxtCidade, VHSC_jTxtObservacoes, VHSC_jTxtRendaMensal,jBtnConfirmar,jBtnCancelar);
        
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          
-              VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
-        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
-        jTxtCidade, jTxtObservacoes, jTxtRendaMensal);
+              VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf, VHSC_jTxtEndereco
+        , VHSC_jFmtTelefone, VHSC_jTxtEmail, VHSC_jChbAtivo, VHSC_jCboGenero,VHSC_jFmtDataCadastro, VHSC_jFmtCep, VHSC_jFmtEstado, 
+        VHSC_jTxtCidade, VHSC_jTxtObservacoes, VHSC_jTxtRendaMensal);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         //desabilitar()
-        VHSC_Util.habilitar(false,jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
-        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
-        jTxtCidade, jTxtObservacoes, jTxtRendaMensal , jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false,VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf, VHSC_jTxtEndereco
+        , VHSC_jFmtTelefone, VHSC_jTxtEmail, VHSC_jChbAtivo, VHSC_jCboGenero,VHSC_jFmtDataCadastro, VHSC_jFmtCep, VHSC_jFmtEstado, 
+        VHSC_jTxtCidade, VHSC_jTxtObservacoes, VHSC_jTxtRendaMensal , jBtnConfirmar,jBtnCancelar);
         
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          
-          VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf, jTxtEndereco
-        , jFmtTelefone, jTxtEmail, jChbAtivo, jCboGenero,jFmtDataCadastro, jFmtCep, jFmtEstado, 
-        jTxtCidade, jTxtObservacoes, jTxtRendaMensal);
+          VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf, VHSC_jTxtEndereco
+        , VHSC_jFmtTelefone, VHSC_jTxtEmail, VHSC_jChbAtivo, VHSC_jCboGenero,VHSC_jFmtDataCadastro, VHSC_jFmtCep, VHSC_jFmtEstado, 
+        VHSC_jTxtCidade, VHSC_jTxtObservacoes, VHSC_jTxtRendaMensal);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
@@ -616,10 +616,10 @@ if (jTxtCodigo.getText().trim().isEmpty()) {
 
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
-    private void jTxtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCidadeActionPerformed
+    private void VHSC_jTxtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtCidadeActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTxtCidadeActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtCidadeActionPerformed
 public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -668,19 +668,26 @@ public static void main(String args[]) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtnAlterar;
+    private javax.swing.JComboBox<String> VHSC_jCboGenero;
+    private javax.swing.JCheckBox VHSC_jChbAtivo;
+    private javax.swing.JFormattedTextField VHSC_jFmtCep;
+    private javax.swing.JFormattedTextField VHSC_jFmtCpf;
+    private javax.swing.JFormattedTextField VHSC_jFmtDataCadastro;
+    private javax.swing.JFormattedTextField VHSC_jFmtDataNascimento;
+    private javax.swing.JFormattedTextField VHSC_jFmtEstado;
+    private javax.swing.JFormattedTextField VHSC_jFmtTelefone;
+    private javax.swing.JTextField VHSC_jTxtCidade;
+    private javax.swing.JTextField VHSC_jTxtCodigo;
+    private javax.swing.JTextField VHSC_jTxtEmail;
+    private javax.swing.JTextField VHSC_jTxtEndereco;
+    private javax.swing.JTextField VHSC_jTxtNome;
+    private javax.swing.JTextField VHSC_jTxtObservacoes;
+    private javax.swing.JTextField VHSC_jTxtRendaMensal;
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnConfirmar;
     private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnPesquisar;
-    private javax.swing.JComboBox<String> jCboGenero;
-    private javax.swing.JCheckBox jChbAtivo;
-    private javax.swing.JFormattedTextField jFmtCep;
-    private javax.swing.JFormattedTextField jFmtCpf;
-    private javax.swing.JFormattedTextField jFmtDataCadastro;
-    private javax.swing.JFormattedTextField jFmtDataNascimento;
-    private javax.swing.JFormattedTextField jFmtEstado;
-    private javax.swing.JFormattedTextField jFmtTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -695,12 +702,5 @@ public static void main(String args[]) {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTxtCidade;
-    private javax.swing.JTextField jTxtCodigo;
-    private javax.swing.JTextField jTxtEmail;
-    private javax.swing.JTextField jTxtEndereco;
-    private javax.swing.JTextField jTxtNome;
-    private javax.swing.JTextField jTxtObservacoes;
-    private javax.swing.JTextField jTxtRendaMensal;
     // End of variables declaration//GEN-END:variables
 }

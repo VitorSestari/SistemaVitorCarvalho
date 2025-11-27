@@ -37,31 +37,31 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
         initComponents();
          setTitle("Cadastro de Produtos");
         setLocationRelativeTo(null);
-        VHSC_Util.habilitar(false, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, VHSC_jTxtAutor, VHSC_jTxtCodigo, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
     }
      public void beanView(VhscProdutos vhscProdutos) {
-        jTxtCodigo.setText(VHSC_Util.intToStr(vhscProdutos.getVhscIdProduto()));
-        jTxtTitulo.setText(vhscProdutos.getVhscTitulo());
-        jTxtAutor.setText(vhscProdutos.getVhscAutor());
-        jTxtQuantidade.setText(VHSC_Util.intToStr(vhscProdutos.getVhscQuantidade()));
-        jFmtAnoPublicado.setText(VHSC_Util.dateToStr(vhscProdutos.getVhscAnoPublicado()));
-        jTxtPreco.setText(VHSC_Util.doubleToStr(vhscProdutos.getVhscPreco()));
-        jTxtDescricao.setText(vhscProdutos.getVhscDescricao());
+        VHSC_jTxtCodigo.setText(VHSC_Util.intToStr(vhscProdutos.getVhscIdProduto()));
+        VHSC_jTxtTitulo.setText(vhscProdutos.getVhscTitulo());
+        VHSC_jTxtAutor.setText(vhscProdutos.getVhscAutor());
+        VHSC_jTxtQuantidade.setText(VHSC_Util.intToStr(vhscProdutos.getVhscQuantidade()));
+        VHSC_jFmtAnoPublicado.setText(VHSC_Util.dateToStr(vhscProdutos.getVhscAnoPublicado()));
+        VHSC_jTxtPreco.setText(VHSC_Util.doubleToStr(vhscProdutos.getVhscPreco()));
+        VHSC_jTxtDescricao.setText(vhscProdutos.getVhscDescricao());
         
        
      }
      public VhscProdutos viewBean() {
     VhscProdutos vhscProdutos = new VhscProdutos();
-        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
+        int codigo = VHSC_Util.strToInt(VHSC_jTxtCodigo.getText());
         vhscProdutos.setVhscIdProduto(codigo);
         
-    vhscProdutos.setVhscTitulo(jTxtTitulo.getText());
-    vhscProdutos.setVhscAutor(jTxtAutor.getText());
-    vhscProdutos.setVhscQuantidade(VHSC_Util.strToInt(jTxtQuantidade.getText()));
-    vhscProdutos.setVhscAnoPublicado(VHSC_Util.strToDate(jFmtAnoPublicado.getText()));
-    vhscProdutos.setVhscPreco(VHSC_Util.strToInt(jTxtQuantidade.getText()));
-    vhscProdutos.setVhscDescricao(jTxtDescricao.getText());
+    vhscProdutos.setVhscTitulo(VHSC_jTxtTitulo.getText());
+    vhscProdutos.setVhscAutor(VHSC_jTxtAutor.getText());
+    vhscProdutos.setVhscQuantidade(VHSC_Util.strToInt(VHSC_jTxtQuantidade.getText()));
+    vhscProdutos.setVhscAnoPublicado(VHSC_Util.strToDate(VHSC_jFmtAnoPublicado.getText()));
+    vhscProdutos.setVhscPreco(VHSC_Util.strToInt(VHSC_jTxtQuantidade.getText()));
+    vhscProdutos.setVhscDescricao(VHSC_jTxtDescricao.getText());
     
     
     
@@ -125,20 +125,20 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
-        jTxtCodigo = new javax.swing.JTextField();
-        jTxtDescricao = new javax.swing.JTextField();
-        jTxtAutor = new javax.swing.JTextField();
+        VHSC_jTxtCodigo = new javax.swing.JTextField();
+        VHSC_jTxtDescricao = new javax.swing.JTextField();
+        VHSC_jTxtAutor = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jFmtAnoPublicado = new javax.swing.JFormattedTextField();
-        jTxtQuantidade = new javax.swing.JTextField();
+        VHSC_jFmtAnoPublicado = new javax.swing.JFormattedTextField();
+        VHSC_jTxtQuantidade = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTxtPreco = new javax.swing.JTextField();
+        VHSC_jTxtPreco = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTxtTitulo = new javax.swing.JTextField();
+        VHSC_jTxtTitulo = new javax.swing.JTextField();
         jBtnPesquisar = new javax.swing.JButton();
         jBtnIncluir = new javax.swing.JButton();
         JBtnAlterar = new javax.swing.JButton();
@@ -151,38 +151,38 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCodigoActionPerformed(evt);
+                VHSC_jTxtCodigoActionPerformed(evt);
             }
         });
 
-        jTxtDescricao.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtDescricaoActionPerformed(evt);
+                VHSC_jTxtDescricaoActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Descrição");
 
         try {
-            jFmtAnoPublicado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            VHSC_jFmtAnoPublicado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtAnoPublicado.setToolTipText("");
+        VHSC_jFmtAnoPublicado.setToolTipText("");
 
-        jTxtQuantidade.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtQuantidadeActionPerformed(evt);
+                VHSC_jTxtQuantidadeActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Codigo");
 
-        jTxtPreco.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtPrecoActionPerformed(evt);
+                VHSC_jTxtPrecoActionPerformed(evt);
             }
         });
 
@@ -196,9 +196,9 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
         jLabel8.setText("Preço");
 
-        jTxtTitulo.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtTituloActionPerformed(evt);
+                VHSC_jTxtTituloActionPerformed(evt);
             }
         });
 
@@ -283,25 +283,25 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
                         .addComponent(jLabel3)
                         .addComponent(jLabel2)
                         .addComponent(jLabel1)
-                        .addComponent(jTxtCodigo)
-                        .addComponent(jTxtTitulo)
-                        .addComponent(jTxtAutor)
+                        .addComponent(VHSC_jTxtCodigo)
+                        .addComponent(VHSC_jTxtTitulo)
+                        .addComponent(VHSC_jTxtAutor)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel6)
-                                .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(VHSC_jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel7)
-                                .addComponent(jFmtAnoPublicado)))
+                                .addComponent(VHSC_jFmtAnoPublicado)))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VHSC_jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel8))
                             .addGap(29, 29, 29)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel5)
-                                .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(VHSC_jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -310,33 +310,33 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VHSC_jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VHSC_jTxtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VHSC_jTxtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFmtAnoPublicado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(VHSC_jFmtAnoPublicado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(VHSC_jTxtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(VHSC_jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VHSC_jTxtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnIncluir)
@@ -352,25 +352,25 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigoActionPerformed
+    private void VHSC_jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtCodigoActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtCodigoActionPerformed
 
-    private void jTxtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtDescricaoActionPerformed
+    private void VHSC_jTxtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtDescricaoActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtDescricaoActionPerformed
 
-    private void jTxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtQuantidadeActionPerformed
+    private void VHSC_jTxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtQuantidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtQuantidadeActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtQuantidadeActionPerformed
 
-    private void jTxtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtPrecoActionPerformed
+    private void VHSC_jTxtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtPrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtPrecoActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtPrecoActionPerformed
 
-    private void jTxtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtTituloActionPerformed
+    private void VHSC_jTxtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtTituloActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtTituloActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
@@ -384,29 +384,29 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        VHSC_Util.habilitar(true, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(true, VHSC_jTxtAutor, VHSC_jTxtCodigo, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        VHSC_Util.limpar(  jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado);
+        VHSC_Util.limpar(VHSC_jTxtAutor, VHSC_jTxtCodigo, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado);
         incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
         // TODO add your handling code here:
-           if (jTxtCodigo.getText().trim().isEmpty()) {
+           if (VHSC_jTxtCodigo.getText().trim().isEmpty()) {
         VHSC_Util.mensagem("Pesquise antes de Alterar.");
         return;
     }
-        VHSC_Util.habilitar(true, jTxtAutor, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
-        VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar,jTxtCodigo);
+        VHSC_Util.habilitar(true, VHSC_jTxtAutor, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar,VHSC_jTxtCodigo);
         incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-         if (jTxtCodigo.getText().trim().isEmpty()) {
+         if (VHSC_jTxtCodigo.getText().trim().isEmpty()) {
         VHSC_Util.mensagem("Pesquise antes de Excluir.");
         return;
     }
@@ -414,8 +414,8 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
             vhsc_ProdutosDAO vhsc_produtosDAO = new vhsc_ProdutosDAO();
             vhsc_produtosDAO.delete(viewBean());
         }
-        VHSC_Util.limpar(  jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado);
+        VHSC_Util.limpar(VHSC_jTxtAutor, VHSC_jTxtCodigo, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado);
     
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
@@ -430,25 +430,25 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
             vhsc_produtosDAO.update(vhscProdutos);
             
         }
-        VHSC_Util.habilitar(false, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, VHSC_jTxtAutor, VHSC_jTxtCodigo, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
 
         VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
 
-        VHSC_Util.limpar(  jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado);
+        VHSC_Util.limpar(VHSC_jTxtAutor, VHSC_jTxtCodigo, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         //desabilitar()
-        VHSC_Util.habilitar(false, jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, VHSC_jTxtAutor, VHSC_jTxtCodigo, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado, jBtnConfirmar,jBtnCancelar);
 
         VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
 
-        VHSC_Util.limpar(  jTxtAutor, jTxtCodigo, jTxtDescricao,jTxtPreco,jTxtQuantidade,
-        jTxtTitulo,jFmtAnoPublicado);
+        VHSC_Util.limpar(VHSC_jTxtAutor, VHSC_jTxtCodigo, VHSC_jTxtDescricao,VHSC_jTxtPreco,VHSC_jTxtQuantidade,
+        VHSC_jTxtTitulo,VHSC_jFmtAnoPublicado);
 
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
@@ -501,6 +501,13 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtnAlterar;
+    private javax.swing.JFormattedTextField VHSC_jFmtAnoPublicado;
+    private javax.swing.JTextField VHSC_jTxtAutor;
+    private javax.swing.JTextField VHSC_jTxtCodigo;
+    private javax.swing.JTextField VHSC_jTxtDescricao;
+    private javax.swing.JTextField VHSC_jTxtPreco;
+    private javax.swing.JTextField VHSC_jTxtQuantidade;
+    private javax.swing.JTextField VHSC_jTxtTitulo;
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnConfirmar;
     private javax.swing.JButton jBtnExcluir;
@@ -508,7 +515,6 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnPesquisar;
     private javax.swing.JEditorPane jEditorPane1;
-    private javax.swing.JFormattedTextField jFmtAnoPublicado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -517,12 +523,6 @@ public class VHSC_JDlgProdutos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTxtAutor;
-    private javax.swing.JTextField jTxtCodigo;
-    private javax.swing.JTextField jTxtDescricao;
-    private javax.swing.JTextField jTxtPreco;
-    private javax.swing.JTextField jTxtQuantidade;
-    private javax.swing.JTextField jTxtTitulo;
     // End of variables declaration//GEN-END:variables
 
     

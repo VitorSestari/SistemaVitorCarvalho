@@ -25,37 +25,37 @@ private boolean incluir;
         initComponents();
         setTitle("Cadastro de Usuarios");
         setLocationRelativeTo(null);
-        VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel,VHSC_jPwdSenha, jBtnConfirmar,jBtnCancelar);
     }
      public void beanView(VhscUsuarios vhscUsuarios) {
-        jTxtCodigo.setText(VHSC_Util.intToStr(vhscUsuarios.getVhscIdUsuario()));
-        jTxtNome.setText(vhscUsuarios.getVhscNomeUsuario());
-        jTxtApelido.setText(vhscUsuarios.getVhscApelido());
-        jFmtCpf.setText(vhscUsuarios.getVhscCpf());
-        jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscUsuarios.getVhscDataNascimento()));
-        jPwdSenha.setText(vhscUsuarios.getVhscSenha());
-        jCboNivel.setSelectedIndex(vhscUsuarios.getVhscNivel());
+        VHSC_jTxtCodigo.setText(VHSC_Util.intToStr(vhscUsuarios.getVhscIdUsuario()));
+        VHSC_jTxtNome.setText(vhscUsuarios.getVhscNomeUsuario());
+        VHSC_jTxtApelido.setText(vhscUsuarios.getVhscApelido());
+        VHSC_jFmtCpf.setText(vhscUsuarios.getVhscCpf());
+        VHSC_jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscUsuarios.getVhscDataNascimento()));
+        VHSC_jPwdSenha.setText(vhscUsuarios.getVhscSenha());
+        VHSC_jCboNivel.setSelectedIndex(vhscUsuarios.getVhscNivel());
         //jChbAtivo.setSelected( VhscUsuarios.getAtivo().equals("S"));
         if (vhscUsuarios.getVhscAtivo().equals("S") == true) {
-            jChbAtivo.setSelected(true);
+            VHSC_jChbAtivo.setSelected(true);
         } else {
-            jChbAtivo.setSelected(false);
+            VHSC_jChbAtivo.setSelected(false);
         }
      }
      public VhscUsuarios viewBean() {
     VhscUsuarios vhscUsuarios = new VhscUsuarios();
-        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
+        int codigo = VHSC_Util.strToInt(VHSC_jTxtCodigo.getText());
         vhscUsuarios.setVhscIdUsuario(codigo);
         
-    vhscUsuarios.setVhscNomeUsuario(jTxtNome.getText());
-    vhscUsuarios.setVhscApelido(jTxtApelido.getText());
-    vhscUsuarios.setVhscCpf(jFmtCpf.getText());
-    vhscUsuarios.setVhscDataNascimento(VHSC_Util.strToDate(jFmtDataNascimento.getText()));
-    vhscUsuarios.setVhscSenha(jPwdSenha.getText());
-    vhscUsuarios.setVhscNivel(jCboNivel.getSelectedIndex());
+    vhscUsuarios.setVhscNomeUsuario(VHSC_jTxtNome.getText());
+    vhscUsuarios.setVhscApelido(VHSC_jTxtApelido.getText());
+    vhscUsuarios.setVhscCpf(VHSC_jFmtCpf.getText());
+    vhscUsuarios.setVhscDataNascimento(VHSC_Util.strToDate(VHSC_jFmtDataNascimento.getText()));
+    vhscUsuarios.setVhscSenha(VHSC_jPwdSenha.getText());
+    vhscUsuarios.setVhscNivel(VHSC_jCboNivel.getSelectedIndex());
     
-    if (jChbAtivo.isSelected() == true) {
+    if (VHSC_jChbAtivo.isSelected() == true) {
         vhscUsuarios.setVhscAtivo("S");
     } else {
         vhscUsuarios.setVhscAtivo("N");
@@ -78,7 +78,7 @@ private boolean incluir;
     private void initComponents() {
 
         jBtnIncluir = new javax.swing.JButton();
-        jTxtApelido = new javax.swing.JTextField();
+        VHSC_jTxtApelido = new javax.swing.JTextField();
         JBtnAlterar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jBtnExcluir = new javax.swing.JButton();
@@ -86,17 +86,17 @@ private boolean incluir;
         jBtnConfirmar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jBtnCancelar = new javax.swing.JButton();
-        jPwdSenha = new javax.swing.JPasswordField();
+        VHSC_jPwdSenha = new javax.swing.JPasswordField();
         jBtnPesquisar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jChbAtivo = new javax.swing.JCheckBox();
-        jTxtCodigo = new javax.swing.JTextField();
-        jCboNivel = new javax.swing.JComboBox<String>();
+        VHSC_jChbAtivo = new javax.swing.JCheckBox();
+        VHSC_jTxtCodigo = new javax.swing.JTextField();
+        VHSC_jCboNivel = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
-        jFmtCpf = new javax.swing.JFormattedTextField();
-        jTxtNome = new javax.swing.JTextField();
-        jFmtDataNascimento = new javax.swing.JFormattedTextField();
+        VHSC_jFmtCpf = new javax.swing.JFormattedTextField();
+        VHSC_jTxtNome = new javax.swing.JTextField();
+        VHSC_jFmtDataNascimento = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -147,9 +147,9 @@ private boolean incluir;
             }
         });
 
-        jPwdSenha.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jPwdSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPwdSenhaActionPerformed(evt);
+                VHSC_jPwdSenhaActionPerformed(evt);
             }
         });
 
@@ -165,37 +165,37 @@ private boolean incluir;
 
         jLabel1.setText("Codigo");
 
-        jChbAtivo.setText("Ativo");
+        VHSC_jChbAtivo.setText("Ativo");
 
-        jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCodigoActionPerformed(evt);
+                VHSC_jTxtCodigoActionPerformed(evt);
             }
         });
 
-        jCboNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Funcionario", "Convidado", " " }));
-        jCboNivel.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jCboNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Funcionario", "Convidado", " " }));
+        VHSC_jCboNivel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCboNivelActionPerformed(evt);
+                VHSC_jCboNivelActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Nome");
 
         try {
-            jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            VHSC_jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
         try {
-            jFmtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            VHSC_jFmtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtDataNascimentoActionPerformed(evt);
+                VHSC_jFmtDataNascimentoActionPerformed(evt);
             }
         });
 
@@ -210,7 +210,7 @@ private boolean incluir;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VHSC_jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
@@ -229,22 +229,22 @@ private boolean incluir;
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
-                                    .addComponent(jPwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(VHSC_jPwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(57, 57, 57)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jCboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(VHSC_jCboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(173, 173, 173)
-                                        .addComponent(jChbAtivo))
+                                        .addComponent(VHSC_jChbAtivo))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(54, 54, 54)
                                         .addComponent(jLabel7)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTxtApelido, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTxtNome)
-                    .addComponent(jTxtCodigo)
+                    .addComponent(VHSC_jTxtApelido, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(VHSC_jTxtNome)
+                    .addComponent(VHSC_jTxtCodigo)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -252,7 +252,7 @@ private boolean incluir;
                         .addGap(43, 43, 43))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jFmtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(VHSC_jFmtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -261,32 +261,32 @@ private boolean incluir;
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VHSC_jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VHSC_jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxtApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VHSC_jTxtApelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFmtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(VHSC_jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VHSC_jFmtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jChbAtivo))
+                    .addComponent(VHSC_jPwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VHSC_jCboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VHSC_jChbAtivo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnIncluir)
@@ -303,29 +303,29 @@ private boolean incluir;
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-         VHSC_Util.habilitar(true, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jBtnCancelar);
+         VHSC_Util.habilitar(true, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel,VHSC_jPwdSenha, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
-         VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel);
+         VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel);
          incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
         // TODO add your handling code here:
-         if (jTxtCodigo.getText().trim().isEmpty()) {
+         if (VHSC_jTxtCodigo.getText().trim().isEmpty()) {
         VHSC_Util.mensagem("Pesquise antes de Alterar.");
         return;
     }
-         VHSC_Util.habilitar(true, jTxtNome, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jBtnCancelar);
-         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar, jTxtCodigo);
+         VHSC_Util.habilitar(true, VHSC_jTxtNome, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel,VHSC_jPwdSenha, jBtnConfirmar,jBtnCancelar);
+         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar, VHSC_jTxtCodigo);
          incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-       if (jTxtCodigo.getText().trim().isEmpty()) {
+       if (VHSC_jTxtCodigo.getText().trim().isEmpty()) {
         VHSC_Util.mensagem("Pesquise antes de Excluir.");
         return;
     }
@@ -334,8 +334,8 @@ private boolean incluir;
             vhsc_UsuariosDAO vhsc_usuariosDAO = new vhsc_UsuariosDAO();
             vhsc_usuariosDAO.delete(viewBean());
         }
-        VHSC_Util.limpar( jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel);
+        VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel);
               
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
@@ -351,25 +351,25 @@ private boolean incluir;
             //usuariosDAO.update( viewBean() );
         }
         
-       VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jPwdSenha, jBtnCancelar);
+       VHSC_Util.habilitar(false, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel,VHSC_jPwdSenha, jBtnConfirmar,VHSC_jPwdSenha, jBtnCancelar);
        
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          
-              VHSC_Util.limpar(  jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel);
+              VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         //desabilitar()
-        VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel,jPwdSenha, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel,VHSC_jPwdSenha, jBtnConfirmar,jBtnCancelar);
        
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          
-              VHSC_Util.limpar(  jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtApelido,
-        jChbAtivo,jCboNivel,jPwdSenha);
+              VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtApelido,
+        VHSC_jChbAtivo,VHSC_jCboNivel,VHSC_jPwdSenha);
 
        
     }//GEN-LAST:event_jBtnCancelarActionPerformed
@@ -384,21 +384,21 @@ private boolean incluir;
        
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
-    private void jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigoActionPerformed
+    private void VHSC_jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtCodigoActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtCodigoActionPerformed
 
-    private void jCboNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboNivelActionPerformed
+    private void VHSC_jCboNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jCboNivelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCboNivelActionPerformed
+    }//GEN-LAST:event_VHSC_jCboNivelActionPerformed
 
-    private void jPwdSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPwdSenhaActionPerformed
+    private void VHSC_jPwdSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jPwdSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPwdSenhaActionPerformed
+    }//GEN-LAST:event_VHSC_jPwdSenhaActionPerformed
 
-    private void jFmtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtDataNascimentoActionPerformed
+    private void VHSC_jFmtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtDataNascimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFmtDataNascimentoActionPerformed
+    }//GEN-LAST:event_VHSC_jFmtDataNascimentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -444,15 +444,19 @@ private boolean incluir;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtnAlterar;
+    private javax.swing.JComboBox<String> VHSC_jCboNivel;
+    private javax.swing.JCheckBox VHSC_jChbAtivo;
+    private javax.swing.JFormattedTextField VHSC_jFmtCpf;
+    private javax.swing.JFormattedTextField VHSC_jFmtDataNascimento;
+    private javax.swing.JPasswordField VHSC_jPwdSenha;
+    private javax.swing.JTextField VHSC_jTxtApelido;
+    private javax.swing.JTextField VHSC_jTxtCodigo;
+    private javax.swing.JTextField VHSC_jTxtNome;
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnConfirmar;
     private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnPesquisar;
-    private javax.swing.JComboBox<String> jCboNivel;
-    private javax.swing.JCheckBox jChbAtivo;
-    private javax.swing.JFormattedTextField jFmtCpf;
-    private javax.swing.JFormattedTextField jFmtDataNascimento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -460,9 +464,5 @@ private boolean incluir;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPwdSenha;
-    private javax.swing.JTextField jTxtApelido;
-    private javax.swing.JTextField jTxtCodigo;
-    private javax.swing.JTextField jTxtNome;
     // End of variables declaration//GEN-END:variables
 }

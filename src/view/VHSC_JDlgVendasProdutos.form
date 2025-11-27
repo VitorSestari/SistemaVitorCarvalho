@@ -29,7 +29,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCboProdutos" alignment="0" min="-2" pref="363" max="-2" attributes="0"/>
+                          <Component id="VHSC_jCboProdutos" alignment="0" min="-2" pref="363" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
@@ -43,16 +43,16 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTxtQuantidade" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Component id="VHSC_jTxtQuantidade" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTxtPrecoUnitario" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Component id="VHSC_jTxtPrecoUnitario" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTxtTotal" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Component id="VHSC_jTxtTotal" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -75,18 +75,18 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTxtPrecoUnitario" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxtTotal" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="VHSC_jTxtPrecoUnitario" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="VHSC_jTxtTotal" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCboProdutos" min="-2" max="-2" attributes="0"/>
+                      <Component id="VHSC_jCboProdutos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTxtQuantidade" min="-2" max="-2" attributes="0"/>
+                      <Component id="VHSC_jTxtQuantidade" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -116,14 +116,14 @@
         <Property name="text" type="java.lang.String" value="Produtos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jCboProdutos">
+    <Component class="javax.swing.JComboBox" name="VHSC_jCboProdutos">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCboProdutosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jCboProdutosActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;VhscProdutos&gt;()"/>
@@ -135,14 +135,14 @@
         <Property name="text" type="java.lang.String" value="Quantidade"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtQuantidade">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtQuantidade">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtQuantidadeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jTxtQuantidadeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtPrecoUnitario">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtPrecoUnitario">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtPrecoUnitarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jTxtPrecoUnitarioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -150,7 +150,7 @@
         <Property name="text" type="java.lang.String" value="Valor Unit&#xe1;rio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtTotal">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtTotal">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>

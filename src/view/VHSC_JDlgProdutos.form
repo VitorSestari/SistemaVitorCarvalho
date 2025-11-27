@@ -58,29 +58,29 @@
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTxtCodigo" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTxtTitulo" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTxtAutor" alignment="0" max="32767" attributes="0"/>
+                      <Component id="VHSC_jTxtCodigo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="VHSC_jTxtTitulo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="VHSC_jTxtAutor" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTxtQuantidade" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="VHSC_jTxtQuantidade" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jFmtAnoPublicado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="VHSC_jFmtAnoPublicado" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTxtPreco" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="VHSC_jTxtPreco" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTxtDescricao" min="-2" pref="406" max="-2" attributes="0"/>
+                              <Component id="VHSC_jTxtDescricao" min="-2" pref="406" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -95,26 +95,26 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTxtCodigo" min="-2" max="-2" attributes="0"/>
+              <Component id="VHSC_jTxtCodigo" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTxtTitulo" min="-2" max="-2" attributes="0"/>
+              <Component id="VHSC_jTxtTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTxtAutor" min="-2" max="-2" attributes="0"/>
+              <Component id="VHSC_jTxtAutor" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jFmtAnoPublicado" min="-2" max="-2" attributes="0"/>
+                      <Component id="VHSC_jFmtAnoPublicado" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTxtQuantidade" min="-2" max="-2" attributes="0"/>
+                      <Component id="VHSC_jTxtQuantidade" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -124,8 +124,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTxtPreco" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTxtDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="VHSC_jTxtPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="VHSC_jTxtDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="17" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -143,24 +143,24 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTxtCodigo">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtCodigo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtCodigoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jTxtCodigoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtDescricao">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtDescricao">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtDescricaoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jTxtDescricaoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtAutor">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtAutor">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFmtAnoPublicado">
+    <Component class="javax.swing.JFormattedTextField" name="VHSC_jFmtAnoPublicado">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="##/##/####" subtype="-1" type="5"/>
@@ -168,9 +168,9 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtQuantidade">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtQuantidade">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtQuantidadeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jTxtQuantidadeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -178,9 +178,9 @@
         <Property name="text" type="java.lang.String" value="Codigo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtPreco">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtPreco">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtPrecoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jTxtPrecoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -208,9 +208,9 @@
         <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtTitulo">
+    <Component class="javax.swing.JTextField" name="VHSC_jTxtTitulo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtTituloActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jTxtTituloActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnPesquisar">

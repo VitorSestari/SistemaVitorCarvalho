@@ -26,33 +26,33 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
         initComponents();
         setTitle("Cadastro de Funcionarios");
         setLocationRelativeTo(null);
-        VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
-        jTxtEmail,jTxtSalario,jFmtTelefone, jBtnConfirmar,jBtnCancelar);
+        VHSC_Util.habilitar(false, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtCargo,
+        VHSC_jTxtEmail,VHSC_jTxtSalario,VHSC_jFmtTelefone, jBtnConfirmar,jBtnCancelar);
     }
      public void beanView(VhscFuncionarios vhscFuncionarios) {
-        jTxtCodigo.setText(VHSC_Util.intToStr(vhscFuncionarios.getVhscIdFuncionario()));
-        jTxtNome.setText(vhscFuncionarios.getVhscNome());
-        jFmtCpf.setText(vhscFuncionarios.getVhscCpf());
-        jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscFuncionarios.getVhscDataNascimento()));
-        jTxtCargo.setText(vhscFuncionarios.getVhscCargo());
-        jFmtTelefone.setText(vhscFuncionarios.getVhscTelefone());
-        jTxtEmail.setText(vhscFuncionarios.getVhscEmail());
-        jTxtSalario.setText(vhscFuncionarios.getVhscSalario());
+        VHSC_jTxtCodigo.setText(VHSC_Util.intToStr(vhscFuncionarios.getVhscIdFuncionario()));
+        VHSC_jTxtNome.setText(vhscFuncionarios.getVhscNome());
+        VHSC_jFmtCpf.setText(vhscFuncionarios.getVhscCpf());
+        VHSC_jFmtDataNascimento.setText(VHSC_Util.dateToStr(vhscFuncionarios.getVhscDataNascimento()));
+        VHSC_jTxtCargo.setText(vhscFuncionarios.getVhscCargo());
+        VHSC_jFmtTelefone.setText(vhscFuncionarios.getVhscTelefone());
+        VHSC_jTxtEmail.setText(vhscFuncionarios.getVhscEmail());
+        VHSC_jTxtSalario.setText(vhscFuncionarios.getVhscSalario());
      
         
      }
      public VhscFuncionarios viewBean() {
     VhscFuncionarios vhscFuncionarios = new VhscFuncionarios();
-        int codigo = VHSC_Util.strToInt(jTxtCodigo.getText());
+        int codigo = VHSC_Util.strToInt(VHSC_jTxtCodigo.getText());
         vhscFuncionarios.setVhscIdFuncionario(codigo);
         
-    vhscFuncionarios.setVhscNome(jTxtNome.getText());
-    vhscFuncionarios.setVhscCargo(jTxtCargo.getText());
-    vhscFuncionarios.setVhscCpf(jFmtCpf.getText());
-    vhscFuncionarios.setVhscDataNascimento(VHSC_Util.strToDate(jFmtDataNascimento.getText()));
-    vhscFuncionarios.setVhscEmail(jTxtEmail.getText());
-    vhscFuncionarios.setVhscSalario(jTxtSalario.getText());
-    vhscFuncionarios.setVhscTelefone(jFmtTelefone.getText());
+    vhscFuncionarios.setVhscNome(VHSC_jTxtNome.getText());
+    vhscFuncionarios.setVhscCargo(VHSC_jTxtCargo.getText());
+    vhscFuncionarios.setVhscCpf(VHSC_jFmtCpf.getText());
+    vhscFuncionarios.setVhscDataNascimento(VHSC_Util.strToDate(VHSC_jFmtDataNascimento.getText()));
+    vhscFuncionarios.setVhscEmail(VHSC_jTxtEmail.getText());
+    vhscFuncionarios.setVhscSalario(VHSC_jTxtSalario.getText());
+    vhscFuncionarios.setVhscTelefone(VHSC_jFmtTelefone.getText());
     
     
     
@@ -71,20 +71,20 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFmtCpf = new javax.swing.JFormattedTextField();
-        jTxtNome = new javax.swing.JTextField();
-        jFmtDataNascimento = new javax.swing.JFormattedTextField();
+        VHSC_jFmtCpf = new javax.swing.JFormattedTextField();
+        VHSC_jTxtNome = new javax.swing.JTextField();
+        VHSC_jFmtDataNascimento = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTxtCargo = new javax.swing.JTextField();
-        jTxtSalario = new javax.swing.JTextField();
+        VHSC_jTxtCargo = new javax.swing.JTextField();
+        VHSC_jTxtSalario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTxtCodigo = new javax.swing.JTextField();
+        VHSC_jTxtCodigo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTxtEmail = new javax.swing.JTextField();
+        VHSC_jTxtEmail = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jBtnIncluir = new javax.swing.JButton();
         JBtnAlterar = new javax.swing.JButton();
@@ -92,29 +92,29 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
         jBtnConfirmar = new javax.swing.JButton();
         jBtnCancelar = new javax.swing.JButton();
         jBtnPesquisar = new javax.swing.JButton();
-        jFmtTelefone = new javax.swing.JFormattedTextField();
+        VHSC_jFmtTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         try {
-            jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            VHSC_jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtCpf.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtCpfActionPerformed(evt);
+                VHSC_jFmtCpfActionPerformed(evt);
             }
         });
 
-        jTxtNome.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtNomeActionPerformed(evt);
+                VHSC_jTxtNomeActionPerformed(evt);
             }
         });
 
         try {
-            jFmtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            VHSC_jFmtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -131,9 +131,9 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
 
         jLabel8.setText("Cargo");
 
-        jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCodigoActionPerformed(evt);
+                VHSC_jTxtCodigoActionPerformed(evt);
             }
         });
 
@@ -191,13 +191,13 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
         });
 
         try {
-            jFmtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
+            VHSC_jFmtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFmtTelefone.addActionListener(new java.awt.event.ActionListener() {
+        VHSC_jFmtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFmtTelefoneActionPerformed(evt);
+                VHSC_jFmtTelefoneActionPerformed(evt);
             }
         });
 
@@ -212,7 +212,7 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
                         .addComponent(jBtnIncluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(JBtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jFmtTelefone))
+                    .addComponent(VHSC_jFmtTelefone))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -246,20 +246,20 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
                                                 .addComponent(jLabel6))))
                                     .addGap(195, 195, 195))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(VHSC_jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTxtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(VHSC_jTxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(VHSC_jTxtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(18, 18, 18)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel9)
-                                .addComponent(jTxtSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                .addComponent(jFmtDataNascimento)))
+                                .addComponent(VHSC_jTxtSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                .addComponent(VHSC_jFmtDataNascimento)))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTxtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
-                                .addComponent(jTxtCodigo))
+                                .addComponent(VHSC_jTxtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
+                                .addComponent(VHSC_jTxtCodigo))
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -267,7 +267,7 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(218, Short.MAX_VALUE)
-                .addComponent(jFmtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VHSC_jFmtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,11 +282,11 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
                     .addContainerGap()
                     .addComponent(jLabel1)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VHSC_jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jLabel3)
                     .addGap(14, 14, 14)
-                    .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VHSC_jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
@@ -294,9 +294,9 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
                         .addComponent(jLabel5))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTxtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jFmtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(VHSC_jTxtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VHSC_jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VHSC_jFmtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(26, 26, 26)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
@@ -304,44 +304,44 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
                         .addComponent(jLabel9))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTxtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(VHSC_jTxtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VHSC_jTxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(61, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeActionPerformed
+    private void VHSC_jTxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtNomeActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtNomeActionPerformed
 
-    private void jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigoActionPerformed
+    private void VHSC_jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jTxtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtCodigoActionPerformed
+    }//GEN-LAST:event_VHSC_jTxtCodigoActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
-         VHSC_Util.habilitar(true, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
-        jTxtEmail,jTxtSalario,jFmtTelefone, jBtnConfirmar,jBtnCancelar);
+         VHSC_Util.habilitar(true, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtCargo,
+        VHSC_jTxtEmail,VHSC_jTxtSalario,VHSC_jFmtTelefone, jBtnConfirmar,jBtnCancelar);
          VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
         // TODO add your handling code here:
-         if (jTxtCodigo.getText().trim().isEmpty()) {
+         if (VHSC_jTxtCodigo.getText().trim().isEmpty()) {
         VHSC_Util.mensagem("Pesquise antes de Alterar.");
         return;
     }
-        VHSC_Util.habilitar(true, jTxtNome,  jFmtDataNascimento,jFmtCpf,jTxtCargo,
-        jTxtEmail,jTxtSalario,jFmtTelefone, jBtnConfirmar,jBtnCancelar);
-         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar,jTxtCodigo);
+        VHSC_Util.habilitar(true, VHSC_jTxtNome,  VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtCargo,
+        VHSC_jTxtEmail,VHSC_jTxtSalario,VHSC_jFmtTelefone, jBtnConfirmar,jBtnCancelar);
+         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar,VHSC_jTxtCodigo);
          incluir = false;
     }//GEN-LAST:event_JBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
- if (jTxtCodigo.getText().trim().isEmpty()) {
+ if (VHSC_jTxtCodigo.getText().trim().isEmpty()) {
         VHSC_Util.mensagem("Pesquise antes de Excluir.");
         return;
     }
@@ -350,8 +350,8 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
             vhsc_FuncionariosDAO vhsc_funcionariosDAO = new vhsc_FuncionariosDAO();
             vhsc_funcionariosDAO.delete(viewBean());
         }
-        VHSC_Util.limpar(  jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
-        jTxtEmail,jTxtSalario,jFmtTelefone);
+        VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtCargo,
+        VHSC_jTxtEmail,VHSC_jTxtSalario,VHSC_jFmtTelefone);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
@@ -366,25 +366,25 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
             //usuariosDAO.update( viewBean() );
         }
         
-         VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
-        jTxtEmail,jTxtSalario,jFmtTelefone, jBtnConfirmar,jBtnCancelar);
+         VHSC_Util.habilitar(false, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtCargo,
+        VHSC_jTxtEmail,VHSC_jTxtSalario,VHSC_jFmtTelefone, jBtnConfirmar,jBtnCancelar);
        
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          
-              VHSC_Util.limpar(  jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
-        jTxtEmail,jTxtSalario,jFmtTelefone);
+              VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtCargo,
+        VHSC_jTxtEmail,VHSC_jTxtSalario,VHSC_jFmtTelefone);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
         //desabilitar
-           VHSC_Util.habilitar(false, jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
-        jTxtEmail,jTxtSalario,jFmtTelefone, jBtnConfirmar,jBtnCancelar);
+           VHSC_Util.habilitar(false, VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtCargo,
+        VHSC_jTxtEmail,VHSC_jTxtSalario,VHSC_jFmtTelefone, jBtnConfirmar,jBtnCancelar);
        
          VHSC_Util.habilitar(true, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
          
-              VHSC_Util.limpar(  jTxtNome, jTxtCodigo, jFmtDataNascimento,jFmtCpf,jTxtCargo,
-        jTxtEmail,jTxtSalario,jFmtTelefone);
+              VHSC_Util.limpar(VHSC_jTxtNome, VHSC_jTxtCodigo, VHSC_jFmtDataNascimento,VHSC_jFmtCpf,VHSC_jTxtCargo,
+        VHSC_jTxtEmail,VHSC_jTxtSalario,VHSC_jFmtTelefone);
        
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
@@ -395,13 +395,13 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
 
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
-    private void jFmtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCpfActionPerformed
+    private void VHSC_jFmtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtCpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFmtCpfActionPerformed
+    }//GEN-LAST:event_VHSC_jFmtCpfActionPerformed
 
-    private void jFmtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtTelefoneActionPerformed
+    private void VHSC_jFmtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jFmtTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFmtTelefoneActionPerformed
+    }//GEN-LAST:event_VHSC_jFmtTelefoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,14 +447,19 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtnAlterar;
+    private javax.swing.JFormattedTextField VHSC_jFmtCpf;
+    private javax.swing.JFormattedTextField VHSC_jFmtDataNascimento;
+    private javax.swing.JFormattedTextField VHSC_jFmtTelefone;
+    private javax.swing.JTextField VHSC_jTxtCargo;
+    private javax.swing.JTextField VHSC_jTxtCodigo;
+    private javax.swing.JTextField VHSC_jTxtEmail;
+    private javax.swing.JTextField VHSC_jTxtNome;
+    private javax.swing.JTextField VHSC_jTxtSalario;
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnConfirmar;
     private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jBtnPesquisar;
-    private javax.swing.JFormattedTextField jFmtCpf;
-    private javax.swing.JFormattedTextField jFmtDataNascimento;
-    private javax.swing.JFormattedTextField jFmtTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -463,10 +468,5 @@ public class VHSC_JDlgFuncionarios extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTxtCargo;
-    private javax.swing.JTextField jTxtCodigo;
-    private javax.swing.JTextField jTxtEmail;
-    private javax.swing.JTextField jTxtNome;
-    private javax.swing.JTextField jTxtSalario;
     // End of variables declaration//GEN-END:variables
 }
