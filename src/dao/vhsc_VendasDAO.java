@@ -5,10 +5,14 @@
  */
 package dao;
 
+import bean.VhscProdutos;
 import bean.VhscVendas;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import tools.VHSC_Util;
 
 
 
@@ -52,6 +56,36 @@ public class vhsc_VendasDAO extends AbstractDAO{
         session.getTransaction().commit();        
         return lista;
     }
+     public Object listFormaPagamento(String FormaPagamento) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(VhscVendas.class);
+        criteria.add(Restrictions.like("vhscFormaPagamento", "%" + FormaPagamento + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listValorTotal(double ValorTotal) {
+    session.beginTransaction();
+        Criteria criteria = session.createCriteria(VhscVendas.class);
+         criteria.add(Restrictions.ge("vhscValorTotal", ValorTotal));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+}
+
+
+  public Object listFormaPagamentoValor(String FormaPagamento, double valor) {
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(VhscProdutos.class);
+    criteria.add(Restrictions.like("vhscTitulo", "%" + FormaPagamento + "%"));
+    criteria.add(Restrictions.ge("vhscValorTotal", valor));
+    List lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
+
+
 
     @Override
     public Object listAll() {

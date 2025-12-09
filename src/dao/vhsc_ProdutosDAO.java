@@ -55,31 +55,30 @@ public class vhsc_ProdutosDAO extends AbstractDAO{
       public Object listNome(String nome) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(VhscProdutos.class);
-        criteria.add(Restrictions.like("nome", "%" + nome + "%"));
+        criteria.add(Restrictions.like("vhscTitulo", "%" + nome + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
 
     public Object listValor(double valor) {
-        session.beginTransaction();
-        Criteria criteria = session.createCriteria(VhscProdutos.class);
-        criteria.add(Restrictions.ge("valorUnitario", "%" + valor + "%"));
-        List lista = criteria.list();
-        session.getTransaction().commit();
-        return lista;
-    }
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(VhscProdutos.class);
+    criteria.add(Restrictions.ge("vhscPreco", valor));
+    List lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
 
     public Object listNomeValor(String nome, double valor) {
-        session.beginTransaction();
-        Criteria criteria = session.createCriteria(VhscProdutos.class);
-        criteria.add(Restrictions.like("nome", "%" + nome + "%"));
-        criteria.add(Restrictions.ge("valorUnitario", "%" + valor + "%"));
-        List lista = criteria.list();
-        session.getTransaction().commit();
-        return lista;
-    }
-
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(VhscProdutos.class);
+    criteria.add(Restrictions.like("vhscTitulo", "%" + nome + "%"));
+    criteria.add(Restrictions.ge("vhscPreco", valor));
+    List lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
     @Override
     public Object listAll() {
         session.beginTransaction();
