@@ -29,6 +29,17 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
+        jBtnImgClientes = new javax.swing.JButton();
+        jBtnClientes = new javax.swing.JButton();
+        jBtnImgFuncionarios = new javax.swing.JButton();
+        jBtnFuncionarios = new javax.swing.JButton();
+        jBtnImgVendas = new javax.swing.JButton();
+        jBtnVendas = new javax.swing.JButton();
+        jBtnImgConsultaClient = new javax.swing.JButton();
+        jBtnConsultaClientes = new javax.swing.JButton();
+        jBtnImgConsultaProd = new javax.swing.JButton();
+        jBtnConsultaProdutos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMnuCadastros = new javax.swing.JMenu();
         jMnuUsuarios = new javax.swing.JMenuItem();
@@ -47,6 +58,118 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
         jMnuConsultasFuncionarios = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jToolBar1.setRollover(true);
+
+        jBtnImgClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cliente.png"))); // NOI18N
+        jBtnImgClientes.setFocusable(false);
+        jBtnImgClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnImgClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnImgClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnImgClientesActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnImgClientes);
+
+        jBtnClientes.setText("Clientes");
+        jBtnClientes.setFocusable(false);
+        jBtnClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnClientesActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnClientes);
+
+        jBtnImgFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cupons.png"))); // NOI18N
+        jBtnImgFuncionarios.setFocusable(false);
+        jBtnImgFuncionarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnImgFuncionarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnImgFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnImgFuncionariosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnImgFuncionarios);
+
+        jBtnFuncionarios.setText("Funcionarios");
+        jBtnFuncionarios.setFocusable(false);
+        jBtnFuncionarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnFuncionarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnFuncionariosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnFuncionarios);
+
+        jBtnImgVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/vandas.png"))); // NOI18N
+        jBtnImgVendas.setFocusable(false);
+        jBtnImgVendas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnImgVendas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnImgVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnImgVendasActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnImgVendas);
+
+        jBtnVendas.setText("Vendas");
+        jBtnVendas.setFocusable(false);
+        jBtnVendas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnVendas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnVendasActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnVendas);
+
+        jBtnImgConsultaClient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Usuarios.png"))); // NOI18N
+        jBtnImgConsultaClient.setFocusable(false);
+        jBtnImgConsultaClient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnImgConsultaClient.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnImgConsultaClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnImgConsultaClientActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnImgConsultaClient);
+
+        jBtnConsultaClientes.setText("Consulta Clientes");
+        jBtnConsultaClientes.setFocusable(false);
+        jBtnConsultaClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnConsultaClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnConsultaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultaClientesActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnConsultaClientes);
+
+        jBtnImgConsultaProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/produtos.png"))); // NOI18N
+        jBtnImgConsultaProd.setFocusable(false);
+        jBtnImgConsultaProd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnImgConsultaProd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnImgConsultaProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnImgConsultaProdActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnImgConsultaProd);
+
+        jBtnConsultaProdutos.setText("Consulta Produtos");
+        jBtnConsultaProdutos.setFocusable(false);
+        jBtnConsultaProdutos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnConsultaProdutos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnConsultaProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultaProdutosActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jBtnConsultaProdutos);
 
         JMnuCadastros.setText("Cadastros");
         JMnuCadastros.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +266,7 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Consultas");
 
         jMnuConsultasProdutos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMnuConsultasProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-box-20.png"))); // NOI18N
         jMnuConsultasProdutos.setMnemonic('p');
         jMnuConsultasProdutos.setText("Produtos");
         jMnuConsultasProdutos.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +277,7 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMnuConsultasProdutos);
 
         jMnuConsultasVendas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMnuConsultasVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-sales-performance-20.png"))); // NOI18N
         jMnuConsultasVendas.setMnemonic('p');
         jMnuConsultasVendas.setText("Vendas");
         jMnuConsultasVendas.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +288,7 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMnuConsultasVendas);
 
         jMnuConsultasClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMnuConsultasClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-users-20.png"))); // NOI18N
         jMnuConsultasClientes.setMnemonic('p');
         jMnuConsultasClientes.setText("Clientes");
         jMnuConsultasClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +299,7 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMnuConsultasClientes);
 
         jMnuConsultasFuncionarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMnuConsultasFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-lawyers-20.png"))); // NOI18N
         jMnuConsultasFuncionarios.setMnemonic('p');
         jMnuConsultasFuncionarios.setText("Funcionarios");
         jMnuConsultasFuncionarios.addActionListener(new java.awt.event.ActionListener() {
@@ -190,11 +317,13 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 248, Short.MAX_VALUE))
         );
 
         pack();
@@ -254,6 +383,47 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMnuConsultasFuncionariosActionPerformed
 
+    private void jBtnImgClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnImgClientesActionPerformed
+        new VHSC_JDlgClientes(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnImgClientesActionPerformed
+
+    private void jBtnImgFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnImgFuncionariosActionPerformed
+         new VHSC_JDlgFuncionarios(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnImgFuncionariosActionPerformed
+
+    private void jBtnImgVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnImgVendasActionPerformed
+         new VHSC_JDlgVendas(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnImgVendasActionPerformed
+
+    private void jBtnImgConsultaClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnImgConsultaClientActionPerformed
+         new VHSC_JDlgConsultaClientes(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnImgConsultaClientActionPerformed
+
+    private void jBtnImgConsultaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnImgConsultaProdActionPerformed
+         new VHSC_JDlgConsultaProdutos(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnImgConsultaProdActionPerformed
+
+    private void jBtnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnClientesActionPerformed
+        // TODO add your handling code here:
+         new VHSC_JDlgClientes(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnClientesActionPerformed
+
+    private void jBtnFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFuncionariosActionPerformed
+       new VHSC_JDlgFuncionarios(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnFuncionariosActionPerformed
+
+    private void jBtnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnVendasActionPerformed
+        new VHSC_JDlgVendas(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnVendasActionPerformed
+
+    private void jBtnConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultaClientesActionPerformed
+         new VHSC_JDlgConsultaClientes(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnConsultaClientesActionPerformed
+
+    private void jBtnConsultaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultaProdutosActionPerformed
+         new VHSC_JDlgConsultaProdutos(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jBtnConsultaProdutosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,6 +461,16 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JMnuCadastros;
+    private javax.swing.JButton jBtnClientes;
+    private javax.swing.JButton jBtnConsultaClientes;
+    private javax.swing.JButton jBtnConsultaProdutos;
+    private javax.swing.JButton jBtnFuncionarios;
+    private javax.swing.JButton jBtnImgClientes;
+    private javax.swing.JButton jBtnImgConsultaClient;
+    private javax.swing.JButton jBtnImgConsultaProd;
+    private javax.swing.JButton jBtnImgFuncionarios;
+    private javax.swing.JButton jBtnImgVendas;
+    private javax.swing.JButton jBtnVendas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMnuClientes;
@@ -306,5 +486,6 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMnuVendas;
     private javax.swing.JMenuItem jMnuVendas_produtos;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

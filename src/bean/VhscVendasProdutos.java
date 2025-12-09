@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="VHSC_Vendas_produtos"
-    ,catalog="vitor_carvalho"
+    ,catalog="db_vitor_carvalho"
 )
 public class VhscVendasProdutos  implements java.io.Serializable {
 
