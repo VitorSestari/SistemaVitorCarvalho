@@ -40,6 +40,11 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
         jMnuMovimentos = new javax.swing.JMenu();
         jMnuVendas = new javax.swing.JMenuItem();
         jMnuVendas_produtos = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMnuConsultasProdutos = new javax.swing.JMenuItem();
+        jMnuConsultasVendas = new javax.swing.JMenuItem();
+        jMnuConsultasClientes = new javax.swing.JMenuItem();
+        jMnuConsultasFuncionarios = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,6 +140,50 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMnuMovimentos);
 
+        jMenu1.setText("Consultas");
+
+        jMnuConsultasProdutos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMnuConsultasProdutos.setMnemonic('p');
+        jMnuConsultasProdutos.setText("Produtos");
+        jMnuConsultasProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuConsultasProdutosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuConsultasProdutos);
+
+        jMnuConsultasVendas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMnuConsultasVendas.setMnemonic('p');
+        jMnuConsultasVendas.setText("Vendas");
+        jMnuConsultasVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuConsultasVendasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuConsultasVendas);
+
+        jMnuConsultasClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMnuConsultasClientes.setMnemonic('p');
+        jMnuConsultasClientes.setText("Clientes");
+        jMnuConsultasClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuConsultasClientesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuConsultasClientes);
+
+        jMnuConsultasFuncionarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMnuConsultasFuncionarios.setMnemonic('p');
+        jMnuConsultasFuncionarios.setText("Funcionarios");
+        jMnuConsultasFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuConsultasFuncionariosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuConsultasFuncionarios);
+
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,6 +238,22 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
          new VHSC_JDlgVendasProdutos(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jMnuVendas_produtosActionPerformed
 
+    private void jMnuConsultasProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuConsultasProdutosActionPerformed
+        new VHSC_JDlgConsultaProdutos(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jMnuConsultasProdutosActionPerformed
+
+    private void jMnuConsultasVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuConsultasVendasActionPerformed
+       new VHSC_JDlgConsultaVendas(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jMnuConsultasVendasActionPerformed
+
+    private void jMnuConsultasClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuConsultasClientesActionPerformed
+        new VHSC_JDlgConsultaClientes(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jMnuConsultasClientesActionPerformed
+
+    private void jMnuConsultasFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuConsultasFuncionariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMnuConsultasFuncionariosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -226,8 +291,13 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JMnuCadastros;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMnuClientes;
+    private javax.swing.JMenuItem jMnuConsultasClientes;
+    private javax.swing.JMenuItem jMnuConsultasFuncionarios;
+    private javax.swing.JMenuItem jMnuConsultasProdutos;
+    private javax.swing.JMenuItem jMnuConsultasVendas;
     private javax.swing.JMenuItem jMnuFuncionarios;
     private javax.swing.JMenu jMnuMovimentos;
     private javax.swing.JMenuItem jMnuProdutos;

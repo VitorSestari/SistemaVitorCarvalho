@@ -4,41 +4,41 @@
  */
 package view;
 
-import bean.VhscUsuarios;
-import dao.vhsc_UsuariosDAO;
-import dao.vhsc_UsuariosDAO;
+import bean.VhscFuncionarios;
+import dao.vhsc_FuncionariosDAO;
+import dao.vhsc_FuncionariosDAO;
 import java.util.ArrayList;
 import java.util.List;
 import tools.VHSC_Util;
-import view.VHSC_JDlgUsuarios;
+import view.VHSC_JDlgFuncionarios;
 
 /**
  *
  * @author Marcos
  */
-public class VHSC_JDlgConsultaUsuarios extends javax.swing.JDialog {
-  VHSC_ControllerConsultasUsuarios controllerConsultasUsuarios;
+public class VHSC_JDlgConsultaFuncionarios extends javax.swing.JDialog {
+  VHSC_ControllerConsultasFuncionarios controllerConsultasFuncionarios;
     /**
-     * Creates new form JDlgUsuariosPesquisar
+     * Creates new form JDlgFuncionariosPesquisar
      */
  
-    public VHSC_JDlgConsultaUsuarios(java.awt.Frame parent, boolean modal) {
+    public VHSC_JDlgConsultaFuncionarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Consulta Usuários");
    
-        controllerConsultasUsuarios = new VHSC_ControllerConsultasUsuarios();
-        vhsc_UsuariosDAO vhsc_usuariosDAO = new vhsc_UsuariosDAO();
+        controllerConsultasFuncionarios = new VHSC_ControllerConsultasFuncionarios();
+        vhsc_FuncionariosDAO vhsc_funcionariosDAO = new vhsc_FuncionariosDAO();
         List lista = new ArrayList();
-        controllerConsultasUsuarios.setList(lista);
-        jTable1.setModel(controllerConsultasUsuarios);
+        controllerConsultasFuncionarios.setList(lista);
+        jTable1.setModel(controllerConsultasFuncionarios);
         
-    //    controllerUsuarios = new ControllerUsuarios();
-    //    UsuariosDAO usuariosDAO = new UsuariosDAO();
-    //    List lista = (List) usuariosDAO.listAll();
-    //    controllerUsuarios.setList(lista);
-    //    jTable1.setModel(controllerUsuarios);
+    //    controllerFuncionarios = new ControllerFuncionarios();
+    //    FuncionariosDAO funcionariosDAO = new FuncionariosDAO();
+    //    List lista = (List) funcionariosDAO.listAll();
+    //    controllerFuncionarios.setList(lista);
+    //    jTable1.setModel(controllerFuncionarios);
     
     }
 
@@ -160,18 +160,18 @@ public class VHSC_JDlgConsultaUsuarios extends javax.swing.JDialog {
 
     private void jBtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultarActionPerformed
         // TODO add your handling code here:
-        vhsc_UsuariosDAO usuariosDAO = new vhsc_UsuariosDAO();
+        vhsc_FuncionariosDAO funcionariosDAO = new vhsc_FuncionariosDAO();
         List lista;
         if ((jTxtNome.getText().isEmpty() == false) && (jTxtCpf.getText().isEmpty() == false)){
-            lista = (List) usuariosDAO.listNomeValor(jTxtNome.getText(), jTxtCpf.getText());
+            lista = (List) funcionariosDAO.listNomeCpf(jTxtNome.getText(), jTxtCpf.getText());
         }else if (jTxtNome.getText().isEmpty() == false){
-            lista  = (List) usuariosDAO.listNome(jTxtNome.getText());
+            lista  = (List) funcionariosDAO.listNomeFuncionario(jTxtNome.getText());
         }else if (jTxtCpf.getText().isEmpty() == false){
-            lista = (List) usuariosDAO.listCpf(jTxtCpf.getText());
+            lista = (List) funcionariosDAO.listCpfFuncionario(jTxtCpf.getText());
         }else {
-            lista = (List) usuariosDAO.listAll();
+            lista = (List) funcionariosDAO.listAll();
         }
-        controllerConsultasUsuarios.setList(lista);
+        controllerConsultasFuncionarios.setList(lista);
     }//GEN-LAST:event_jBtnConsultarActionPerformed
 
     /**
@@ -191,14 +191,30 @@ public class VHSC_JDlgConsultaUsuarios extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VHSC_JDlgConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VHSC_JDlgConsultaFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VHSC_JDlgConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VHSC_JDlgConsultaFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VHSC_JDlgConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VHSC_JDlgConsultaFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VHSC_JDlgConsultaUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VHSC_JDlgConsultaFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -219,7 +235,7 @@ public class VHSC_JDlgConsultaUsuarios extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VHSC_JDlgConsultaUsuarios dialog = new VHSC_JDlgConsultaUsuarios(new javax.swing.JFrame(), true);
+                VHSC_JDlgConsultaFuncionarios dialog = new VHSC_JDlgConsultaFuncionarios(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

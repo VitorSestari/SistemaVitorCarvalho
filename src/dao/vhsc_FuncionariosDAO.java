@@ -52,6 +52,34 @@ public class vhsc_FuncionariosDAO extends AbstractDAO{
         session.getTransaction().commit();        
         return lista;
     }
+     public Object listNomeFuncionario(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(VhscFuncionarios.class);
+        criteria.add(Restrictions.like("vhscNome", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+
+    public Object listCpfFuncionario(String cpf) {
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(VhscFuncionarios.class);
+    criteria.add(Restrictions.like("vhscCpf",cpf + "%"));
+    List lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
+
+    public Object listNomeCpf(String nome, String cpf) {
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(VhscFuncionarios.class);
+    
+    criteria.add(Restrictions.like("vhscNome", "%" + nome + "%"));
+    criteria.add(Restrictions.like("vhscCpf", cpf + "%"));
+    List lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
 
     @Override
     public Object listAll() {

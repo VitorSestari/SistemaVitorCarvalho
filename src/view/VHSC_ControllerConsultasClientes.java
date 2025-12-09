@@ -5,7 +5,7 @@
 package view;
 
 
-import bean.VhscUsuarios;
+import bean.VhscClientes;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -14,23 +14,23 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Marcos
  */
-public class VHSC_ControllerConsultasUsuarios extends AbstractTableModel {
+public class VHSC_ControllerConsultasClientes extends AbstractTableModel {
 
-    private List lstVhscUsuarios;
+    private List lstVhscClientes;
 
-    public void setList(List lstVhscUsuarios) {
-        this.lstVhscUsuarios = lstVhscUsuarios;
+    public void setList(List lstVhscClientes) {
+        this.lstVhscClientes = lstVhscClientes;
         this.fireTableDataChanged();
         
     }
     
-    public VhscUsuarios getBean(int rowIndex) {
-        return (VhscUsuarios) lstVhscUsuarios.get(rowIndex);
+    public VhscClientes getBean(int rowIndex) {
+        return (VhscClientes) lstVhscClientes.get(rowIndex);
     }
 
     @Override
     public int getRowCount() {
-        return lstVhscUsuarios.size();
+        return lstVhscClientes.size();
                 
     }
 
@@ -41,13 +41,13 @@ public class VHSC_ControllerConsultasUsuarios extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        VhscUsuarios usuarios = (VhscUsuarios) lstVhscUsuarios.get( rowIndex);
+        VhscClientes clientes = (VhscClientes) lstVhscClientes.get( rowIndex);
         if ( columnIndex == 0 ){
-            return usuarios.getVhscIdUsuario();
+            return clientes.getVhscIdCliente();
         } else if (columnIndex ==1) {
-            return usuarios.getVhscNomeUsuario();        
+            return clientes.getVhscNome();        
         } else if (columnIndex ==2) {
-            return usuarios.getVhscCpf();
+            return clientes.getVhscCpf();
         } 
         return "";
     }

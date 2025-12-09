@@ -77,8 +77,8 @@ public class vhsc_VendasDAO extends AbstractDAO{
 
   public Object listFormaPagamentoValor(String FormaPagamento, double valor) {
     session.beginTransaction();
-    Criteria criteria = session.createCriteria(VhscProdutos.class);
-    criteria.add(Restrictions.like("vhscTitulo", "%" + FormaPagamento + "%"));
+    Criteria criteria = session.createCriteria(VhscVendas.class);
+    criteria.add(Restrictions.like("vhscFormaPagamento", "%" + FormaPagamento + "%"));
     criteria.add(Restrictions.ge("vhscValorTotal", valor));
     List lista = criteria.list();
     session.getTransaction().commit();
