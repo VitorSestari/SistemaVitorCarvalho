@@ -5,6 +5,8 @@ package bean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="VHSC_Vendas_produtos"
-    ,catalog="db_vitor_carvalho"
+    ,catalog="vitor_carvalho"
 )
 public class VhscVendasProdutos  implements java.io.Serializable {
 
@@ -29,15 +31,15 @@ public class VhscVendasProdutos  implements java.io.Serializable {
     public VhscVendasProdutos() {
     }
 
-    public VhscVendasProdutos(int vhscIdVendaProduto, VhscProdutos vhscProdutos, VhscVendas vhscVendas, int vhscQuantidade, double vhscPrecoUnitario) {
-       this.vhscIdVendaProduto = vhscIdVendaProduto;
+    public VhscVendasProdutos( VhscProdutos vhscProdutos, VhscVendas vhscVendas, int vhscQuantidade, double vhscPrecoUnitario) {
+       
        this.vhscProdutos = vhscProdutos;
        this.vhscVendas = vhscVendas;
        this.vhscQuantidade = vhscQuantidade;
        this.vhscPrecoUnitario = vhscPrecoUnitario;
     }
    
-     @Id 
+      @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="VHSC_idVendaProduto", unique=true, nullable=false)

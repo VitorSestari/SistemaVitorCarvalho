@@ -31,9 +31,9 @@
                       <Component id="jScrollPane2" min="-2" pref="593" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="JBtnAlterar2" alignment="1" max="32767" attributes="0"/>
-                          <Component id="JBtnIncluir2" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jBtnExcluir2" alignment="1" max="32767" attributes="0"/>
+                          <Component id="VHSC_JBtnAlterarProd" alignment="1" max="32767" attributes="0"/>
+                          <Component id="VHSC_JBtnIncluirProd" alignment="1" max="32767" attributes="0"/>
+                          <Component id="VHSC_jBtnExcluirProd" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -164,11 +164,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="JBtnIncluir2" min="-2" max="-2" attributes="0"/>
+                      <Component id="VHSC_JBtnIncluirProd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="JBtnAlterar2" min="-2" max="-2" attributes="0"/>
+                      <Component id="VHSC_JBtnAlterarProd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="jBtnExcluir2" min="-2" max="-2" attributes="0"/>
+                      <Component id="VHSC_jBtnExcluirProd" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
               </Group>
@@ -237,14 +237,14 @@
         <Property name="text" type="java.lang.String" value="Cliente"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="JBtnIncluir2">
+    <Component class="javax.swing.JButton" name="VHSC_JBtnIncluirProd">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/incluir.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBtnIncluir2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_JBtnIncluirProdActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -252,14 +252,14 @@
         <Property name="text" type="java.lang.String" value="Num vendas"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="JBtnAlterar2">
+    <Component class="javax.swing.JButton" name="VHSC_JBtnAlterarProd">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/alterar.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBtnAlterar2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_JBtnAlterarProdActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="VHSC_jTxtCodigo">
@@ -267,14 +267,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jTxtCodigoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnExcluir2">
+    <Component class="javax.swing.JButton" name="VHSC_jBtnExcluirProd">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/Excluir.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnExcluir2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VHSC_jBtnExcluirProdActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnIncluir">

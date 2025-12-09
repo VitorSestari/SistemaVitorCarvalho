@@ -43,6 +43,20 @@ public class vhsc_VendasProdutosDAO extends AbstractDAO{
         session.delete(object);
         session.getTransaction().commit();        
     }
+    
+     public void deleteProdutos(VhscVendas vhscVendas) {
+        //listar todos os produtos do pedido
+        List lista = (List) listProdutos(vhscVendas);
+        //deleta  a lista acima 
+        session.beginTransaction();
+        for (int i = 0; i < lista.size(); i++) {
+            VhscVendasProdutos vhscVendasProdutos = (VhscVendasProdutos) lista.get(i);
+            session.flush();
+            session.clear();
+            session.delete(vhscVendasProdutos);
+        }
+        session.getTransaction().commit();
+    }
 
     @Override
     public Object list(int codigo) {

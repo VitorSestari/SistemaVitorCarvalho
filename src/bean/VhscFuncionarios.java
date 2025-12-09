@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="VHSC_Funcionarios"
-    ,catalog="db_vitor_carvalho"
+    ,catalog="vitor_carvalho"
 )
 public class VhscFuncionarios  implements java.io.Serializable {
 

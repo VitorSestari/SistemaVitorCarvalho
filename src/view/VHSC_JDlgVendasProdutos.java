@@ -10,6 +10,7 @@ package view;
 import bean.VhscClientes;
 import bean.VhscProdutos;
 import bean.VhscVendas;
+import view.VHSC_JDlgVendas;
 
 import java.util.List;
 import bean.VhscVendasProdutos;
@@ -22,6 +23,7 @@ import tools.VHSC_Util;
  */
 public class VHSC_JDlgVendasProdutos extends javax.swing.JDialog {
 VHSC_JDlgVendas VHSC_jDlgVendas;
+boolean incluir;
     /**
      * Creates new form VHSC_JDlgVendasProdutos
      */
@@ -40,9 +42,17 @@ VHSC_JDlgVendas VHSC_jDlgVendas;
        
     }
     
-    public void setTelaAnterior(VHSC_JDlgVendas Vhsc_jDlgVendas) {
+    public void setTelaAnterior(VHSC_JDlgVendas Vhsc_jDlgVendas, VhscVendasProdutos vhscVendasProdutos) {
         this.VHSC_jDlgVendas = Vhsc_jDlgVendas;
-    
+ 
+        if (vhscVendasProdutos != null) {
+            incluir = false;
+            VHSC_jCboProdutos.setSelectedItem(vhscVendasProdutos.getVhscProdutos());
+            VHSC_jTxtQuantidade.setText(VHSC_Util.intToStr(vhscVendasProdutos.getVhscQuantidade()));        
+        } else {
+            incluir = true;
+        
+    }
       
     }
      
@@ -184,8 +194,14 @@ VHSC_JDlgVendas VHSC_jDlgVendas;
         VhscVendasProdutos vhscVendasProdutos = new VhscVendasProdutos();
         vhscVendasProdutos.setVhscProdutos((VhscProdutos) VHSC_jCboProdutos.getSelectedItem());
         vhscVendasProdutos.setVhscQuantidade(VHSC_Util.strToInt(VHSC_jTxtQuantidade.getText()) );
-        vhscVendasProdutos.setVhscPrecoUnitario(VHSC_Util.strToDouble(VHSC_jTxtPrecoUnitario.getText()) );                
-        VHSC_jDlgVendas.controllerVendasProd.addBean(vhscVendasProdutos);
+        vhscVendasProdutos.setVhscPrecoUnitario(VHSC_Util.strToDouble(VHSC_jTxtPrecoUnitario.getText()) ); 
+          if (incluir == true) {
+           VHSC_jDlgVendas.controllerVendasProd.addBean(vhscVendasProdutos);
+        } else {
+            VHSC_jDlgVendas.controllerVendasProd.removeBean(VHSC_jDlgVendas.getjTable1().getSelectedRow());
+           VHSC_jDlgVendas.controllerVendasProd.addBean(vhscVendasProdutos);
+        }
+       
         setVisible(false); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
