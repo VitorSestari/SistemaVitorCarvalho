@@ -44,8 +44,6 @@ public class VHSC_ControllerFuncionarios extends AbstractTableModel {
         } else if (columnIndex ==1) {
             return vhscFuncionarios.getVhscNome();        
         } else if (columnIndex ==2) {
-            return vhscFuncionarios.getVhscCpf();
-        } else if (columnIndex ==3) {
             return vhscFuncionarios.getVhscTelefone();
         }
         return "";
@@ -57,8 +55,7 @@ public class VHSC_ControllerFuncionarios extends AbstractTableModel {
             return "Código";
         } else if ( columnIndex == 1) {
             return "Nome";         
-        } else if ( columnIndex == 2) {
-            return "Cpf";
+      
         } else if ( columnIndex == 3) {
             return "Telefonea";
         } 

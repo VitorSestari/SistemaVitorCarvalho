@@ -61,10 +61,10 @@ public class vhsc_FuncionariosDAO extends AbstractDAO{
         return lista;
     }
 
-    public Object listCpfFuncionario(String cpf) {
+    public Object listIdFuncionario(int id) {
     session.beginTransaction();
     Criteria criteria = session.createCriteria(VhscFuncionarios.class);
-    criteria.add(Restrictions.like("vhscCpf",cpf + "%"));
+    criteria.add(Restrictions.like("vhscCpf",id + "%"));
     List lista = criteria.list();
     session.getTransaction().commit();
     return lista;

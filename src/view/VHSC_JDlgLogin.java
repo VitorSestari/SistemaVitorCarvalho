@@ -8,8 +8,10 @@ package view;
 import bean.VhscUsuarios;
 import dao.HibernateUtil;
 import javax.swing.JOptionPane;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session; 
+import org.hibernate.criterion.Restrictions;
 /**
  *
  * @author user
@@ -120,17 +122,16 @@ public class VHSC_JDlgLogin extends javax.swing.JDialog {
             return;
         }
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
+       Session session = HibernateUtil.getSessionFactory().openSession();
 
-        Query q = session.createQuery(
-                "FROM VhscUsuarios WHERE vhscNomeUsuario = :u AND vhscSenha = :s"
-        );
-        q.setParameter("u", usuario);
-        q.setParameter("s", senha);
+         Criteria criteria = session.createCriteria(VhscUsuarios.class)
+        .add(Restrictions.eq("vhscNomeUsuario", usuario))
+        .add(Restrictions.eq("vhscSenha", senha));
 
-        VhscUsuarios user = (VhscUsuarios) q.uniqueResult();
+        VhscUsuarios user = (VhscUsuarios) criteria.uniqueResult();
 
         session.close();
+
 
         if (user != null) {
             JOptionPane.showMessageDialog(this, "Login efetuado com sucesso!");

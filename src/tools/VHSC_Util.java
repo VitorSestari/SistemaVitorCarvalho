@@ -4,6 +4,11 @@
  */
 package tools;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +17,9 @@ import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -82,4 +89,55 @@ public class VHSC_Util {
         return fm.format(data);
     }
     
+
+    public static void gerarPDF(JTable tabela, String titulo) {
+        try {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setDialogTitle("Salvar PDF");
+            chooser.setSelectedFile(new java.io.File(titulo + ".pdf"));
+
+            if (chooser.showSaveDialog(null) != JFileChooser.APPROVE_OPTION) {
+                return;
+            }
+
+            String caminho = chooser.getSelectedFile().getAbsolutePath();
+
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(caminho));
+
+            document.open();
+            document.add(new Paragraph(titulo.toUpperCase()));
+            document.add(new Paragraph(" "));
+
+            int colunas = tabela.getColumnCount();
+            PdfPTable pdfTable = new PdfPTable(colunas);
+
+           
+            for (int i = 0; i < colunas; i++) {
+                pdfTable.addCell(tabela.getColumnName(i));
+            }
+
+            
+            int linhas = tabela.getRowCount();
+            for (int r = 0; r < linhas; r++) {
+                for (int c = 0; c < colunas; c++) {
+                    Object valor = tabela.getValueAt(r, c);
+                    pdfTable.addCell(valor != null ? valor.toString() : "");
+                }
+            }
+
+            document.add(pdfTable);
+            document.close();
+
+            JOptionPane.showMessageDialog(null, 
+                    "PDF gerado com sucesso:\n" + caminho);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, 
+                    "Erro ao gerar PDF: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
+}
+    
+    

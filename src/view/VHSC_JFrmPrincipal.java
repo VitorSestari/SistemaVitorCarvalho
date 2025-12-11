@@ -380,7 +380,7 @@ public class VHSC_JFrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMnuConsultasClientesActionPerformed
 
     private void jMnuConsultasFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuConsultasFuncionariosActionPerformed
-        // TODO add your handling code here:
+        new VHSC_JDlgConsultaFuncionarios(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jMnuConsultasFuncionariosActionPerformed
 
     private void jBtnImgClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnImgClientesActionPerformed

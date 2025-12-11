@@ -5,10 +5,18 @@
 package view;
 
 import bean.VhscClientes;
+import bean.VhscProdutos;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import dao.vhsc_ClientesDAO;
 import dao.vhsc_ClientesDAO;
+import dao.vhsc_ProdutosDAO;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import tools.VHSC_Util;
 import view.VHSC_JDlgClientes;
 
@@ -34,6 +42,7 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
         controllerConsultasClientes.setList(lista);
         jTable1.setModel(controllerConsultasClientes);
         
+        
     //    controllerClientes = new ControllerClientes();
     //    ClientesDAO clientesDAO = new ClientesDAO();
     //    List lista = (List) clientesDAO.listAll();
@@ -41,6 +50,7 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
     //    jTable1.setModel(controllerClientes);
     
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +69,7 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
         jTxtCpf = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jBtnConsultar = new javax.swing.JButton();
+        jBtnGerarPdf = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -98,6 +109,13 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
             }
         });
 
+        jBtnGerarPdf.setText("Gerar Pdf");
+        jBtnGerarPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnGerarPdfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,6 +126,8 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBtnGerarPdf)
+                        .addGap(18, 18, 18)
                         .addComponent(jBtnOk))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +139,8 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtnConsultar)))))
+                                .addComponent(jBtnConsultar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -140,7 +161,9 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jBtnOk)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnOk)
+                    .addComponent(jBtnGerarPdf))
                 .addContainerGap())
         );
 
@@ -174,6 +197,11 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
         controllerConsultasClientes.setList(lista);
     }//GEN-LAST:event_jBtnConsultarActionPerformed
 
+    private void jBtnGerarPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGerarPdfActionPerformed
+        // TODO add your handling code here:
+        VHSC_Util.gerarPDF(jTable1, "Relatório de Clientes");
+    }//GEN-LAST:event_jBtnGerarPdfActionPerformed
+     
     /**
      * @param args the command line arguments
      */
@@ -249,6 +277,7 @@ public class VHSC_JDlgConsultaClientes extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnConsultar;
+    private javax.swing.JButton jBtnGerarPdf;
     private javax.swing.JButton jBtnOk;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

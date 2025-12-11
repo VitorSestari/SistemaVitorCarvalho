@@ -261,6 +261,12 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             }
         });
 
+        VHSC_jCboFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VHSC_jCboFuncionariosActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Quantidade");
 
         jLabel4.setText("Forma de pagamento");
@@ -426,6 +432,7 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         VHSC_JDlgVendasProdutos jDlgVendasProdutos = new VHSC_JDlgVendasProdutos(null, true);
         jDlgVendasProdutos.setTelaAnterior(this, null);
         jDlgVendasProdutos.setVisible(true);
+        somaTotal();
 
     }//GEN-LAST:event_VHSC_JBtnIncluirProdActionPerformed
 
@@ -453,17 +460,19 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
                 controllerVendasProd.removeBean(jTable2.getSelectedRow());
             }
         }
+        somaTotal();
     }//GEN-LAST:event_VHSC_jBtnExcluirProdActionPerformed
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        VHSC_Util.habilitar(true, VHSC_jTxtValorTotal, VHSC_jTxtCodigo, VHSC_jFmtDataVenda,
+        VHSC_Util.habilitar(true,  VHSC_jTxtCodigo, VHSC_jFmtDataVenda,
                 VHSC_jCboClientes, VHSC_jCboFuncionarios, jBtnConfirmar, jBtnCancelar, VHSC_jFmtFormaPagamento, VHSC_jTxtQuantidade, VHSC_jBtnExcluirProd, VHSC_JBtnIncluirProd, VHSC_JBtnAlterarProd);
         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar);
         VHSC_Util.limpar(VHSC_jTxtValorTotal, VHSC_jTxtCodigo, VHSC_jFmtDataVenda,
                 VHSC_jCboClientes, VHSC_jCboFuncionarios, VHSC_jFmtFormaPagamento, VHSC_jTxtQuantidade);
 
         incluir = true;
+        somaTotal();
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnAlterarActionPerformed
@@ -474,7 +483,7 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
             return;
         }
 
-        VHSC_Util.habilitar(true, VHSC_jTxtValorTotal, VHSC_jFmtDataVenda,
+        VHSC_Util.habilitar(true,  VHSC_jFmtDataVenda,
                 VHSC_jCboClientes, VHSC_jCboFuncionarios, jBtnConfirmar, jBtnCancelar, VHSC_jFmtFormaPagamento, VHSC_jTxtQuantidade, VHSC_jBtnExcluirProd, VHSC_JBtnIncluirProd, VHSC_JBtnAlterarProd);
         VHSC_Util.habilitar(false, jBtnIncluir, JBtnAlterar, jBtnExcluir, jBtnPesquisar, VHSC_jTxtCodigo);
 
@@ -551,6 +560,21 @@ public class VHSC_JDlgVendas extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable2AncestorAdded
 
+    private void VHSC_jCboFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHSC_jCboFuncionariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VHSC_jCboFuncionariosActionPerformed
+public void somaTotal() {
+        double somaTotais = 0.0;
+
+        for (int i = 0; i < jTable2.getRowCount(); i++) {
+            Object valorTotal = jTable2.getValueAt(i, 4);
+            if (valorTotal != null) {
+                somaTotais += VHSC_Util.strToDouble(valorTotal.toString());
+            }
+        }
+
+        VHSC_jTxtValorTotal.setText(VHSC_Util.doubleToStr(somaTotais));
+    }
     /**
      * @param args the command line arguments
      */

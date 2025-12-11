@@ -59,7 +59,7 @@ public class VHSC_ControllerConsultasFuncionarios extends AbstractTableModel {
         } else if ( columnIndex == 1) {
             return "Nome";         
         } else if ( columnIndex == 2) {
-            return "Cpf";
+            return "Id";
         } 
         return "";
     }
