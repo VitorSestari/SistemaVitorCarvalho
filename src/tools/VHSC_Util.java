@@ -91,7 +91,16 @@ public class VHSC_Util {
     
 
     public static void gerarPDF(JTable tabela, String titulo) {
+        
+        
         try {
+        if (tabela.getRowCount() == 0) {
+    VHSC_Util.mensagem("Não há consultas para gerar o PDF!");
+    return;
+
+
+}
+
             JFileChooser chooser = new JFileChooser();
             chooser.setDialogTitle("Salvar PDF");
             chooser.setSelectedFile(new java.io.File(titulo + ".pdf"));
